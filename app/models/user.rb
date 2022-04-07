@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class User < ActiveRecord::Base
+
+  has_many :services, dependent: :destroy
+
+  # validates :fname, :lname, :phone, :role, :img
+
+
   extend Devise::Models
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
