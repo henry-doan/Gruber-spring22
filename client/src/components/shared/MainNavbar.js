@@ -1,16 +1,23 @@
 import { AuthConsumer } from "../../providers/AuthProvider";
 import { Link } from 'react-router-dom';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 const MainNavbar = ({user, handleLogout }) => {
   
-  const rightNavItems = () => {
+  const rightNavItem = () => {
     // links to show up when logged in
     if (user) {
       return (
         <>
-          <li onClick={ () => handleLogout() }>
+          <Nav.Link>
+            <Link to='/profile'>
+              Profile
+              {/* <img src={user.image} /> */}
+            </Link>
+          </Nav.Link>
+          <Nav.Link onClick={() => handleLogout()}>
             Logout
-          </li>
+          </Nav.Link>
         </>
       )
     } else {
@@ -35,16 +42,20 @@ const MainNavbar = ({user, handleLogout }) => {
   // links that show up regardless of login or out
   return (
     <>
-      <nav>
-        <ul>
-          <Link to='/'>
-            <li>
-              Home
-            </li>
-          </Link>
-            { rightNavItems() }
-        </ul>
-      </nav>
+     <Navbar collapseOnSelect expand="lg">
+        <Container>
+          <Link to='/'><Navbar.Brand>Gruber</Navbar.Brand></Link>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+            </Nav>
+            <Nav>
+              {/* Links that show up regardless of login or not */}
+              { rightNavItem() }
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </>
   )
 }

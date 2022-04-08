@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import { initMiddleware } from 'devise-axios';
 import { BrowserRouter } from 'react-router-dom';
 import AuthProvider from "./providers/AuthProvider";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 initMiddleware()
 ReactDOM.render(

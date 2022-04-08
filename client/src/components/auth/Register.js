@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
 
 const Register = ({ handleRegister }) => {
-  const [user, setUser] = useState({ email: '', first_name: '', last_name: '', password: '', passwordConfirmation: '' }) 
+  const [user, setUser] = useState({ email: '', fname: '', lname: '', phone: '', role: '', password: '', passwordConfirmation: '' }) 
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,20 +31,47 @@ const Register = ({ handleRegister }) => {
         <input
           type="text"
           required
-          name='first_name'
-          value={user.first_name}
+          name='fname'
+          value={user.fname}
           placeholder='First Name'
-          onChange={(e) => setUser({ ...user, first_name: e.target.value })}
+          onChange={(e) => setUser({ ...user, fname: e.target.value })}
         />
         <label>Last Name</label>
         <input
-          type="last_name"
+          type="lname"
           required
-          name='last_name'
-          value={user.last_name}
+          name='lname'
+          value={user.lname}
           placeholder='Last Name'
-          onChange={(e) => setUser({ ...user, last_name: e.target.value })}
+          onChange={(e) => setUser({ ...user, lname: e.target.value })}
         />
+        <label>Phone</label>
+        <input
+          type="phone"
+          required
+          name='phone'
+          value={user.phone}
+          placeholder='Phone'
+          onChange={(e) => setUser({ ...user, phone: e.target.value })}
+        />
+        <label>Role</label>
+        <input
+          type="role"
+          required
+          name='role'
+          value={user.role}
+          placeholder='Role'
+          onChange={(e) => setUser({ ...user, role: e.target.value })}
+        />
+        {/* <label>Image</label>
+        <input 
+          type='text'
+          required
+          name='image'
+          value={user.image}
+          onChange={(e) => setUser({ ...user, image: e.target.value })}
+          placeholder='User Image'
+        /> */}
         <label>Password</label>
         <input
           required
