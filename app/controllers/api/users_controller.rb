@@ -1,44 +1,37 @@
 class Api::UsersController < ApplicationController
 
-  def index
-    render json: User.all
-  end
-
-  def show
-    @user = User.find(params[:id])
-    render json: @user
-  end
-
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      render json: @user
-    else
-      render json: { errors: @user.errors }, status: :unprocessable_entity
-    end
-  end
-
   def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
-      render json: @user
-    else
-      render json: { errors: @user.errors }, status: :unprocessable_entity
+    user = User.find(params[:id])
+    user.fname = params[:fname] ? params[:fname] : user.fname
+    user.lname = params[:lname] ? params[:lname] : user.lname
+    user.email = params[:email] ? params[:email] : user.email
+    user.phone = params[:phone] ? params[:phone] : user.phone
+    user.role = params[:role] ? params[:role] : user.role
+
+    file = params[:file]
+
+    if file && file != ''
+      begin
+        ext = File.extname(file.tempfile)
+        cloud_image = Cloudinary::Uploader.upload(
+          file, public_id: file.original_filename, secure: true
+        )
+        user.image = cloud_image['secure_url']
+        if user.save 
+          render json: user
+        else 
+          render json: { errors: user.errors.full_messages }, status: 422
+        end
+      rescue => e
+        render json: { errors: e }, status: 422
+      end
+    else 
+      if user.save 
+        render json: user
+      else 
+        render json: { errors: user.errors.full_messages }, status: 422
+      end
     end
+    
   end
-
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    render json: { message: 'user deleted' }
-    or
-    User.find(params[:id]).destroy
-    render json: { message: 'user deleted' }
-  end
-
-  private
-  def user_params
-    params.require(:user).permit(:fname, :lname, :phone, :role, :img)
-  end
-
 end
