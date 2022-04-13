@@ -15,6 +15,14 @@ const MainNavbar = ({user, handleLogout }) => {
               {/* <img src={user.image} /> */}
             </Link>
           </Nav.Link>
+
+          <Nav.Link>
+            <Link to='/services'>
+              Service
+              {/* <img src={user.image} /> */}
+            </Link>
+          </Nav.Link>
+          
           <Nav.Link onClick={() => handleLogout()}>
             Logout
           </Nav.Link>
