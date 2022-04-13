@@ -17,6 +17,7 @@ const AuthProvider = ({ children }) => {
         navigate("/");
       })
     .catch( res => {
+      
       console.log(res);
     })
   }
