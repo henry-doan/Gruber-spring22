@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_07_024604) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_13_021554) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "services", force: :cascade do |t|
+    t.string "lawn_size"
+    t.string "service_type"
+    t.string "frequency"
+    t.datetime "sdate"
+    t.datetime "stime"
+    t.string "service_image"
+    t.boolean "complete"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_services_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -49,4 +63,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_024604) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "services", "users"
 end

@@ -5,12 +5,16 @@ import { initMiddleware } from 'devise-axios';
 import { BrowserRouter } from 'react-router-dom';
 import AuthProvider from "./providers/AuthProvider";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ServiceProvider from "./providers/ServiceProvider";
+
 
 initMiddleware()
 ReactDOM.render(
   <BrowserRouter>
     <AuthProvider>
-      <App />
+      <ServiceProvider>
+        <App />
+      </ServiceProvider>
     </AuthProvider>
   </BrowserRouter>,
   document.getElementById('root')

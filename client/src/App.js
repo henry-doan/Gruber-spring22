@@ -7,6 +7,9 @@ import FetchUser from './components/auth/FetchUser';
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Profile from './components/auth/Profile';
+import Services from './components/services/Services';
+import ServiceForm from './components/services/ServiceForm';
+
 
 const App = () => (
   <>
@@ -17,6 +20,8 @@ const App = () => (
         
         <Route path="/" element={<Home />} />
         <Route exact path="/" element={<ProtectedRoute />}>
+          <Route path='/services' element={ <Services /> } />
+          <Route path='/services/:serviceId/edit' element={ <ServiceForm /> } />
           <Route path='/profile' element={ <Profile /> } />
         </Route>
         <Route path="/login" element={<Login />} />
