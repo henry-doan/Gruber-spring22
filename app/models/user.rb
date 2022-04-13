@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :services, dependent: :destroy
 
-  # validates :fname, :lname, :phone, :role, :image, presence: true
+  validates :fname, :lname, :phone, :role, presence: true
 
 
   extend Devise::Models
