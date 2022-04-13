@@ -125,6 +125,7 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
                 type="checkbox" 
                 placeholder="Complete" 
                 required
+                disabled
               />
             </Form.Group>
           </Col>

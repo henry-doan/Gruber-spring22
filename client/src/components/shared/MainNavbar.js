@@ -32,16 +32,20 @@ const MainNavbar = ({user, handleLogout }) => {
       // links to show up when Not logged in
       return (
         <>
-          <Link to='/login'>
-            <li>
-              Login
-            </li>
-          </Link>
-          <Link to='/register'>
-            <li>
-              Register
-            </li>
-          </Link>
+          <Nav.Link>
+            <Link to='/login'>
+              <li>
+                Login
+              </li>
+            </Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to='/register'>
+              <li>
+                Register
+              </li>
+            </Link>
+          </Nav.Link>
         </>
       )
     }

@@ -1,5 +1,5 @@
 const Home = () => (
-  <h3>Devise Auth App</h3>
+  <h3>Welcome to Gruber</h3>
 )
 
 export default Home;

@@ -1,6 +1,6 @@
 import ServiceList from './ServiceList';
 import { useState } from 'react';
-import { Modal } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import ServiceForm from './ServiceForm';
 
 const Services = () => {
@@ -8,7 +8,7 @@ const Services = () => {
 
   return (
     <>
-      <p onClick={() => setAdd(true)}>+</p>
+      <Button onClick={() => setAdd(true)}>+</Button>
       <Modal show={adding} onHide={() => setAdd(false)}>
         <Modal.Header closeButton>
         </Modal.Header>
@@ -18,7 +18,7 @@ const Services = () => {
           />
         </Modal.Body>
       </Modal>
-      {/* <ServiceList /> */}
+      <ServiceList />
     </>
   )
 }
