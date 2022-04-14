@@ -44,9 +44,9 @@ const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, ser
                 >
                   Delete
                 </Button>
-                {/* <Link to={`/services/${id}/notes`}>
+                <Link to={`/services/${id}/notes`}>
                   Notes
-                </Link> */}
+                </Link>
               </Col>
               <Col>
                 <img src={service_image} alt='service' width='100%' />
