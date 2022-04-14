@@ -8,7 +8,7 @@ i = 1
     password: 'password',
     fname: "test#{i}",
     lname: "testing#{i}",
-    phone: 666-666-6666,
+    phone: '666-666-6666',
     role: "Lawn Mower",
     image: "https://images.unsplash.com/photo-1587331722574-acf78f587c4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xvd258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
   )
