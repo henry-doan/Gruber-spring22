@@ -1,62 +1,62 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { NoteConsumer } from "../../providers/NoteProvider";
+import { AddressConsumer } from "../../providers/AddressProvider";
 import { Row, Col, Modal, Button } from 'react-bootstrap';
 import Moment from 'react-moment';
-import NoteEdit from "./NoteEdit";
-import { Link } from "react-router-dom";
+import AddressEdit from "./AddressEdit";
 
-const NoteList = ({ notes, note_img, getAllNotes, deleteNote }) => {
+const AddressList = ({ addresses, getAllAddresses, deleteAddress }) => {
   const { serviceId } = useParams()
   const [show, setShow] = useState(false);
 
   useEffect( () => {
-    getAllNotes(serviceId)
+    getAllAddresses(serviceId)
   }, [])
 
   return (
     <>
-      { notes.map( n => 
+      { addresses.map( a => 
         <Row>
           <Col>
-            {n.title}
+            {a.street}
           </Col>
-          <Col>
+          {/* <Col>
             {n.body.substring(0, 20)}
-          </Col>
+          </Col> */}
           <Col>
             <Button onClick={() => setShow(true)}>+</Button>
             <Modal show={show} onHide={() => setShow(false)}>
               <Modal.Header closeButton>
               </Modal.Header>
               <Modal.Body>
-                <h1>Note Show</h1>
+                <h1>Address</h1>
                 
                 <p>
-                  Title: {n.title}
+                  street: {a.street}
                 </p>
                 <p>
-                  Notes: {n.body}
+                  city: {a.city}
+                </p>
+                <p>
+                  state: {a.state}
+                </p>
+                <p>
+                  zip: {a.zip}
                 </p>
                 {/* <p>
                   Image: {n.note_img}
                 </p> */}
-                <Col>
-                  <img src={n.note_img} alt='note' width='50%' />
-                </Col>
+    
                 <br>
                 </br>
 
-                <NoteEdit {...n} />
+                <AddressEdit {...a} />
                 <Button onClick={() => {
-                  deleteNote(serviceId, n.id)
+                  deleteAddress(serviceId, a.id)
                   setShow(false)
                 }}>
                   Delete
                 </Button>
-                <Link to={`/services/${serviceId}/addresses`}>
-                  Address
-                </Link>
               </Modal.Body>
             </Modal>
           </Col>
@@ -67,10 +67,10 @@ const NoteList = ({ notes, note_img, getAllNotes, deleteNote }) => {
   )
 }
 
-const ConnectedNoteList = (props) => (
-  <NoteConsumer>
-    { value => <NoteList {...props} {...value} />}
-  </NoteConsumer>
+const ConnectedAddressList = (props) => (
+  <AddressConsumer>
+    { value => <AddressList {...props} {...value} />}
+  </AddressConsumer>
 )
 
-export default ConnectedNoteList;
+export default ConnectedAddressList;

@@ -2,6 +2,7 @@ import { Modal, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
+import Moment from 'react-moment';
 
 const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, service_image, complete, deleteService }) => {
   const [show, setShow] = useState(false);
@@ -30,8 +31,18 @@ const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, ser
                 <h1>Lawn Size:{lawn_size}</h1>
                 <h4>Service Type: {service_type}</h4>
                 <h4>Frequency: {frequency}</h4>
-                <h4>Date: {sdate}</h4>
-                <h4>Time: {stime}</h4>
+                <p>
+                  Date: &nbsp;
+                  <Moment format="M/DD/YY">
+                    {sdate}
+                  </Moment> 
+                </p>
+                <p>
+                  Time: &nbsp; 
+                  <Moment format="h:mm a">
+                    {stime}
+                  </Moment> 
+                </p>
                 <h4>Complete: {complete}</h4>
                 <Link 
                   to={`/services/${id}/edit`}

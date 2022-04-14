@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     resources :services, except: [:index, :show, :create, :destroy, :update] do
       resources :notes
     end
+    resources :services, except: [:index, :show, :create, :destroy, :update] do
+      resources :addresses
+    end
+
+
     
 
   end
