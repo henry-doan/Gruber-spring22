@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :users, except: [:index, :show, :create, :destroy, :update] do 
       resources :services 
     end
+    resources :services, except: [:index, :show, :create, :destroy, :update] do
+      resources :notes
+    end
+    
 
   end
   # Defines the root path route ("/")

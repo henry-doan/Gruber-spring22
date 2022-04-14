@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import AuthProvider from "./providers/AuthProvider";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ServiceProvider from "./providers/ServiceProvider";
+import NoteProvider from './providers/NoteProvider';
 
 
 initMiddleware()
@@ -13,7 +14,9 @@ ReactDOM.render(
   <BrowserRouter>
     <AuthProvider>
       <ServiceProvider>
-        <App />
+        <NoteProvider>
+          <App />
+        </NoteProvider>
       </ServiceProvider>
     </AuthProvider>
   </BrowserRouter>,
