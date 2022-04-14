@@ -1,6 +1,6 @@
 class Api::ServicesController < ApplicationController
   before_action :set_user
-  before_action :set_service, only: [:show, :update, :destroy, :switchOwner ]
+  before_action :set_service, only: [:show, :update, :destroy ]
   def index
     render json: @current_user.services
   end

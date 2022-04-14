@@ -1,5 +1,5 @@
 import { Modal, Button, Card, Container, Row, Col } from 'react-bootstrap';
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
 
@@ -11,7 +11,7 @@ const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, ser
       <Card style={{ width: '15rem', margin: '0 auto' }}>
         <Card.Img variant="top" src={service_image} />
         <Card.Body>
-          <Card.Title>New Lawn</Card.Title>
+          <Card.Title>Lawn {id}</Card.Title>
           <Button 
             variant="primary" 
             onClick={() => setShow(true)}
