@@ -9,6 +9,7 @@ import ServiceProvider from "./providers/ServiceProvider";
 import NoteProvider from './providers/NoteProvider';
 import AddressProvider from './providers/AddressProvider';
 import InvoiceProvider from './providers/InvoiceProvider';
+import ConfirmationProvider from './providers/ConfirmationProvider'
 
 
 
@@ -20,7 +21,9 @@ ReactDOM.render(
         <NoteProvider>
           <AddressProvider>
             <InvoiceProvider>
+              <ConfirmationProvider>
             <App />
+              </ConfirmationProvider>
             </InvoiceProvider>
           </AddressProvider>
         </NoteProvider>
