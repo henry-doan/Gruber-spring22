@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { InvoiceConsumer } from "../../providers/InvoiceProvider";
-import { Row, Col, Modal, Button } from 'react-bootstrap';
+import { ConfirmationConsumer } from "../../providers/ConfirmationProvider";
+import { Row, Col, Modal, Button,  } from 'react-bootstrap';
 import Moment from 'react-moment';
-import InvoiceEdit from "./InvoiceEdit";
+import ConfirmationEdit from "./ConfirmationEdit";
 
-const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
-  const { serviceId } = useParams()
+const ConfirmationList = ({ confirmations, getAllConfirmations, deleteConfirmation }) => {
+  const { invoiceId } = useParams()
   const [show, setShow] = useState(false);
 
   useEffect( () => {
-    getAllInvoices(serviceId)
+    getAllConfirmations(invoiceId)
   }, [])
 
   return (
     <>
-      { invoices.map( i => 
+      { confirmations.map( c => 
         <Row>
           <Col>
-            {i.price}
+            {c.price}
           </Col>
           {/* <Col>
             {n.body.substring(0, 20)}
@@ -29,13 +29,13 @@ const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
               <Modal.Header closeButton>
               </Modal.Header>
               <Modal.Body>
-                <h1>Invoice</h1>
+                <h1>Confirmation</h1>
                 
                 <p>
-                  price: {i.price}
+                  workerid: {c.workerid}
                 </p>
                 <p>
-                  approve: {i.approve}
+                  Image: {c.conf_img}
                 </p>
                 
                 {/* <p>
@@ -45,16 +45,15 @@ const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
                 <br>
                 </br>
 
-                <InvoiceEdit {...i} />
+                <ConfirmationEdit {...c} />
                 <Button onClick={() => {
-                  deleteInvoice(serviceId, i.id)
+                  deleteConfirmation(invoiceId, c.id)
                   setShow(false)
                 }}>
                   Delete
                 </Button>
-                <Link to={`/invoices/${i.id}/confirmations`}>
-                  Confirmation
-                </Link>
+                
+                
               </Modal.Body>
             </Modal>
           </Col>
@@ -65,10 +64,10 @@ const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
   )
 }
 
-const ConnectedInvoiceList = (props) => (
-  <InvoiceConsumer>
-    { value => <InvoiceList {...props} {...value} />}
-  </InvoiceConsumer>
+const ConnectedConfirmationList = (props) => (
+  <ConfirmationConsumer>
+    { value => <ConfirmationList {...props} {...value} />}
+  </ConfirmationConsumer>
 )
 
-export default ConnectedInvoiceList;
+export default ConnectedConfirmationList;

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  workerid: 1
+  conf_img: MyString
+  invoice: one
+
+two:
+  workerid: 1
+  conf_img: MyString
+  invoice: two
