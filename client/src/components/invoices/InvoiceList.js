@@ -1,62 +1,57 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { NoteConsumer } from "../../providers/NoteProvider";
+import { InvoiceConsumer } from "../../providers/InvoiceProvider";
 import { Row, Col, Modal, Button } from 'react-bootstrap';
 import Moment from 'react-moment';
-import NoteEdit from "./NoteEdit";
-import { Link } from "react-router-dom";
+import InvoiceEdit from "./InvoiceEdit";
 
-const NoteList = ({ notes, note_img, getAllNotes, deleteNote }) => {
+const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
   const { serviceId } = useParams()
   const [show, setShow] = useState(false);
 
   useEffect( () => {
-    getAllNotes(serviceId)
+    getAllInvoices(serviceId)
   }, [])
 
   return (
     <>
-      { notes.map( n => 
+      { invoices.map( i => 
         <Row>
           <Col>
-            {n.title}
+            {i.price}
           </Col>
-          <Col>
+          {/* <Col>
             {n.body.substring(0, 20)}
-          </Col>
+          </Col> */}
           <Col>
             <Button onClick={() => setShow(true)}>+</Button>
             <Modal show={show} onHide={() => setShow(false)}>
               <Modal.Header closeButton>
               </Modal.Header>
               <Modal.Body>
-                <h1>Note Show</h1>
+                <h1>Invoice</h1>
                 
                 <p>
-                  Title: {n.title}
+                  price: {i.price}
                 </p>
                 <p>
-                  Notes: {n.body}
+                  approve: {i.approve}
                 </p>
+                
                 {/* <p>
                   Image: {n.note_img}
                 </p> */}
-                <Col>
-                  <img src={n.note_img} alt='note' width='50%' />
-                </Col>
+    
                 <br>
                 </br>
 
-                <NoteEdit {...n} />
+                <InvoiceEdit {...i} />
                 <Button onClick={() => {
-                  deleteNote(serviceId, n.id)
+                  deleteInvoice(serviceId, i.id)
                   setShow(false)
                 }}>
                   Delete
                 </Button>
-                {/* <Link to={`/services/${serviceId}/addresses`}>
-                  Address
-                </Link> */}
               </Modal.Body>
             </Modal>
           </Col>
@@ -67,10 +62,10 @@ const NoteList = ({ notes, note_img, getAllNotes, deleteNote }) => {
   )
 }
 
-const ConnectedNoteList = (props) => (
-  <NoteConsumer>
-    { value => <NoteList {...props} {...value} />}
-  </NoteConsumer>
+const ConnectedInvoiceList = (props) => (
+  <InvoiceConsumer>
+    { value => <InvoiceList {...props} {...value} />}
+  </InvoiceConsumer>
 )
 
-export default ConnectedNoteList;
+export default ConnectedInvoiceList;

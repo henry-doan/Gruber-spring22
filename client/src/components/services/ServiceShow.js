@@ -58,6 +58,12 @@ const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, ser
                 <Link to={`/services/${id}/notes`}>
                   Notes
                 </Link>
+                <Link to={`/services/${id}/addresses`}>
+                  Address
+                </Link>
+                <Link to={`/services/${id}/invoices`}>
+                  Invoice
+                </Link>
               </Col>
               <Col>
                 <img src={service_image} alt='service' width='100%' />
