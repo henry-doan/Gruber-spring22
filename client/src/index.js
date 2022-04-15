@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ServiceProvider from "./providers/ServiceProvider";
 import NoteProvider from './providers/NoteProvider';
 import AddressProvider from './providers/AddressProvider';
+import InvoiceProvider from './providers/InvoiceProvider';
 
 
 
@@ -18,7 +19,9 @@ ReactDOM.render(
       <ServiceProvider>
         <NoteProvider>
           <AddressProvider>
+            <InvoiceProvider>
             <App />
+            </InvoiceProvider>
           </AddressProvider>
         </NoteProvider>
       </ServiceProvider>

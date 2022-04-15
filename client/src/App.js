@@ -11,6 +11,7 @@ import Services from './components/services/Services';
 import ServiceForm from './components/services/ServiceForm';
 import Notes from './components/notes/Notes';
 import Addresses from './components/addresses/Addresses';
+import Invoices from './components/invoices/Invoices'
 
 
 const App = () => (
@@ -26,7 +27,9 @@ const App = () => (
           <Route path='/services/:serviceId/edit' element={ <ServiceForm /> } />
           <Route path='/services/:serviceId/notes' element={ <Notes/> } />
           <Route path='/services/:serviceId/addresses' element={ <Addresses/> } />
+          <Route path='/services/:serviceId/invoices' element={ <Invoices/> } />
           <Route path='/profile' element={ <Profile /> } />
+
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

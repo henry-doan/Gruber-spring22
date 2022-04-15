@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     resources :services, except: [:index, :show, :create, :destroy, :update] do
       resources :addresses
     end
+    resources :services, except: [:index, :show, :create, :destroy, :update] do
+      resources :invoices
+    end
 
 
     

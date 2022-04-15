@@ -1,9 +1,9 @@
-import AddressList from './AddressList';
+import InvoiceList from './InvoiceList';
 import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import AddressForm from './AddressForm';
+import InvoiceForm from './InvoiceForm';
 
-const Addresses = () => {
+const Invoices = () => {
   const [adding, setAdd] = useState(false);
 
   return(
@@ -15,15 +15,15 @@ const Addresses = () => {
         <Modal.Header closeButton>
         </Modal.Header>
         <Modal.Body>
-          <AddressForm 
+          <InvoiceForm 
             setAdd={setAdd}
           />
         </Modal.Body>
       </Modal>
-      <h1>All Addresses</h1>
-      <AddressList />
+      <h1>All Invoices</h1>
+      <InvoiceList />
     </>
   )
 }
 
-export default Addresses;
+export default Invoices;
