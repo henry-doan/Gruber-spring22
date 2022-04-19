@@ -1,6 +1,8 @@
 import { AuthConsumer } from "../../providers/AuthProvider";
 import { Link } from 'react-router-dom';
+import StepByStep from "./StepByStep";
 import { Navbar, Nav, Container, Button} from 'react-bootstrap';
+
 
 const MainNavbar = ({user, handleLogout }) => {
   
@@ -32,20 +34,24 @@ const MainNavbar = ({user, handleLogout }) => {
       // links to show up when Not logged in
       return (
         <>
+          
           <Nav.Link>
-            <Link to='/register'>
+
+            <Link to='/StepByStep'>
               <li>
                 Sign Up
               </li>
-            </Link>
-          </Nav.Link>
-          <Nav.Link>
+
             <Link to='/login'>
               {/* <li>
                 Login
               </li> */}
               <Button>Login</Button>
+
             </Link>
+          </Nav.Link>
+          <Nav.Link>
+            
           </Nav.Link>
         </>
       )
