@@ -41,7 +41,7 @@ const MainNavbar = ({user, handleLogout }) => {
               <li>
                 Sign Up
               </li>
-
+            </Link>
             <Link to='/login'>
               {/* <li>
                 Login
