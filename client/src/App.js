@@ -1,6 +1,7 @@
 import Home from './components/shared/Home';
 import NoMatch from './components/shared/NoMatch';
 import MainNavbar from './components/shared/MainNavbar';
+import Footer from './components/shared/Footer';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import FetchUser from './components/auth/FetchUser';
@@ -13,6 +14,7 @@ import Notes from './components/notes/Notes';
 import Addresses from './components/addresses/Addresses';
 import Invoices from './components/invoices/Invoices';
 import Confirmations from './components/confirmations/Confirmations';
+import StepByStep from './components/shared/StepByStep';
 
 
 const App = () => (
@@ -23,6 +25,7 @@ const App = () => (
       <Routes>
         
         <Route path="/" element={<Home />} />
+        <Route path='/StepByStep' element={ <StepByStep /> } />
         <Route exact path="/" element={<ProtectedRoute />}>
           <Route path='/services' element={ <Services /> } />
           <Route path='/services/:serviceId/edit' element={ <ServiceForm /> } />
@@ -39,6 +42,7 @@ const App = () => (
       </Routes>
     </>
     </FetchUser>
+    <Footer />
   </>
 )
 
