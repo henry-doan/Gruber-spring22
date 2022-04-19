@@ -13,6 +13,7 @@ import Notes from './components/notes/Notes';
 import Addresses from './components/addresses/Addresses';
 import Invoices from './components/invoices/Invoices';
 import Confirmations from './components/confirmations/Confirmations';
+import StepByStep from './components/shared/StepByStep';
 
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
       <Routes>
         
         <Route path="/" element={<Home />} />
+        <Route path='/StepByStep' element={ <StepByStep /> } />
         <Route exact path="/" element={<ProtectedRoute />}>
           <Route path='/services' element={ <Services /> } />
           <Route path='/services/:serviceId/edit' element={ <ServiceForm /> } />

@@ -1,6 +1,7 @@
 import { AuthConsumer } from "../../providers/AuthProvider";
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import StepByStep from "./StepByStep";
 
 const MainNavbar = ({user, handleLogout }) => {
   
@@ -40,11 +41,14 @@ const MainNavbar = ({user, handleLogout }) => {
             </Link>
           </Nav.Link>
           <Nav.Link>
-            <Link to='/register'>
+            <Link to='/StepByStep'>
               <li>
-                Register
+                Sign Up
               </li>
             </Link>
+          </Nav.Link>
+          <Nav.Link>
+            
           </Nav.Link>
         </>
       )
