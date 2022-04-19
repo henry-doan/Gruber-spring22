@@ -1,10 +1,28 @@
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button, Row, Col, Image, Container } from 'react-bootstrap';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
 import { useState, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 
+// Import React FilePond
+import { FilePond, File, registerPlugin } from 'react-filepond'
+
+// Import FilePond styles
+import 'filepond/dist/filepond.min.css'
+
+// Import the Image EXIF Orientation and Image Preview plugins
+// Note: These need to be installed separately
+// `npm i filepond-plugin-image-preview filepond-plugin-image-exif-orientation --save`
+import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
+
+// Register the plugins
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
+
 const ServiceForm = ({ addService, setAdd, updateService }) => {
-  const [service, setService] = useState({ lawn_size: '', service_type: '', frequency: '', sdate: '', stime: '', service_image: '', complete: false })
+  const [service, setService] = useState({ lawn_size: '', service_type: '', frequency: '', sdate: '', stime: '', service_image: null, complete: false })
+  
+  const [file, setFile] = useState()
 
   const location = useLocation()
   const { serviceId } = useParams()
@@ -16,6 +34,18 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
     }
   }, [])
 
+  const handleFileUpdate = (fileItems) => {
+    if (fileItems.length !== 0) {
+      setFile(fileItems)
+      setService({ ...service, image: fileItems[0].file });
+    }
+  }
+
+  const handleFileRemoved = (e, file) => {
+    setFile(null)
+    setService({ ...service, image: null });
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if (serviceId) {
@@ -24,13 +54,29 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
       addService(service)
       setAdd(false)
     }
-    setService({ lawn_size: '', service_type: '', frequency: '', sdate: '', stime: '', service_image: '', complete: false })
+    setService({...service, image: null})
+    // ({ lawn_size: '', service_type: '', frequency: '', sdate: '', stime: '', service_image: null, complete: false })
   }
 
   return (
     <>
       <h1>{ serviceId ? 'Update' : 'Create' } Service</h1>
       <Form onSubmit={handleSubmit}>
+
+        <Col md="4">
+          <FilePond 
+              files={file}
+              onupdatefiles={handleFileUpdate}
+              onremovefile={handleFileRemoved}
+              allowMultiple={true}
+              name='service_image'
+              labelIdle='Drag and Drop your files or <span className="filePond--label-action">
+                Browse
+                </span>  
+              '
+          />
+        </Col>
+
         <Row>
           <Col>
             <Form.Group className="mb-3">
@@ -101,19 +147,6 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
           </Col>
         </Row>
         <Row>
-          <Col>
-            <Form.Group className="mb-3">
-              <Form.Label>Service Image</Form.Label>
-              <Form.Control 
-                name='service_image'
-                value={service.service_image}
-                onChange={(e) => setService({...service, service_image: e.target.value })}
-                type="text" 
-                placeholder="Service Image" 
-                required
-              />
-            </Form.Group>
-          </Col>
           <Col>
             <Form.Group className="mb-3">
               <Form.Label>Complete</Form.Label>
