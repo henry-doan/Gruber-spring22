@@ -18,14 +18,33 @@ const ServiceProvider = ({ children, user }) => {
       .catch( err => console.log(err))
   }
 
-  const addService = (service) => {
-    axios.post(`/api/users/${user.id}/services`, { service })
+  const addService = (NewService) => {
+    let service = new FormData()
+    service.append('service_image', NewService.service_image)
+    service.append('lawn_size', NewService.lawn_size)
+    service.append('service_type', NewService.service_type)
+    service.append('frequency', NewService.frequency)
+    service.append('sdate', NewService.sdate)
+    service.append('stime', NewService.stime)
+    service.append('complete', NewService.complete)
+
+    axios.post(`/api/users/${user.id}/services`,  {service} )
       .then( res => setServices([...services, res.data]) )
       .catch( err => console.log(err))
   }
 
-  const updateService = (id, service) => {
-    axios.put(`/api/users/${user.id}/services/${id}`, { service })
+
+  const updateService = (id, NewService) => {
+    let service = new FormData()
+    service.append('service_image', NewService.service_image)
+    service.append('lawn_size', NewService.lawn_size)
+    service.append('service_type', NewService.service_type)
+    service.append('frequency', NewService.frequency)
+    service.append('sdate', NewService.sdate)
+    service.append('stime', NewService.stime)
+    service.append('complete', NewService.complete)
+
+    axios.put(`/api/users/${user.id}/services/${id}`,  {service} )
       .then( res => {
         const newUpdatedServices = services.map( s => {
           if (s.id === id) {

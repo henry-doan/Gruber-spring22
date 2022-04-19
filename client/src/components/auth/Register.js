@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
+import PriceForm from '../shared/PriceForm';
 
 const Register = ({ handleRegister }) => {
   const [user, setUser] = useState({ email: '', fname: '', lname: '', phone: '', role: '', password: '', passwordConfirmation: '' }) 
@@ -63,7 +64,7 @@ const Register = ({ handleRegister }) => {
           placeholder='Role'
           onChange={(e) => setUser({ ...user, role: e.target.value })}
         />
-        {/* <label>Image</label>
+        <label>Image</label>
         <input 
           type='text'
           required
@@ -71,7 +72,7 @@ const Register = ({ handleRegister }) => {
           value={user.image}
           onChange={(e) => setUser({ ...user, image: e.target.value })}
           placeholder='User Image'
-        /> */}
+        />
         <label>Password</label>
         <input
           required
@@ -92,6 +93,10 @@ const Register = ({ handleRegister }) => {
         />
         <button type='submit'>Submit</button>
       </form>
+      <br></br>
+      <br></br>
+      <br></br>
+      <PriceForm />
     </>
   )
 }

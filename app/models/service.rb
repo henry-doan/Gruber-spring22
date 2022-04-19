@@ -5,5 +5,5 @@ class Service < ApplicationRecord
   has_many :invoices, dependent: :destroy
 
 
-  validates :lawn_size, :service_type, :frequency, :sdate, :stime, :service_image, presence: true
+  # validates :lawn_size, :service_type, :frequency, :sdate, :stime, :service_image, presence: true
 end
