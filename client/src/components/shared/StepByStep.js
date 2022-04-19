@@ -1,5 +1,5 @@
 import { Button, Col, Row, Container } from "react-bootstrap";
-import { SBSRow, SBSh3, SBSContainer, SBSh4, SBSimg, SBSButton } from "../../styles/Styles";
+import { SBSRow, SBSh3, SBSContainer, SBSh4, SBSimg, SBSButton } from "../styles/Styles";
 import { Link } from 'react-router-dom'
 
 
