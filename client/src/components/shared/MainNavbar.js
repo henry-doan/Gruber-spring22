@@ -2,6 +2,7 @@ import { AuthConsumer } from "../../providers/AuthProvider";
 import { Link } from 'react-router-dom';
 import StepByStep from "./StepByStep";
 import { Navbar, Nav, Container, Button} from 'react-bootstrap';
+import { NavCon } from "../styles/Styles";
 
 
 const MainNavbar = ({user, handleLogout }) => {
@@ -11,6 +12,7 @@ const MainNavbar = ({user, handleLogout }) => {
     if (user) {
       return (
         <>
+        <NavCon>
           <Nav.Link>
             <Link to='/profile'>
               Profile
@@ -28,6 +30,7 @@ const MainNavbar = ({user, handleLogout }) => {
           <Nav.Link onClick={() => handleLogout()}>
             Logout
           </Nav.Link>
+          </NavCon>
         </>
       )
     } else {
@@ -62,8 +65,9 @@ const MainNavbar = ({user, handleLogout }) => {
   // links that show up regardless of login or out
   return (
     <>
+    <NavCon>
      <Navbar collapseOnSelect expand="lg">
-        <Container>
+        
           <Nav className="justify-content-left">
             <Nav.Item>
               <Nav.Link eventKey="link-1">Menu One</Nav.Link>
@@ -89,8 +93,9 @@ const MainNavbar = ({user, handleLogout }) => {
               { rightNavItem() }
             </Nav>
           </Navbar.Collapse>
-        </Container>
+        
       </Navbar>
+    </NavCon>
     </>
   )
 }
