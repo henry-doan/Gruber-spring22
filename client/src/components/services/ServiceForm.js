@@ -37,13 +37,13 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
   const handleFileUpdate = (fileItems) => {
     if (fileItems.length !== 0) {
       setFile(fileItems)
-      setService({ ...service, image: fileItems[0].file });
+      setService({ ...service, service_image: fileItems[0].file });
     }
   }
 
   const handleFileRemoved = (e, file) => {
     setFile(null)
-    setService({ ...service, image: null });
+    setService({ ...service, service_image: null });
   }
 
   const handleSubmit = (e) => {

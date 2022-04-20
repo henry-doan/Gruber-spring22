@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 const PriceForm = ({}) => {
   
-  const [formVals, setFormVals] = useState({sdate: '', pets: 0, lastcut: '', details: '', additions: '', notes: ''})
+  const [formVals, setFormVals] = useState({sdate: '', pets: '', lastcut: '', details: '', additions: '', notes: ''})
 
   const handleSubmit = (e) => {
 
@@ -58,7 +58,7 @@ const PriceForm = ({}) => {
               label={<img src='https://images.unsplash.com/photo-1567000167302-74d2008ca271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bm8lMjBwZXRzJTIwc2lnbnxlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60' width='109px'></img>}
               name='pets'
               value={formVals.pets}
-              onChange={(e) => setFormVals({...formVals, pets: e.target.value })}
+              onChange={(e) => setFormVals({...formVals, pets: 'no pet' })}
               type="radio"
               required
               />

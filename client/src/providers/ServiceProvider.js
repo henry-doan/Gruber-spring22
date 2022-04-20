@@ -28,7 +28,7 @@ const ServiceProvider = ({ children, user }) => {
     service.append('stime', NewService.stime)
     service.append('complete', NewService.complete)
 
-    axios.post(`/api/users/${user.id}/services`,  {service} )
+    axios.post(`/api/users/${user.id}/services`,  service )
       .then( res => setServices([...services, res.data]) )
       .catch( err => console.log(err))
   }
@@ -44,7 +44,7 @@ const ServiceProvider = ({ children, user }) => {
     service.append('stime', NewService.stime)
     service.append('complete', NewService.complete)
 
-    axios.put(`/api/users/${user.id}/services/${id}`,  {service} )
+    axios.put(`/api/users/${user.id}/services/${id}`,  service )
       .then( res => {
         const newUpdatedServices = services.map( s => {
           if (s.id === id) {
