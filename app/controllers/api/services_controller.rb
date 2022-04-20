@@ -61,6 +61,7 @@ class Api::ServicesController < ApplicationController
           if @service.save 
             render json: @service
           else 
+            
             render json: { errors: @service.errors.full_messages }, status: 422
           end
         rescue => e
