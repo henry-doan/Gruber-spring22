@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
 
 import { Row, Col, Modal, Button, Form } from 'react-bootstrap';
+import { Link } from "react-router-dom"
+import { RegCon } from '../styles/Styles';
 
 
 const Register = ({ handleRegister }) => {
@@ -18,8 +20,15 @@ const Register = ({ handleRegister }) => {
   
   return (
     <>
+    
+    <RegCon>
+      <Row>
+      <Col>
+    <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" width="350px"></img>
+    </Col>
+      <Col>
       <h1>Register</h1>
-
+      
       <Form onSubmit={handleSubmit}>
         <Row>
           <Col> 
@@ -128,8 +137,14 @@ const Register = ({ handleRegister }) => {
         </br>
         <br>
         </br>
+        {/* <Link to="/StepTwo"> */}
         <Button type='submit'>Submit</Button>
+        {/* </Link> */}
       </Form>
+      </Col>
+      </Row>
+      </RegCon>
+      
       
      
     </>

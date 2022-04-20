@@ -15,6 +15,7 @@ import Addresses from './components/addresses/Addresses';
 import Invoices from './components/invoices/Invoices';
 import Confirmations from './components/confirmations/Confirmations';
 import StepByStep from './components/shared/StepByStep';
+import StepTwo from './components/shared/StepTwo';
 
 
 const App = () => (
@@ -27,6 +28,7 @@ const App = () => (
         <Route path="/" element={<Home />} />
         <Route path='/StepByStep' element={ <StepByStep /> } />
         <Route exact path="/" element={<ProtectedRoute />}>
+          <Route path='/StepTwo' element={ <StepTwo />} />
           <Route path='/services' element={ <Services /> } />
           <Route path='/services/:serviceId/edit' element={ <ServiceForm /> } />
           <Route path='/services/:serviceId/notes' element={ <Notes/> } />

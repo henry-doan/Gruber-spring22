@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
     axios.post("/api/auth", user)
       .then( res => {
         setUser(res.data.data);
-        navigate("/");
+        navigate("/StepTwo");
       })
       .catch( err => {
         console.log(err)
