@@ -17,14 +17,22 @@ const NoteProvider = ({ children }) => {
       .catch( err => console.log(err) )
   }
 
-  const addNote = (serviceId, note) => {
-    axios.post(`/api/services/${serviceId}/notes`, { note })
+  const addNote = (serviceId, newNote) => {
+    let note = new FormData()
+    note.append('note_img', newNote.note_img)
+    note.append('title', newNote.title)
+    note.append('body', newNote.body)
+    axios.post(`/api/services/${serviceId}/notes`,  note )
     .then( res => setNotes([...notes, res.data]) )
     .catch( err => console.log(err) )
   }
 
-  const updateNote = (serviceId, id, note) => {
-    axios.put(`/api/services/${serviceId}/notes/${id}`, { note })
+  const updateNote = (serviceId, id, newNote) => {
+    let note = new FormData()
+    note.append('note_img', newNote.note_img)
+    note.append('title', newNote.title)
+    note.append('body', newNote.body)
+    axios.put(`/api/services/${serviceId}/notes/${id}`,  note )
       .then( res => {
         const newUpdatedNotes = notes.map( n => {
           if (n.id === id) {

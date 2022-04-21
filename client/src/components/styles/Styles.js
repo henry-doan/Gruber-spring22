@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Row, Container, Button, Col } from 'react-bootstrap'
+import { Row, Container, Button, Col, Form } from 'react-bootstrap'
 
 
 export const SBSRow = styled(Row)`
@@ -96,6 +96,12 @@ margin-left: 80%;
 `
 export const RegCon = styled(Container)`
   
+`
+
+export const FormControl = styled(Form.Control)`
+  
+  height: 100px;
+
 `
   
  

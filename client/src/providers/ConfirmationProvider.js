@@ -17,14 +17,20 @@ const ConfirmationProvider = ({ children }) => {
       .catch( err => console.log(err) )
   }
 
-  const addConfirmation = (invoiceId, confirmation) => {
-    axios.post(`/api/invoices/${invoiceId}/confirmations`, { confirmation })
+  const addConfirmation = (invoiceId, NewConfirmation) => {
+    let confirmation = new FormData()
+    confirmation.append('conf_img', NewConfirmation.conf_img )
+    confirmation.append('workerid', NewConfirmation.workerid )
+    axios.post(`/api/invoices/${invoiceId}/confirmations`,  confirmation )
     .then( res => setConfirmations([...confirmations, res.data]) )
     .catch( err => console.log(err) )
   }
 
-  const updateConfirmation = (invoiceId, id, confirmation) => {
-    axios.put(`/api/invoices/${invoiceId}/confirmations/${id}`, { confirmation })
+  const updateConfirmation = (invoiceId, id, NewConfirmation) => {
+    let confirmation = new FormData()
+    confirmation.append('conf_img', NewConfirmation.conf_img )
+    confirmation.append('workerid', NewConfirmation.workerid )
+    axios.put(`/api/invoices/${invoiceId}/confirmations/${id}`,  confirmation )
       .then( res => {
         const newUpdatedConfirmations = confirmations.map( c => {
           if (c.id === id) {
