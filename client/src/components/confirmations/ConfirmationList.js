@@ -18,7 +18,7 @@ const ConfirmationList = ({ confirmations, getAllConfirmations, deleteConfirmati
       { confirmations.map( c => 
         <Row>
           <Col>
-            {c.price}
+            {/* {c.price} */}
           </Col>
           {/* <Col>
             {n.body.substring(0, 20)}
@@ -35,7 +35,8 @@ const ConfirmationList = ({ confirmations, getAllConfirmations, deleteConfirmati
                   workerid: {c.workerid}
                 </p>
                 <p>
-                  Image: {c.conf_img}
+                  <img src={c.conf_img} />
+                  
                 </p>
                 
                 {/* <p>

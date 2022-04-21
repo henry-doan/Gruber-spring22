@@ -2,6 +2,7 @@ import { Form, Button, Row, Col, Image, Container } from 'react-bootstrap';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
 import { useState, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
+import PriceForm from '../shared/PriceForm';
 
 // Import React FilePond
 import { FilePond, File, registerPlugin } from 'react-filepond'
@@ -119,7 +120,8 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
               />
             </Form.Group>
           </Col>
-          <Col>
+
+          {/* <Col>
             <Form.Group className="mb-3">
               <Form.Label>Date</Form.Label>
               <Form.Control 
@@ -144,7 +146,9 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
                 required
               />
             </Form.Group>
-          </Col>
+          </Col> */}
+
+          
         </Row>
         <Row>
           <Col>
@@ -163,6 +167,9 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
             </Form.Group>
           </Col>
         </Row>
+
+        <PriceForm />
+
         <Button variant="primary" type="submit">
           Submit
         </Button>

@@ -3,8 +3,26 @@ import { Form, Button } from 'react-bootstrap';
 import { NoteConsumer } from '../../providers/NoteProvider';
 import { useParams } from 'react-router-dom';
 
+// Import React FilePond
+import { FilePond, File, registerPlugin } from 'react-filepond'
+
+// Import FilePond styles
+import 'filepond/dist/filepond.min.css'
+
+// Import the Image EXIF Orientation and Image Preview plugins
+// Note: These need to be installed separately
+// `npm i filepond-plugin-image-preview filepond-plugin-image-exif-orientation --save`
+import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
+
+// Register the plugins
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
+
 const NoteForm = ({ setAdd, addNote, id, title, body, note_img, setEdit, updateNote }) => {
-  const [note, setNote] = useState({ title: '', body: '', note_img: ''})
+  const [note, setNote] = useState({ title: '', body: '', note_img: null})
+
+  const [file, setFile] = useState()
 
   const { serviceId } = useParams()
 
@@ -13,6 +31,18 @@ const NoteForm = ({ setAdd, addNote, id, title, body, note_img, setEdit, updateN
       setNote({ title, body, note_img })
     }
   }, [])
+
+  const handleFileUpdate = (fileItems) => {
+    if (fileItems.length !== 0) {
+      setFile(fileItems)
+      setNote({ ...note, note_img: fileItems[0].file });
+    }
+  }
+
+  const handleFileRemoved = (e, file) => {
+    setFile(null)
+    setNote({ ...note, note_img: null });
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -23,13 +53,25 @@ const NoteForm = ({ setAdd, addNote, id, title, body, note_img, setEdit, updateN
       addNote(serviceId, note)
       setAdd(false)
     }
-    setNote({ title: '', body: '', note_img: '' })
+    setNote({ title: '', body: '', note_img: null })
   }
 
   return(
     <>
       <h1>{id ? 'Update' : 'Create'} Note</h1>
       <Form onSubmit={handleSubmit}>
+      <FilePond 
+              files={file}
+              onupdatefiles={handleFileUpdate}
+              onremovefile={handleFileRemoved}
+              allowMultiple={true}
+              name='note_img'
+              labelIdle='Drag and Drop your files or <span className="filePond--label-action">
+                Browse
+                </span>  
+              '
+          />
+
         <Form.Group className="mb-3">
           <Form.Label>Title</Form.Label>
           <Form.Control 
@@ -41,18 +83,7 @@ const NoteForm = ({ setAdd, addNote, id, title, body, note_img, setEdit, updateN
           />
         </Form.Group>
       
-        <Form.Group className="mb-3">
-          <Form.Label>Image</Form.Label>
-          <Form.Control 
-          
-            name='note_img'
-            value={note.note_img}
-            onChange={(e) => setNote({...note, note_img: e.target.value})}
-            required
-          >
-           
-          </Form.Control>
-        </Form.Group>
+       
         <Form.Group className="mb-3">
           <Form.Label>Notes</Form.Label>
           <Form.Control 
