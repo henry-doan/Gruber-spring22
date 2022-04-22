@@ -44,6 +44,7 @@ const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, ser
                   </Moment> 
                 </p>
                 <h4>Complete: {complete}</h4>
+                <h4>Price: </h4>
                 <Link 
                   to={`/services/${id}/edit`}
                   state={{ id: id, lawn_size: lawn_size, service_type: service_type, frequency: frequency, sdate: sdate, stime: stime, complete: complete, service_image: service_image }}

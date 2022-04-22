@@ -1,15 +1,28 @@
-import {Row, Col, Container, Form} from 'react-bootstrap';
+import {Row, Col, Container, Form, Image} from 'react-bootstrap';
 import {useState} from 'react';
 import DatePicker from "react-horizontal-datepicker";
 import { ServiceConsumer } from '../../providers/ServiceProvider';
-import { FormControl } from '../styles/Styles';
+import { FormControl, PriceFormCon } from '../styles/Styles';
 
 const PriceForm = ({}) => {
   
   const [formVals, setFormVals] = useState({sdate: '', stime: '', pets: '', lastcut: '', details: '', additions: '', notes: ''})
 
-  const handleSubmit = (e) => {
+  const [price, setPrice] = useState(0)
 
+  const handleSubmit = (e) => {
+    setPrice( Pets )
+  }
+
+  const Pets = (pets) => {
+    if (pets === 'dogs') {
+      price = 10
+    } else if (pets === 'cats') {
+      price = 5
+    } else {
+      price = 0
+    }
+    return price
   }
 
 
@@ -17,7 +30,7 @@ const PriceForm = ({}) => {
 
   return(
     <>
-      <Container>
+      <PriceFormCon>
         <Row>
           <h2>Want the Best lawn mowing prices possible?</h2>
           
@@ -67,12 +80,12 @@ const PriceForm = ({}) => {
             <Row><Form.Label><h5>2. Do you have outdoor pets?</h5></Form.Label> <br></br></Row>
               <Row>
                 <Col>
-                  <img src='https://images.unsplash.com/photo-1603272743626-df5c7f34c0e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZG9nc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                  <Image src='https://images.unsplash.com/photo-1603272743626-df5c7f34c0e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZG9nc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
                   <Form.Check
                   label={<p>DOGS</p>}
                   name='pets'
                   value={formVals.pets}
-                  onChange={(e) => setFormVals({...formVals, pets: e.target.value })}
+                  onChange={(e) => setFormVals({...formVals, pets: 'dogs' })}
                   type="radio"
                   required
                   />
@@ -80,18 +93,18 @@ const PriceForm = ({}) => {
 
 
                 <Col>
-                  <img src='https://images.unsplash.com/photo-1596854273338-cbf078ec7071?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F0c3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                  <Image src='https://images.unsplash.com/photo-1596854273338-cbf078ec7071?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F0c3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
                   <Form.Check
                   label={<p>CATS</p>}
                   name='pets'
                   value={formVals.pets}
-                  onChange={(e) => setFormVals({...formVals, pets: e.target.value })}
+                  onChange={(e) => setFormVals({...formVals, pets: 'cats' })}
                   type="radio"
                   required
                   />
                 </Col>
                 <Col>
-                  <img src='https://images.unsplash.com/photo-1567000167302-74d2008ca271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bm8lMjBwZXRzJTIwc2lnbnxlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                  <Image src='https://images.unsplash.com/photo-1567000167302-74d2008ca271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bm8lMjBwZXRzJTIwc2lnbnxlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60' width='109px' roundedCircle></Image>
                   <Form.Check
                   label={<p>NO PETS</p>}
                   name='pets'
@@ -110,34 +123,34 @@ const PriceForm = ({}) => {
               <Row><Form.Label><h5>3. When was your last cut?</h5></Form.Label></Row>
               <Row>
                 <Col>
-                  <img src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                  <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
                   <Form.Check
                   label={<h6>1 Week Ago</h6>}
                   name='pets'
                   value={formVals.lastcut}
-                  onChange={(e) => setFormVals({...formVals, lastcut: e.target.value })}
+                  onChange={(e) => setFormVals({...formVals, lastcut: '1 week ago' })}
                   type="radio"
                   required
                   />
                 </Col>
                 <Col>
-                  <img src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                  <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
                   <Form.Check
                   label={<h6>2 Weeks Ago</h6>}
                   name='pets'
                   value={formVals.lastcut}
-                  onChange={(e) => setFormVals({...formVals, lastcut: e.target.value })}
+                  onChange={(e) => setFormVals({...formVals, lastcut: '2 weeks ago' })}
                   type="radio"
                   required
                   />
                 </Col>
                 <Col>
-                  <img src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                  <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
                   <Form.Check
                   label={<h6>3 Weeks Ago</h6>}
                   name='pets'
                   value={formVals.lastcut}
-                  onChange={(e) => setFormVals({...formVals, lastcut: e.target.value })}
+                  onChange={(e) => setFormVals({...formVals, lastcut: '3 weeks ago' })}
                   type="radio"
                   required
                   />
@@ -152,7 +165,7 @@ const PriceForm = ({}) => {
               // label={<h6>One Week Ago</h6>}
               name='lastcut'
               value={formVals.lastcut}
-              onChange={(e) => setFormVals({...formVals, lastcut: e.target.value })}
+              onChange={(e) => setFormVals({...formVals, lastcut: 'once a week' })}
               type="radio"
               required
               />
@@ -160,7 +173,7 @@ const PriceForm = ({}) => {
               label={<p>Twice a week</p>}
               name='lastcut'
               value={formVals.lastcut}
-              onChange={(e) => setFormVals({...formVals, lastcut: e.target.value })}
+              onChange={(e) => setFormVals({...formVals, lastcut: 'twice a week' })}
               type="radio"
               required
               />
@@ -168,7 +181,7 @@ const PriceForm = ({}) => {
               label={<p>Just this once</p>}
               name='lastcut'
               value={formVals.lastcut}
-              onChange={(e) => setFormVals({...formVals, lastcut: e.target.value })}
+              onChange={(e) => setFormVals({...formVals, lastcut: 'just this once' })}
               type="radio"
               required
               />
@@ -179,34 +192,34 @@ const PriceForm = ({}) => {
               <Row><Form.Label><h5>5. Let your bidders know the level of mowing detail you’re expecting</h5></Form.Label></Row>
               <Row>
                 <Col>
-                  <img src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                  <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
                   <Form.Check
                   label={<h6>Just knock it down</h6>}
                   name='pets'
                   value={formVals.details}
-                  onChange={(e) => setFormVals({...formVals, details: e.target.value })}
+                  onChange={(e) => setFormVals({...formVals, details: 'knock it down' })}
                   type="radio"
                   required
                   />
                 </Col>
                 <Col>
-                  <img src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                  <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
                   <Form.Check
                   label={<h6>I like the lawn neat</h6>}
                   name='details'
                   value={formVals.details}
-                  onChange={(e) => setFormVals({...formVals, details: e.target.value })}
+                  onChange={(e) => setFormVals({...formVals, details: 'neat' })}
                   type="radio"
                   required
                   />
                 </Col>
                 <Col>
-                  <img src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                  <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
                   <Form.Check
                   label={<h6>I want it to be perfect</h6>}
                   name='pets'
                   value={formVals.details}
-                  onChange={(e) => setFormVals({...formVals, details: e.target.value })}
+                  onChange={(e) => setFormVals({...formVals, details: 'perfect' })}
                   type="radio"
                   required
                   />
@@ -219,56 +232,56 @@ const PriceForm = ({}) => {
             <Row><Form.Label><h5>6. Are you in terested in any other yard work in addition to weekly mowing? (can be added later alaster after first mowing</h5></Form.Label></Row>
             <Row>
               <Col>
-                <img src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
                 <Form.Check
                 label={<h6>Shrub Pruning</h6>}
                 name='pets'
                 value={formVals.details}
-                onChange={(e) => setFormVals({...formVals, details: e.target.value })}
+                onChange={(e) => setFormVals({...formVals, details: 'pruning' })}
                 type="radio"
                 required
                 />
               </Col>
               <Col>
-                <img src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
                 <Form.Check
                 label={<h6>Pulling / Spray Weeds</h6>}
                 name='details'
                 value={formVals.details}
-                onChange={(e) => setFormVals({...formVals, details: e.target.value })}
+                onChange={(e) => setFormVals({...formVals, details: 'pulling' })}
                 type="radio"
                 required
                 />
               </Col>
               <Col>
-                <img src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
                 <Form.Check
                 label={<h6>Leaf Removal</h6>}
                 name='pets'
                 value={formVals.details}
-                onChange={(e) => setFormVals({...formVals, details: e.target.value })}
+                onChange={(e) => setFormVals({...formVals, details: 'leaf removal' })}
                 type="radio"
                 required
                 />
               </Col>
               <Col>
-                <img src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
                 <Form.Check
                 label={<h6>Re-mulching of Beds</h6>}
                 name='pets'
                 value={formVals.details}
-                onChange={(e) => setFormVals({...formVals, details: e.target.value })}
+                onChange={(e) => setFormVals({...formVals, details: 'mulching' })}
                 type="radio"
                 required
                 />
               </Col>
               <Col>
-                <img src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' width='109px'></img>
+                <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
                 <Form.Check
                 label={<h6>Turf Seeding</h6>}
                 name='pets'
                 value={formVals.details}
-                onChange={(e) => setFormVals({...formVals, details: e.target.value })}
+                onChange={(e) => setFormVals({...formVals, details: 'seeding' })}
                 type="radio"
                 required
                 />
@@ -296,7 +309,7 @@ const PriceForm = ({}) => {
         <p>Your intial set of quotes will be for mowing only. After the 1st mow you can add Shrub Pruning or other services. but not yet at this step</p>
 
 
-      </Container>
+      </PriceFormCon>
     </>
   )
 }

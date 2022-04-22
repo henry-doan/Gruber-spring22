@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Row, Container, Button, Col, Form } from 'react-bootstrap'
+import { Row, Container, Button, Col, Form, Image } from 'react-bootstrap'
 
 
 export const SBSRow = styled(Row)`
@@ -102,6 +102,16 @@ export const FormControl = styled(Form.Control)`
   
   height: 100px;
 
+`
+
+export const PriceFormCon = styled(Container)`
+  border-radius: 5px;
+  background-color: #E4F1FD;
+  border: 4px solid #2097F0;
+  padding: 10% 5% 10% 10%;
+  margin: 25px auto;
+;
+  
 `
   
  

@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AuthConsumer } from './AuthProvider';
+import { InvoiceConsumer } from './InvoiceProvider';
+import { NoteConsumer } from './NoteProvider';
 
 export const ServiceContext = React.createContext();
 
 export const ServiceConsumer = ServiceContext.Consumer;
 
-const ServiceProvider = ({ children, user }) => {
+const ServiceProvider = ({ children, user, addInvoice, addNote }) => {
   const [services, setServices] = useState([])
 
   const navigate = useNavigate()
@@ -18,7 +20,7 @@ const ServiceProvider = ({ children, user }) => {
       .catch( err => console.log(err))
   }
 
-  const addService = (NewService) => {
+  const addService = (NewService, note, invoice) => {
     let service = new FormData()
     service.append('service_image', NewService.service_image)
     service.append('lawn_size', NewService.lawn_size)
@@ -29,7 +31,12 @@ const ServiceProvider = ({ children, user }) => {
     service.append('complete', NewService.complete)
 
     axios.post(`/api/users/${user.id}/services`,  service )
-      .then( res => setServices([...services, res.data]) )
+      .then( res => {
+        
+        addInvoice(res.data.id, invoice)
+        addNote(res.data.id, note)
+        setServices([...services, res.data]) 
+      })
       .catch( err => console.log(err))
   }
 
@@ -87,4 +94,16 @@ const ConnectedServiceProvider = (props) => (
   </AuthConsumer>
 )
 
-export default ConnectedServiceProvider;
+const ConnectedInvoiceService = (props) => (
+  <InvoiceConsumer>
+    { value => <ConnectedServiceProvider {...value} {...props} />}
+  </InvoiceConsumer>
+)
+
+const ConnectedNoteService = (props) => (
+  <NoteConsumer>
+    { value => <ConnectedInvoiceService {...value} {...props} />}
+  </NoteConsumer>
+)
+
+export default ConnectedNoteService;

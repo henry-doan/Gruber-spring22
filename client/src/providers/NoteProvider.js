@@ -18,6 +18,7 @@ const NoteProvider = ({ children }) => {
   }
 
   const addNote = (serviceId, newNote) => {
+    debugger
     let note = new FormData()
     note.append('note_img', newNote.note_img)
     note.append('title', newNote.title)
