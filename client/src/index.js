@@ -16,18 +16,18 @@ import ConfirmationProvider from './providers/ConfirmationProvider'
 initMiddleware()
 ReactDOM.render(
   <BrowserRouter>
-    <AuthProvider>
-      <ServiceProvider>
-        <NoteProvider>
-          <AddressProvider>
-            <InvoiceProvider>
+    <AuthProvider> 
+      <NoteProvider>
+        <AddressProvider>
+          <InvoiceProvider>
+            <ServiceProvider>
               <ConfirmationProvider>
-            <App />
+                <App />
               </ConfirmationProvider>
-            </InvoiceProvider>
-          </AddressProvider>
-        </NoteProvider>
-      </ServiceProvider>
+            </ServiceProvider>
+          </InvoiceProvider>
+        </AddressProvider>
+      </NoteProvider>
     </AuthProvider>
   </BrowserRouter>,
   document.getElementById('root')
