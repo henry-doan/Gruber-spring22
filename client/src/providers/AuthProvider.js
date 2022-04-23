@@ -15,7 +15,11 @@ const AuthProvider = ({ children }) => {
     axios.post("/api/auth", user)
       .then( res => {
         setUser(res.data.data);
-        navigate("/StepTwo");
+        if (user.role === 'Gruber'){
+          navigate( "/services" )
+        } else {
+          navigate("/StepTwo")
+        }
       })
       .catch( err => {
         console.log(err)

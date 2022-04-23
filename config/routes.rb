@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   namespace :api do 
     resources :users, only: :update
-    
+      get '/allservices', to: 'services#allservices' 
     resources :users, except: [:index, :show, :create, :destroy, :update] do 
-      resources :services 
+      resources :services
     end
     resources :services, except: [:index, :show, :create, :destroy, :update] do
       resources :notes
