@@ -9,7 +9,7 @@ export const ServiceContext = React.createContext();
 
 export const ServiceConsumer = ServiceContext.Consumer;
 
-const ServiceProvider = ({ children, user, addInvoice, addNote }) => {
+const ServiceProvider = ({ user, addInvoice, addNote, children }) => {
   const [services, setServices] = useState([])
 
   const navigate = useNavigate()
@@ -32,10 +32,11 @@ const ServiceProvider = ({ children, user, addInvoice, addNote }) => {
 
     axios.post(`/api/users/${user.id}/services`,  service )
       .then( res => {
-        
+
         addInvoice(res.data.id, invoice)
         addNote(res.data.id, note)
         setServices([...services, res.data]) 
+        navigate('/services')
       })
       .catch( err => console.log(err))
   }

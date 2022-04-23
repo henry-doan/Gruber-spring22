@@ -18,6 +18,7 @@ const InvoiceProvider = ({ children }) => {
   }
 
   const addInvoice = (serviceId, invoice) => {
+ 
     axios.post(`/api/services/${serviceId}/invoices`, { invoice })
     .then( res => setInvoices([...invoices, res.data]) )
     .catch( err => console.log(err) )

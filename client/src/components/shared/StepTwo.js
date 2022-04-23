@@ -1,6 +1,6 @@
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Col, Row, Container } from "react-bootstrap";
-import PriceForm from './PriceForm';
+import ServiceForm from '../../components/services/ServiceForm';
 
 const StepTwo = ({user}) => {
 
@@ -27,7 +27,7 @@ return(
       </Col>
         </Row>
       
-      <PriceForm/>
+      <ServiceForm />
       
       
     

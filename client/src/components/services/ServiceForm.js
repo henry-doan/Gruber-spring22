@@ -62,9 +62,10 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
     if (serviceId) {
       updateService(serviceId, service)
     } else {
-      setInvoice({price: CalcPets() + CalcLastCut() + CalcFreq() + CalcDetails() + CalcAdditions()})
-      addService(service, note, invoice)
-      setAdd(false)
+      // setInvoice({price: CalcPets() + CalcLastCut() + CalcFreq() + CalcDetails() + CalcAdditions()})
+      
+      addService(service, note, {price: CalcPets() + CalcLastCut() + CalcFreq() + CalcDetails() + CalcAdditions()})
+      // setAdd(false)
     }
     setService({...service, image: null})
     // ({ lawn_size: '', service_type: '', frequency: '', sdate: '', stime: '', service_image: null, complete: false })
@@ -77,7 +78,9 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
       return 10
     } else if (formVals.pets === 'cats') {
       return 5
-    } 
+    } else {
+      return 0
+    }
   }
 
   const CalcLastCut = () => {
@@ -88,7 +91,7 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
       return 10
     } else {
       return 15
-    }
+    } 
   }
 
   const CalcFreq = () => {
@@ -97,6 +100,9 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
     }
     else if (formVals.frequency === 'twice a week') {
       return 5
+    }
+    else {
+      return 0
     }
   }
 
@@ -107,23 +113,26 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
     else if (formVals.details === 'neat') {
       return 5
     }
+    else {
+      return 0
+    }
   }
 
   const CalcAdditions = () => {
     if (formVals.additions === 'pruning') {
-      return .50
+      return 1
     }
     else if (formVals.additions === 'pulling') {
-      return .40
+      return 2
     }
     else if (formVals.additions === 'leaf removal') {
-      return .30
+      return 2
     }
     else if (formVals.additions === 'mulching') {
-      return .20
+      return 4
     }
     else {
-      return .10
+      return 5
     }
   }
 

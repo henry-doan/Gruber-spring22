@@ -18,10 +18,15 @@ const NoteProvider = ({ children }) => {
   }
 
   const addNote = (serviceId, newNote) => {
-    debugger
     let note = new FormData()
-    note.append('note_img', newNote.note_img)
-    note.append('title', newNote.title)
+    if (newNote.note_img) {
+      note.append('note_img', newNote.note_img)
+    }
+    if (newNote.note_img) {
+      note.append('title', newNote.title)
+    }
+    
+    
     note.append('body', newNote.body)
     axios.post(`/api/services/${serviceId}/notes`,  note )
     .then( res => setNotes([...notes, res.data]) )

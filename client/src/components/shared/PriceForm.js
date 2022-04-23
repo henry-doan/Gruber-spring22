@@ -43,7 +43,7 @@ const PriceForm = ({}) => {
           <Row>
             <Form.Group className="mb-3">
               <Form.Label><h5>1. Pick the day you want your lawn cut</h5></Form.Label>
-              <DatePicker
+              <Form.Control
                 name='sdate'
                 value={formVals.sdate}
                 onChange={(e) => setFormVals({...formVals, sdate: e.target.value })}
