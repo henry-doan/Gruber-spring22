@@ -7,7 +7,7 @@ import { RegCon } from '../styles/Styles';
 
 
 const Register = ({ handleRegister }) => {
-  const [user, setUser] = useState({ email: '', fname: '', lname: '', phone: '', role: '', password: '', passwordConfirmation: '' }) 
+  const [user, setUser] = useState({ email: '', fname: '', lname: '', phone: '', role: 'Customer', password: '', passwordConfirmation: '' }) 
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -87,14 +87,15 @@ const Register = ({ handleRegister }) => {
           <Col>
             <Form.Group>
               <Form.Label>Role</Form.Label>
-                <Form.Control
-                  type="role"
+                <Form.Select 
                   required
                   name='role'
                   value={user.role}
-                  placeholder='Role'
                   onChange={(e) => setUser({ ...user, role: e.target.value })}
-                />
+                >
+                  <option value="Customer">Customer</option>
+                  <option value="Gruber">Gruber</option>
+                </Form.Select>
             </Form.Group>
           </Col>
         {/* <label>Image</label>

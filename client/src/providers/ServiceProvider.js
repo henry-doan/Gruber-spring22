@@ -15,9 +15,15 @@ const ServiceProvider = ({ user, addInvoice, addNote, children }) => {
   const navigate = useNavigate()
 
   const getAllServices = () => {
-    axios.get(`/api/users/${user.id}/services`)
+    if (user.role === 'Gruber') {
+      axios.get(`/api/allservices`)
       .then( res => setServices(res.data) )
       .catch( err => console.log(err))
+    } else {
+      axios.get(`/api/users/${user.id}/services`)
+      .then( res => setServices(res.data) )
+      .catch( err => console.log(err))
+    }
   }
 
   const addService = (NewService, note, invoice) => {
