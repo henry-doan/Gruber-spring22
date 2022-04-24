@@ -187,6 +187,22 @@ export const  TeamPara = styled.p`
   margin: 2px 0 9px 0;
 `
 
-
+export const SubCon = styled(Container)`
+    background-color: #1E321BF2;
+    
+    /* height: 600px; */
+    display: flex;
+    width:100%;
+    padding: 70px 0px 70px 0px;
+  `
+  export const SubCol = styled(Container)`
+  background-color: white;
+  width: 50%;
+  padding: 50px;
+  margin-top: 100px;
+  margin-bottom:100px
+  
+  
+`
 
 
