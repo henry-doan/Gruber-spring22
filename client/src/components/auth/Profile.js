@@ -116,7 +116,7 @@ const Profile = ({ user, updateUser }) => {
           <Form.Control 
             type="text" 
             name='phone'
-            value={formVals.phone}
+            value={formVals.age}
             onChange={(e) => setFormValue({ ...formVals, phone: e.target.value })}
             required
           />
@@ -126,7 +126,7 @@ const Profile = ({ user, updateUser }) => {
           <Form.Control 
             type="text" 
             name='role'
-            value={formVals.role}
+            value={formVals.age}
             onChange={(e) => setFormValue({ ...formVals, role: e.target.value })}
             required
           />

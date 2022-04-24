@@ -16,6 +16,7 @@ import Invoices from './components/invoices/Invoices';
 import Confirmations from './components/confirmations/Confirmations';
 import StepByStep from './components/shared/StepByStep';
 import StepTwo from './components/shared/StepTwo';
+import Team from './components/shared/Team';
 
 
 const App = () => (
@@ -26,6 +27,7 @@ const App = () => (
       <Routes>
         
         <Route path="/" element={<Home />} />
+        <Route path="/team" element={<Team />} />
         <Route path='/StepByStep' element={ <StepByStep /> } />
         <Route exact path="/" element={<ProtectedRoute />}>
           <Route path='/StepTwo' element={ <StepTwo />} />
