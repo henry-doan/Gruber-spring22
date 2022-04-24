@@ -17,6 +17,8 @@ import Confirmations from './components/confirmations/Confirmations';
 import StepByStep from './components/shared/StepByStep';
 import StepTwo from './components/shared/StepTwo';
 import Team from './components/shared/Team';
+import Submission from './components/shared/Submission';
+
 
 
 const App = () => (
@@ -30,6 +32,7 @@ const App = () => (
         <Route path="/team" element={<Team />} />
         <Route path='/StepByStep' element={ <StepByStep /> } />
         <Route exact path="/" element={<ProtectedRoute />}>
+          <Route path='/Submission' element={ <Submission />} />
           <Route path='/StepTwo' element={ <StepTwo />} />
           <Route path='/services' element={ <Services /> } />
           <Route path='/services/:serviceId/edit' element={ <ServiceForm /> } />

@@ -12,7 +12,7 @@ const MainNavbar = ({user, handleLogout }) => {
     if (user) {
       return (
         <>
-        <NavCon>
+        
           <Nav.Link>
             <Link to='/profile'>
               Profile
@@ -30,7 +30,7 @@ const MainNavbar = ({user, handleLogout }) => {
           <Nav.Link onClick={() => handleLogout()}>
             Logout
           </Nav.Link>
-          </NavCon>
+          
         </>
       )
     } else {
@@ -65,7 +65,7 @@ const MainNavbar = ({user, handleLogout }) => {
   // links that show up regardless of login or out
   return (
     <>
-    <NavCon>
+    
      <Navbar collapseOnSelect expand="lg">
         
           <Nav className="justify-content-left">
@@ -77,7 +77,11 @@ const MainNavbar = ({user, handleLogout }) => {
               </Nav.Link>
             </Nav.Item>
              <Nav.Item>
-              <Nav.Link eventKey="link-2">Menu Two</Nav.Link>
+              <Nav.Link>
+                <Link to='/submission'>
+                  Submission
+                </Link>
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="link-3">Menu Three</Nav.Link>
@@ -99,7 +103,7 @@ const MainNavbar = ({user, handleLogout }) => {
           </Navbar.Collapse>
         
       </Navbar>
-    </NavCon>
+    
     </>
   )
 }
