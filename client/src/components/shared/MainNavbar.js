@@ -70,7 +70,11 @@ const MainNavbar = ({user, handleLogout }) => {
         
           <Nav className="justify-content-left">
             <Nav.Item>
-              <Nav.Link eventKey="link-1">Menu One</Nav.Link>
+              <Nav.Link>
+                <Link to='/team'>
+                  Team
+                </Link>
+              </Nav.Link>
             </Nav.Item>
              <Nav.Item>
               <Nav.Link eventKey="link-2">Menu Two</Nav.Link>
