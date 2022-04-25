@@ -87,6 +87,36 @@
     color: #0c52a1;
   }
 
+  .color-nav {
+background-color: #1f341d ;
+
+
+
+
+  }
+
+  .color-link {
+   text-decoration-line: none;
+   color:#fff ;
+   justify-content: center;
+
+  }
+  .main-footer {
+    background-color: #1f341d ;
+    color:#fff ;
+    align-items: center;
+    padding: 20px;
+    /* position:absolute;
+   bottom:0;
+   width:100%; */
+   bottom: 0;
+   position: fixed;
+   width: 110%;
+   
+
+  }
+
+  
 /* .App {
   text-align: center;
 }

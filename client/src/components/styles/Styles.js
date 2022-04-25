@@ -25,6 +25,8 @@ export const SBSRow = styled(Row)`
   width: 50%;
   margin: 0 auto;
   border-bottom: 5px;
+  padding-bottom: 150px;
+
   
   
   `
@@ -42,9 +44,44 @@ export const SBSRow = styled(Row)`
 
 `
 export const SBSButton = styled(Button)`
-margin-left: 80%;
+  margin-left: 80%;
   margin-bottom: 20px;
   width: 100px;
+  background-color: white;
+  color: black;
+  border: 2px solid #1f341d;
+  &:hover {
+    background-color: #82af46;
+    color: #ffffff;
+    border: none;
+  }
+
+  
+
+  `
+  export const LButton = styled(Button)`
+  
+  background-color: white;
+  color: black;
+  border: 2px solid #1f341d;
+  &:hover {
+    background-color: #82af46;
+    
+    border: none;
+  }
+  
+
+  
+
+  `
+  export const LogButton = styled(Button)`
+  
+  background-color: white;
+  color: black;
+  border: 2px solid #1f341d;
+  
+  
+
   
 
   `
@@ -71,21 +108,18 @@ margin-left: 80%;
   }
   
   export const MainHeader = styled.div`
-   background-color: #E4F1FD;
-   min-height: 70vh;
+   background-image: url("https://images.unsplash.com/photo-1470137430626-983a37b8ea46?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+   min-height: 80vh;
    display: flex;
-   /* margin: 3em; */
-   /* flex-direction: column; */
-   align-items: left;
-   justify-content: left;
-   /* font-size: calc(10px + 2vmin); */
-   color: #297FCA;
+   justify-content: center;
+   color: #FFFFFF;
+   align-items: center;
   
-   border-bottom: 5px solid #FFFFFF;
-   text-align: left;
+   /* border-bottom: 5px solid #FFFFFF; */
+   text-align: center;
   `
-  export const MainHeaderText = styled(Col)`
-    /* margin: auto; */
+  export const MainHeaderText = styled(Container)`
+   align-items: center;
   `
   export const NavCon = styled(Container)`
     border: 2px solid #808080;
@@ -106,10 +140,10 @@ export const FormControl = styled(Form.Control)`
 
 export const PriceFormCon = styled(Container)`
   border-radius: 5px;
-  background-color: #E4F1FD;
-  border: 4px solid #2097F0;
+  border: 4px solid #1f341d;
   padding: 10% 5% 10% 10%;
   margin: 25px auto;
+  
 
 `
   
@@ -201,6 +235,20 @@ export const SubCon = styled(Container)`
   padding: 50px;
   margin-top: 100px;
   margin-bottom:100px
+  
+  
+`
+export const MCol = styled(Col)`
+align-items: center;
+justify-content: flex-end;
+display: flex;
+  
+  
+`
+export const RCol = styled(Col)`
+align-items: center;
+justify-content: center;
+display: flex;
   
   
 `
