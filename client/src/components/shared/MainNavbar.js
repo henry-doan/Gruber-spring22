@@ -2,7 +2,8 @@ import { AuthConsumer } from "../../providers/AuthProvider";
 import { Link } from 'react-router-dom';
 import StepByStep from "./StepByStep";
 import { Navbar, Nav, Container, Button} from 'react-bootstrap';
-import { NavCon } from "../styles/Styles";
+import { NavCon, SBSButton, LButton } from "../styles/Styles";
+import "../styles/App.css"
 
 
 const MainNavbar = ({user, handleLogout }) => {
@@ -38,7 +39,7 @@ const MainNavbar = ({user, handleLogout }) => {
       return (
         <>
           
-          <Nav.Link>
+          <Nav.Link className="color-link">
 
             <Link to='/StepByStep'>
               <li>
@@ -49,7 +50,7 @@ const MainNavbar = ({user, handleLogout }) => {
               {/* <li>
                 Login
               </li> */}
-              <Button>Login</Button>
+              <LButton>Login</LButton>
 
             </Link>
           </Nav.Link>
@@ -66,32 +67,30 @@ const MainNavbar = ({user, handleLogout }) => {
   return (
     <>
     
-     <Navbar collapseOnSelect expand="lg">
-        
-          <Nav className="justify-content-left">
+     <Navbar className= "color-nav" collapseOnSelect expand="lg">
+        <Nav>
+            <Link to='/' className="color-link">
+              <Navbar.Brand>Gruber</Navbar.Brand>
+            </Link>
+          </Nav>
+          <Nav >
             <Nav.Item>
               <Nav.Link>
-                <Link to='/team'>
+                <Link to='/team' className="color-link">
                   Team
                 </Link>
               </Nav.Link>
             </Nav.Item>
              <Nav.Item>
               <Nav.Link>
-                <Link to='/submission'>
+                <Link to='/submission' className="color-link">
                   Submission
                 </Link>
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="link-3">Menu Three</Nav.Link>
-            </Nav.Item>
+           
           </Nav>
-          <Nav className="justify-content-center">
-            <Link to='/'>
-              <Navbar.Brand>Gruber</Navbar.Brand>
-            </Link>
-          </Nav>
+          
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">

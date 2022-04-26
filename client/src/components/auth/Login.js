@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
 import Flash from '../shared/Flash';
+import { MainHeader, MainHeaderText, SubHeader, NavCon, GrubCon, LogButton} from '../styles/Styles';
+import { Button } from 'react-bootstrap';
 
 const Login = ({ handleLogin, errors, setErrors }) => {
   const [user, setUser] = useState({ email: '', password: '' })
@@ -21,6 +23,8 @@ const Login = ({ handleLogin, errors, setErrors }) => {
         :
         null
       }
+      <MainHeader>
+        <MainHeaderText>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <label>Email</label>
@@ -42,8 +46,10 @@ const Login = ({ handleLogin, errors, setErrors }) => {
           type='password'
           onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
-        <button type='submit'>Submit</button>
+        <LogButton type='submit'>Login</LogButton>
       </form>
+      </MainHeaderText>
+      </MainHeader>
     </>
   )  
 }

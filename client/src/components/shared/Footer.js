@@ -1,21 +1,31 @@
 
 import { Link } from 'react-router-dom';
 import { Row, Container, Button, Col} from "react-bootstrap";
+import "../styles/App.css"
+import { LButton, RCol, MCol } from '../styles/Styles';
 
 const Footer = () => {
   return(
-    <div className="main-footer">
-      <div className="container">
-        <hr />
-        <div className="row">
-          <p className="col-sm">
+    // <div className="main-footer">
+      
+        
+        <Row className="main-footer">
+          <Col>
+          <p>
             &copy;{new Date().getFullYear()} Powered by Devpoint Studios LLC | Get Started | Privacy Policy
           </p>
-        </div>
+          </Col>
+          <MCol>
+          <p>Get Your Lawn Mowed Now!</p>
+          </MCol>
+          <RCol>
+          <LButton>Sign Up</LButton>
+          </RCol>
+        </Row>
          
 
-      </div>
-    </div>
+     
+    
   )
 
 }
