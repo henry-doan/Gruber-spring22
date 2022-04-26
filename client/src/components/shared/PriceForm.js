@@ -308,8 +308,11 @@ const PriceForm = ({}) => {
 
         <p>Your intial set of quotes will be for mowing only. After the 1st mow you can add Shrub Pruning or other services. but not yet at this step</p>
 
-
+       
       </PriceFormCon>
+     
+      
+
     </>
   )
 }

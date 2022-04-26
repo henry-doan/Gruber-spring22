@@ -3,8 +3,9 @@ import { ServiceConsumer } from '../../providers/ServiceProvider';
 import { useState, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import PriceForm from '../shared/PriceForm';
-import { FormControl, PriceFormCon } from '../styles/Styles';
+import { FormControl, PriceFormCon, SBSButton, SRow } from '../styles/Styles';
 import DatePicker from "react-horizontal-datepicker";
+import '../styles/App.css'
 
 
 // Import React FilePond
@@ -140,7 +141,9 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
 
   return (
     <>
-      <h1>{ serviceId ? 'Update' : 'Create' } Service</h1>
+      <Row>
+      <h1 className='s-title'>{ serviceId ? 'Update' : 'Create' } Service</h1>
+      </Row>
       <Form onSubmit={handleSubmit}>
 
         
@@ -477,13 +480,13 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
      
 
         <p>Your intial set of quotes will be for mowing only. After the 1st mow you can add Shrub Pruning or other services. but not yet at this step</p>
-
+        <SBSButton variant="primary" type="submit">
+                  Submit
+                </SBSButton>
 
       </PriceFormCon>
 
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        
       </Form>
     </>
   )
