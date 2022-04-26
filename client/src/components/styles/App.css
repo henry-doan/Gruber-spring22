@@ -88,13 +88,7 @@
     transition: .6s;
   }
 
-  .color-nav {
-background-color: #1f341d ;
-
-
-
-
-  }
+ 
 
   .color-link {
    text-decoration-line: none !important;
@@ -103,6 +97,7 @@ background-color: #1f341d ;
    display: inline-block !important;
    margin: 5px;
    padding: 10px;
+
 
   }
   .log-color-link{
@@ -122,7 +117,7 @@ background-color: #1f341d ;
    bottom:0;
    width:100%; */
    bottom: 0;
-   position: fixed;
+   /* position: fixed; */
    width: 110%;
    
 

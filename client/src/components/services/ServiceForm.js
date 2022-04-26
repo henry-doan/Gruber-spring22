@@ -1,7 +1,7 @@
 import { Form, Button, Row, Col, Image, Container } from 'react-bootstrap';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
 import { useState, useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams, Link } from 'react-router-dom';
 import PriceForm from '../shared/PriceForm';
 import { FormControl, PriceFormCon, SBSButton, SRow } from '../styles/Styles';
 import DatePicker from "react-horizontal-datepicker";
@@ -480,9 +480,10 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
      
 
         <p>Your intial set of quotes will be for mowing only. After the 1st mow you can add Shrub Pruning or other services. but not yet at this step</p>
-        <SBSButton variant="primary" type="submit">
-                  Submit
-                </SBSButton>
+        
+          <SBSButton variant="primary" type="submit">
+                    Submit
+                  </SBSButton>
 
       </PriceFormCon>
 

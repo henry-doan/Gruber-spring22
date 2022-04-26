@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Row, Container, Button, Col, Form, Image, Card, Accordion } from 'react-bootstrap'
+import { Row, Container, Button, Col, Form, Image, Card, Accordion, Navbar } from 'react-bootstrap'
 
 
 export const SBSRow = styled(Row)`
@@ -109,12 +109,14 @@ export const SBSButton = styled(Button)`
   
   export const MainHeader = styled.div`
    background-image: url("https://images.unsplash.com/photo-1470137430626-983a37b8ea46?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-   min-height: 80vh;
+   min-height: 100vh;
    display: flex;
    justify-content: center;
    color: #FFFFFF;
    align-items: center;
    text-align: center;
+   background-repeat: no-repeat;
+  background-size: cover;
   `
   export const MainHeaderText = styled(Container)`
    align-items: center;
@@ -122,14 +124,17 @@ export const SBSButton = styled(Button)`
   `
   export const MainLogin = styled.div`
   background-image: url("https://images.unsplash.com/photo-1470137430626-983a37b8ea46?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   /* justify-content: center; */
   color: #FFFFFF;
   align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
  
   /* border-bottom: 5px solid #FFFFFF; */
   text-align: center;
+  padding-top: 75px;
  `
  export const MainLoginText = styled(Container)`
   /* align-items: center; */
@@ -137,15 +142,22 @@ export const SBSButton = styled(Button)`
  
  `
 
-  export const NavCon = styled(Container)`
-    border: 2px solid #808080;
+  export const NavCon = styled(Navbar)`
     width: 100%;
+    background-color: #1f341d ;
+    position: fixed;
+    z-index: 99;
   `
   export const GrubCon = styled(Container)`
   
 `
-export const RegCon = styled(Container)`
+export const RegCon = styled.div`
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 200px;
   
+
 `
 
 export const FormControl = styled(Form.Control)`
@@ -165,7 +177,7 @@ export const PriceFormCon = styled(Container)`
   
 export const MainTeam = styled.div`
   width: 100%;
-  min-height: 70vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -174,7 +186,8 @@ export const MainTeam = styled.div`
   background-image: url('https://images.unsplash.com/photo-1558337587-80f6bbf67e01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
   background-repeat: no-repeat;
   background-size: cover;
-  
+  padding-bottom: 50px;
+  padding-top: 75px;
   
 `
 
@@ -185,7 +198,7 @@ export const MeetTeam = styled.div`
   height: 300px;
   color: black;
   padding: 25px;
-  margin: 5% 10% 5% 4%;
+  margin: 15% 10% 10% 4%;
   border: 5px double lightgreen;
   border-radius: 10px;
   box-shadow: 0 0 22px;
@@ -287,13 +300,16 @@ export const SubCon = styled(Container)`
     display: flex;
     width:100%;
     padding: 70px 0px 70px 0px;
+    min-height: 100vh;
   `
   export const SubCol = styled(Container)`
   background-color: white;
   width: 50%;
   padding: 50px;
   margin-top: 100px;
-  margin-bottom:100px
+  margin-bottom:100px;
+  height: 300px;
+  
   
   
 `
@@ -320,9 +336,12 @@ display: flex;
 export const SRow = styled(Row)`
 align-items: center;
 justify-content: center;
+  
+`
 
-  
-  
+export const ServCon = styled(Container)`
+  min-height: 100vh;
+  padding-top: 75px;
 `
 
 

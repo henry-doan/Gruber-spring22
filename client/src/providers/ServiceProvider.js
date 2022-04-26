@@ -42,7 +42,7 @@ const ServiceProvider = ({ user, addInvoice, addNote, children }) => {
         addInvoice(res.data.id, invoice)
         addNote(res.data.id, note)
         setServices([...services, res.data]) 
-        navigate('/services')
+        navigate('/submission')
       })
       .catch( err => console.log(err))
   }
