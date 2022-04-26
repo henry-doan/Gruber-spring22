@@ -96,10 +96,21 @@ background-color: #1f341d ;
   }
 
   .color-link {
-   text-decoration-line: none;
-   color:#fff ;
-   justify-content: center;
+   text-decoration-line: none !important;
+   color:#fff !important;
+   justify-content: center !important;
+   display: inline-block !important;
+   margin: 5px;
+   padding: 10px;
 
+  }
+  .log-color-link{
+    text-decoration-line: none !important;
+    color:#fff !important;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 40px;
   }
   .main-footer {
     background-color: #1f341d ;
@@ -114,6 +125,32 @@ background-color: #1f341d ;
    width: 110%;
    
 
+  }
+
+  .login-form {
+    display: inline-block;
+    padding: 10px;
+    
+    
+  }
+
+  .form-input {
+    margin: 10px;
+  }
+
+  .s-title {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .sImg {
+    margin-left: 10%;
+    margin-top: 10%;
+  }
+
+  .s-prof {
+    margin: 90px auto;
   }
 
   

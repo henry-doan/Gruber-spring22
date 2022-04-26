@@ -19,7 +19,11 @@ const Footer = () => {
           <p>Get Your Lawn Mowed Now!</p>
           </MCol>
           <RCol>
-          <LButton>Sign Up</LButton>
+          <Link to='/stepbystep'>
+              
+              <LButton>Sign Up</LButton>
+
+            </Link>
           </RCol>
         </Row>
          

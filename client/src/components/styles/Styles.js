@@ -79,10 +79,10 @@ export const SBSButton = styled(Button)`
   background-color: white;
   color: black;
   border: 2px solid #1f341d;
-  
-  
-
-  
+  &:hover {
+    background-color: #82af46;
+    border: none;
+  }
 
   `
   const fontSize = (size) => {
@@ -114,13 +114,29 @@ export const SBSButton = styled(Button)`
    justify-content: center;
    color: #FFFFFF;
    align-items: center;
-  
-   /* border-bottom: 5px solid #FFFFFF; */
    text-align: center;
   `
   export const MainHeaderText = styled(Container)`
    align-items: center;
+   padding: 10px;
   `
+  export const MainLogin = styled.div`
+  background-image: url("https://images.unsplash.com/photo-1470137430626-983a37b8ea46?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  min-height: 80vh;
+  display: flex;
+  /* justify-content: center; */
+  color: #FFFFFF;
+  align-items: center;
+ 
+  /* border-bottom: 5px solid #FFFFFF; */
+  text-align: center;
+ `
+ export const MainLoginText = styled(Container)`
+  /* align-items: center; */
+  
+ 
+ `
+
   export const NavCon = styled(Container)`
     border: 2px solid #808080;
     width: 100%;
@@ -238,10 +254,16 @@ export const SubCon = styled(Container)`
   
   
 `
-export const MCol = styled(Col)`
+  export const MCol = styled(Col)`
+  align-items: center;
+  justify-content: flex-end;
+  display: flex;
+    
+    
+  `
+export const imgCol = styled(Col)`
 align-items: center;
-justify-content: flex-end;
-display: flex;
+justify-content: center;
   
   
 `
@@ -249,6 +271,13 @@ export const RCol = styled(Col)`
 align-items: center;
 justify-content: center;
 display: flex;
+  
+  
+`
+export const SRow = styled(Row)`
+align-items: center;
+justify-content: center;
+
   
   
 `

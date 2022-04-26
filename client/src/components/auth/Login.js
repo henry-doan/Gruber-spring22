@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
 import Flash from '../shared/Flash';
-import { MainHeader, MainHeaderText, SubHeader, NavCon, GrubCon, LogButton} from '../styles/Styles';
-import { Button } from 'react-bootstrap';
+import { MainLogin, MainLoginText, LogButton} from '../styles/Styles';
+import { Button, Row } from 'react-bootstrap';
+import "../styles/App.css"
 
 const Login = ({ handleLogin, errors, setErrors }) => {
   const [user, setUser] = useState({ email: '', password: '' })
@@ -23,12 +24,15 @@ const Login = ({ handleLogin, errors, setErrors }) => {
         :
         null
       }
-      <MainHeader>
-        <MainHeaderText>
+      <MainLogin>
+        <MainLoginText>
+        
       <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input
+      
+      <form onSubmit={handleSubmit}className='login-form'>
+        <Row>
+        {/* <label>Email</label> */}
+        <input className='form-input'
           type="email"
           autoFocus
           required         
@@ -36,20 +40,22 @@ const Login = ({ handleLogin, errors, setErrors }) => {
           value={user.email}
           placeholder='Email'
           onChange={(e) => setUser({ ...user, email: e.target.value })}
-        />
-        <label>Password</label>
-        <input
+        /></Row>
+        <Row>
+        
+        <input className='form-input'
           required
           name='password'
           value={user.password}
           placeholder='Password'
           type='password'
           onChange={(e) => setUser({ ...user, password: e.target.value })}
-        />
+        /></Row>
         <LogButton type='submit'>Login</LogButton>
       </form>
-      </MainHeaderText>
-      </MainHeader>
+      
+      </MainLoginText>
+      </MainLogin>
     </>
   )  
 }
