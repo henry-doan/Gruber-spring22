@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Row, Container, Button, Col, Form, Image } from 'react-bootstrap'
+import { Row, Container, Button, Col, Form, Image, Card, Accordion } from 'react-bootstrap'
 
 
 export const SBSRow = styled(Row)`
@@ -165,30 +165,71 @@ export const PriceFormCon = styled(Container)`
   
 export const MainTeam = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #1E321B;
+  color: white;
+  background-image: url('https://images.unsplash.com/photo-1558337587-80f6bbf67e01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
   
 `
+
+export const MeetTeam = styled.div`
+  
+  background-color: white;
+  max-width: 460px;
+  height: 300px;
+  color: black;
+  padding: 25px;
+  margin: 5% 10% 5% 4%;
+  border: 5px double lightgreen;
+  border-radius: 10px;
+  box-shadow: 0 0 22px;
+  opacity: .9;
+  
+
+`
  
-export const ProfileCard = styled.div`
+export const ProfileCard = styled(Card)`
   position: relative;
   font-family: sans-serif;
-  width: 200px;
-  height: 200px;
-  background: #fff;
-  padding: 30px;
-  border-radius: 50%;
-  box-shadow: 0 0 22px #3336;
+  
+  padding: 20px;
+  border-radius: 15px;
+  /* box-shadow: 0 0 12px white; */
   transition: .6s;
-  margin: 0 auto;
+  margin: 0px auto 15px auto;
+  background-color: #00000000;
+  /* border: 1px dotted ; */
+  border: none;
+  /* background-image: transparent; */
+
  
   &:hover {
-    border-radius: 10px;
-     height: 250px;
+    transform: scale(1.1);
+    opacity: 1;
+    z-index: 99;
+    /* box-shadow: 0 0 20px lightgreen; */
   }
+`
+export const Acc = styled(Card)`
+  background-color: #1E321B;
+  height: 100px;
+  
+`
+
+export const AccItem = styled(Accordion.Item)`
+  background-color: #1E321B;
+  border: none;
+  
+`
+
+export const AccHeader = styled(Accordion.Header)`
+  /* background-color: pink; */
 `
 
 export const ImgContainer = styled.div`
@@ -204,24 +245,26 @@ export const ImgContainer = styled.div`
   `
 
 
-export const CardImg = styled.img`
+export const CardImg = styled(Card.Img)`
   width: 100%;
   border-radius: 50%;
-  box-shadow: 0 0 22px #3336;
+  box-shadow: 0 0 22px;
   transition: .6s;
   &:hover {
     border-radius: 10px;
+    transform: translateY(-30px);
+    z-index: 99;
   }
 `
 
-export const TeamCaption = styled.div`
+export const TeamCaption = styled(Card.Body)`
   text-align: center;
-  transform: translateY(-80px);
+  /* transform: translateY(-20px);
   opacity: 0;
-  /* transition: .6s; */
+  transition: .6s;
   &:hover {
     opacity: 1;
-  }
+  } */
 `
 
 export const TeamName = styled.h3`
