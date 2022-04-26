@@ -2,7 +2,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import ServiceShow from './ServiceShow';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
 import { useEffect } from 'react';
-// import { MyServiceHeader } from '../../styles/ServiceStyles';
+import {ServCon} from '../styles/Styles';
 
 
 const ServiceList = ({ services, getAllServices }) => {
@@ -14,7 +14,7 @@ const ServiceList = ({ services, getAllServices }) => {
   return ( 
     <>
       <h1>My Services</h1>
-      <Container>
+      <ServCon>
         <Row md={4} sm={12}>
           { services.map( s => 
             <Col>
@@ -25,7 +25,7 @@ const ServiceList = ({ services, getAllServices }) => {
             </Col>
           )}
         </Row>
-      </Container>
+      </ServCon>
     </>
   )
 }

@@ -3,7 +3,7 @@ import { AuthConsumer } from "../../providers/AuthProvider";
 
 import { Row, Col, Modal, Button, Form } from 'react-bootstrap';
 import { Link } from "react-router-dom"
-import { RegCon } from '../styles/Styles';
+import { RegCon, SBSButton } from '../styles/Styles';
 
 
 const Register = ({ handleRegister }) => {
@@ -122,7 +122,7 @@ const Register = ({ handleRegister }) => {
           </Col>
           <Col>
             <Form.Group>
-              <Form.Label>Password Confirmation</Form.Label>
+              <Form.Label>Confirmation</Form.Label>
                 <Form.Control
                   required
                   name='passwordConfirmation'
@@ -139,7 +139,7 @@ const Register = ({ handleRegister }) => {
         <br>
         </br>
         {/* <Link to="/StepTwo"> */}
-        <Button type='submit'>Submit</Button>
+        <SBSButton type='submit'>Submit</SBSButton>
         {/* </Link> */}
       </Form>
       </Col>

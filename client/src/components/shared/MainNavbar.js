@@ -27,6 +27,13 @@ const MainNavbar = ({user, handleLogout }) => {
               {/* <img src={user.image} /> */}
             </Link>
           </Nav.Link>
+
+          <Nav.Link>
+            <Link to='/team' className="color-link">
+              Team
+            </Link>
+          </Nav.Link>
+           
           
           <Nav.Link className="log-color-link" onClick={() => handleLogout()} >
             
@@ -43,6 +50,13 @@ const MainNavbar = ({user, handleLogout }) => {
           
           <Nav.Link className="color-link">
 
+
+          
+            <Link to='/team' className="color-link">
+              Team
+            </Link>
+        
+          
             <Link to='/StepByStep' className="color-link">
               <li>
                 Sign Up
@@ -69,27 +83,21 @@ const MainNavbar = ({user, handleLogout }) => {
   return (
     <>
     
-     <Navbar className= "color-nav" collapseOnSelect expand="lg">
+     <NavCon collapseOnSelect expand="lg">
         <Nav>
             <Link to='/'className="color-link">
               <Navbar.Brand className="color-link">Gruber</Navbar.Brand>
             </Link>
           </Nav>
           <Nav >
-            <Nav.Item>
-              <Nav.Link>
-                <Link to='/team' className="color-link">
-                  Team
-                </Link>
-              </Nav.Link>
-            </Nav.Item>
-             <Nav.Item>
+            
+             {/* <Nav.Item>
               <Nav.Link>
                 <Link to='/submission' className="color-link">
                   Submission
                 </Link>
               </Nav.Link>
-            </Nav.Item>
+            </Nav.Item> */}
            
           </Nav>
           
@@ -103,7 +111,7 @@ const MainNavbar = ({user, handleLogout }) => {
             </Nav>
           </Navbar.Collapse>
         
-      </Navbar>
+      </NavCon>
     
     </>
   )
