@@ -100,6 +100,22 @@
 
 
   }
+
+  .modal-link {
+    text-decoration-line: none !important;
+   color:#C1E4CF !important;
+   margin-left: 15px;
+
+
+  }
+  .modal-link-2 {
+    text-decoration-line: none !important;
+   color:#C1E4CF !important;
+   margin-left: 15px;
+   margin-top: 20px;
+   
+
+  }
   .log-color-link{
     text-decoration-line: none !important;
     color:#fff !important;
@@ -141,14 +157,17 @@
   }
 
   .sImg {
-    margin-left: 10%;
-    margin-top: 10%;
+    margin-left: 20%;
+    margin-top: 16%;
   }
 
   .s-prof {
     margin: 90px auto;
   }
+  
 
+
+  
   
 /* .App {
   text-align: center;

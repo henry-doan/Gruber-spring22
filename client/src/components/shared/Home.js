@@ -1,6 +1,8 @@
-import { MainHeader, MainHeaderText, SubHeader, NavCon, GrubCon, LButton} from '../styles/Styles';
+import { MainHeader, MainHeaderText, SubHeader, NavCon, GrubCon, LButton, HomeImg} from '../styles/Styles';
 import {Row, Nav, Button, Col, Container, Accordion } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import logogw2 from "../styles/images/logogw2.png";
+import "../styles/App.css"
 
 
 const Home = () => (
@@ -14,8 +16,8 @@ const Home = () => (
             
             
         <MainHeaderText>
-          <h4>Logo</h4>
-          <h1>The Uber for Lawn Care.</h1>
+          <HomeImg src={logogw2}></HomeImg>
+          <h1 className='homeheader'>The Uber for Lawn Care.</h1>
           <h1>Simple. Easy. Fast.</h1>
          
         

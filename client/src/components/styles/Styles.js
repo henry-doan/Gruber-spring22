@@ -23,9 +23,10 @@ export const SBSRow = styled(Row)`
   `
   export const SBSContainer = styled(Container)`
   width: 50%;
-  margin: 0 auto;
+  padding-top: 100px;
   border-bottom: 5px;
   padding-bottom: 150px;
+  
 
   
   
@@ -51,7 +52,7 @@ export const SBSButton = styled(Button)`
   color: black;
   border: 2px solid #1f341d;
   &:hover {
-    background-color: #82af46;
+    background-color: #BED4AA;
     color: #ffffff;
     border: none;
   }
@@ -65,7 +66,7 @@ export const SBSButton = styled(Button)`
   color: black;
   border: 2px solid #1f341d;
   &:hover {
-    background-color: #82af46;
+    background-color: #BED4AA;
     
     border: none;
   }
@@ -80,7 +81,7 @@ export const SBSButton = styled(Button)`
   color: black;
   border: 2px solid #1f341d;
   &:hover {
-    background-color: #82af46;
+    background-color: #BED4AA;
     border: none;
   }
 
@@ -121,6 +122,7 @@ export const SBSButton = styled(Button)`
   export const MainHeaderText = styled(Container)`
    align-items: center;
    padding: 10px;
+   margin-bottom: 125px;
   `
   export const MainLogin = styled.div`
   background-image: url("https://images.unsplash.com/photo-1470137430626-983a37b8ea46?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
@@ -141,16 +143,31 @@ export const SBSButton = styled(Button)`
   
  
  `
+  export const ConCon = styled(Container)`
+  margin-top: 15px;
+  min-height: 75vh;
+  text-align: center;
 
+  
+  
+  
+  `
   export const NavCon = styled(Navbar)`
     width: 100%;
-    background-color: #1f341d ;
+    height: 100px;
+    background-color: #21381C;
     position: fixed;
     z-index: 99;
+    
   `
-  export const GrubCon = styled(Container)`
+  export const InRow =styled(Row)`
+  margin-top:75px;
+  margin-bottom: 500px;
   
-`
+  `
+
+
+
 export const RegCon = styled.div`
   min-height: 100vh;
   justify-content: center;
@@ -268,6 +285,27 @@ export const CardImg = styled(Card.Img)`
     transform: translateY(-30px);
     z-index: 99;
   }
+`
+export const CardImg2 = styled(Card.Img)`
+  width: 20%;
+  margin-left: 95px;
+  margin-top: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 22px;
+  color: white;
+  transition: .6s;
+  
+`
+export const NavImg = styled(Image)`
+width: 110px;
+margin: 0;
+
+`
+export const HomeImg = styled(Image)`
+width: 600px;
+margin-top: 50px;
+
+
 `
 
 export const TeamCaption = styled(Card.Body)`

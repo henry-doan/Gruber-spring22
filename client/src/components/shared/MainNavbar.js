@@ -2,8 +2,9 @@ import { AuthConsumer } from "../../providers/AuthProvider";
 import { Link } from 'react-router-dom';
 import StepByStep from "./StepByStep";
 import { Navbar, Nav, Container, Button} from 'react-bootstrap';
-import { NavCon, SBSButton, LButton } from "../styles/Styles";
+import { NavCon, SBSButton, LButton, NavImg } from "../styles/Styles";
 import "../styles/App.css"
+import logogw2 from "../styles/images/logogw2.png"
 
 
 const MainNavbar = ({user, handleLogout }) => {
@@ -28,11 +29,7 @@ const MainNavbar = ({user, handleLogout }) => {
             </Link>
           </Nav.Link>
 
-          <Nav.Link>
-            <Link to='/team' className="color-link">
-              Team
-            </Link>
-          </Nav.Link>
+          
            
           
           <Nav.Link className="log-color-link" onClick={() => handleLogout()} >
@@ -86,7 +83,7 @@ const MainNavbar = ({user, handleLogout }) => {
      <NavCon collapseOnSelect expand="lg">
         <Nav>
             <Link to='/'className="color-link">
-              <Navbar.Brand className="color-link">Gruber</Navbar.Brand>
+              <NavImg src={logogw2} ></NavImg>
             </Link>
           </Nav>
           <Nav >

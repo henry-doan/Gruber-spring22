@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ConfirmationConsumer } from "../../providers/ConfirmationProvider";
-import { Row, Col, Modal, Button,  } from 'react-bootstrap';
+import { Row, Col, Modal, Button, Container,  } from 'react-bootstrap';
 import Moment from 'react-moment';
 import ConfirmationEdit from "./ConfirmationEdit";
+import { InRow, ConCon } from "../styles/Styles";
 
 const ConfirmationList = ({ confirmations, getAllConfirmations, deleteConfirmation }) => {
   const { invoiceId } = useParams()
@@ -15,8 +16,15 @@ const ConfirmationList = ({ confirmations, getAllConfirmations, deleteConfirmati
 
   return (
     <>
+    <ConCon>
+    <h1>Confirmations</h1>
+    </ConCon>
       { confirmations.map( c => 
-        <Row>
+        
+        <Container>
+        
+        <InRow>
+          
           <Col>
             {/* {c.price} */}
           </Col>
@@ -59,7 +67,8 @@ const ConfirmationList = ({ confirmations, getAllConfirmations, deleteConfirmati
             </Modal>
           </Col>
           <hr />
-        </Row> 
+        </InRow> 
+        </Container>
       )}
     </>
   )
