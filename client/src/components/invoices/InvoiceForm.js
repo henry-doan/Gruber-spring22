@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { InvoiceConsumer } from '../../providers/InvoiceProvider';
 import { useParams } from 'react-router-dom';
+import { LButton } from '../styles/Styles';
 
 const InvoiceForm = ({ setAdd, addInvoice, id, price, approve, setEdit, updateInvoice}) => {
   const [invoice, setInvoice] = useState({ price: '', approve: false })
@@ -57,9 +58,9 @@ const InvoiceForm = ({ setAdd, addInvoice, id, price, approve, setEdit, updateIn
           {/* </Col> */}
         
        
-        <Button variant="primary" type="submit">
+        <LButton variant="primary" type="submit">
           Submit
-        </Button>
+        </LButton>
       </Form>
     </>
   )

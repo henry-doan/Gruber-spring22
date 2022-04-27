@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { InvoiceConsumer } from "../../providers/InvoiceProvider";
-import { Row, Col, Modal, Button } from 'react-bootstrap';
+import { Row, Col, Modal, Button, Container } from 'react-bootstrap';
 import Moment from 'react-moment';
 import InvoiceEdit from "./InvoiceEdit";
+import {InRow, LButton} from '../styles/Styles';
+import '../styles/App.css'
 
 const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
   const { serviceId } = useParams()
@@ -15,8 +17,13 @@ const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
 
   return (
     <>
+    <br>
+    </br>
+    <br>
+    </br>
       { invoices.map( i => 
-        <Row>
+      <Container>
+        <InRow>
           <Col>
             {i.price}
           </Col>
@@ -24,7 +31,7 @@ const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
             {n.body.substring(0, 20)}
           </Col> */}
           <Col>
-            <Button onClick={() => setShow(true)}>+</Button>
+            <LButton onClick={() => setShow(true)}>View Invoice</LButton>
             <Modal show={show} onHide={() => setShow(false)}>
               <Modal.Header closeButton>
               </Modal.Header>
@@ -46,20 +53,21 @@ const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
                 </br>
 
                 <InvoiceEdit {...i} />
-                <Button onClick={() => {
+                <LButton onClick={() => {
                   deleteInvoice(serviceId, i.id)
                   setShow(false)
                 }}>
                   Delete
-                </Button>
-                <Link to={`/invoices/${i.id}/confirmations`}>
+                </LButton>
+                <Link className="modal-link" to={`/invoices/${i.id}/confirmations`}>
                   Confirmation
                 </Link>
               </Modal.Body>
             </Modal>
           </Col>
           <hr />
-        </Row> 
+        </InRow> 
+        </Container>
       )}
     </>
   )

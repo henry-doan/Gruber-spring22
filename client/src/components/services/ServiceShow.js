@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
 import Moment from 'react-moment';
 import {LButton } from '../styles/Styles';
+import '../styles/App.css'
 
 const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, service_image, complete, deleteService }) => {
   const [show, setShow] = useState(false);
@@ -46,8 +47,9 @@ const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, ser
                   </Moment> 
                 </p>
                 <h4>Complete: {complete}</h4>
-                <h4>Price: </h4>
-                <Link 
+                
+                <Link
+                  
                   to={`/services/${id}/edit`}
                   state={{ id: id, lawn_size: lawn_size, service_type: service_type, frequency: frequency, sdate: sdate, stime: stime, complete: complete, service_image: service_image }}
                 >
@@ -58,15 +60,17 @@ const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, ser
                 >
                   Delete
                 </LButton>
-                <Link to={`/services/${id}/notes`}>
+                
+                <Link className='modal-link-2' to={`/services/${id}/notes`}>
                   Notes
                 </Link>
-                <Link to={`/services/${id}/addresses`}>
+                <Link className='modal-link-2' to={`/services/${id}/addresses`}>
                   Address
                 </Link>
-                <Link to={`/services/${id}/invoices`}>
+                <Link className='modal-link-2' to={`/services/${id}/invoices`}>
                   Invoice
                 </Link>
+                
               </Col>
               <Col>
                 <img src={service_image} alt='service' width='100%' />

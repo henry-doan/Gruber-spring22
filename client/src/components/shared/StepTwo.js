@@ -2,15 +2,20 @@ import { AuthConsumer } from '../../providers/AuthProvider';
 import { Col, Row, Container } from "react-bootstrap";
 import ServiceForm from '../../components/services/ServiceForm';
 import {imgCol} from '../styles/Styles'
+import bt from '../styles/images/BoyToy.png'
 
 const StepTwo = ({user}) => {
 
 return(
 <>
+<br>
+</br>
+<br>
+</br>
 
       <Row>
       <Col>
-    <img className='sImg' src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80" width="250px"></img>
+    <img className='sImg' src={bt} width="350px"></img>
     </Col>
       <Col>
       <div className='s-prof'>
