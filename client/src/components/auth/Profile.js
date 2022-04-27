@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Form, Row, Col, Image, Container, Button } from 'react-bootstrap';
+import { PButton, LButton, ProfCon, ProfForm } from '../styles/Styles';
 // Import React FilePond
 import { FilePond, File, registerPlugin } from 'react-filepond'
 
@@ -63,8 +64,12 @@ const Profile = ({ user, updateUser }) => {
   }
 
   const editView = () => (
+    
+    
     <Form onSubmit={handleSubmit}>
-      <Col md="4">
+      <Col>
+      <br>
+      </br>
         <FilePond 
             files={file}
             onupdatefiles={handleFileUpdate}
@@ -76,8 +81,10 @@ const Profile = ({ user, updateUser }) => {
               </span>  
             '
         />
+        <br>
+        </br>
       </Col>
-      <Col md="8">
+      <Col>
         <Form.Group>
           <Form.Label>First Name</Form.Label>
           <Form.Control 
@@ -121,7 +128,7 @@ const Profile = ({ user, updateUser }) => {
             required
           />
         </Form.Group>
-        <Form.Group>
+        {/* <Form.Group>
           <Form.Label>Role</Form.Label>
           <Form.Control 
             type="text" 
@@ -130,24 +137,26 @@ const Profile = ({ user, updateUser }) => {
             onChange={(e) => setFormValue({ ...formVals, role: e.target.value })}
             required
           />
-        </Form.Group>
-        <Button type='submit'>Update</Button>
+        </Form.Group> */}
+        <PButton type='submit'>Update</PButton>
       </Col>
-    </Form>
+      </Form>
+    
   )
 
   return (
-    <Container>
+    <ProfForm>
       <h1>Profile</h1>
-      <Row>
+      
         { editing ? editView() : profileView() }
-        <Col>
-          <Button onClick={() =>  setEditing(!editing) }>
+        
+          <PButton onClick={() =>  setEditing(!editing) }>
             { editing ? 'Cancel' : 'Edit' }
-          </Button>
-        </Col>
-      </Row>
-    </Container>
+          </PButton>
+        
+      
+    </ProfForm>
+    
   )
 }
 

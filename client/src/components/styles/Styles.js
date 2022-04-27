@@ -66,10 +66,29 @@ export const SBSButton = styled(Button)`
   color: black;
   border: 2px solid #1f341d;
   &:hover {
-    background-color: #BED4AA;
+    background-color: #BED4AA !important; 
     
     border: none;
   }
+  
+
+  
+
+  `
+  export const PButton = styled(Button)`
+  
+  background-color: white;
+  color: black;
+  border: 2px solid #1f341d;
+  margin-top: 20px;
+  width: 100px;
+
+  &:hover {
+    background-color: #BED4AA !important; 
+    
+    border: none;
+  }
+
   
 
   
@@ -159,6 +178,26 @@ export const SBSButton = styled(Button)`
     position: fixed;
     z-index: 99;
     
+  `
+  export const ProfCon = styled(Container)`
+    padding-top: 110px;
+    padding-bottom: 30px;
+    text-align:center;
+    margin
+    
+  
+  `
+  export const ProfForm = styled.div`
+  text-align: left;
+  
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50%;
+  font-weight: bold;
+  padding-top: 110px;
+  padding-bottom: 30px;
+  
   `
   export const InRow =styled(Row)`
   margin-top:75px;
