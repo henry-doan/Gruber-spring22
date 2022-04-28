@@ -1,15 +1,16 @@
 import AddressForm from './AddressForm';
 import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import { LButton } from '../styles/Styles';
 
 const AddressEdit = ({ id, street, city, state, zip }) => {
   const [editing, setEdit] = useState(false);
   
   return (
     <>
-      <Button onClick={() => setEdit(true)}>
+      <LButton onClick={() => setEdit(true)}>
         Edit
-      </Button>
+      </LButton>
       <Modal show={editing} onHide={() => setEdit(false)}>
         <Modal.Header closeButton>
         </Modal.Header>
