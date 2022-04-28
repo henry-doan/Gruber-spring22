@@ -119,6 +119,27 @@ const ServiceProvider = ({ user, addInvoice, addNote, children }) => {
       })
   }
 
+  const adminUpdateService = (id, service) => {
+    axios.put(`/api/services/${id}/adminUpdateService`,  {service} )
+    .then( res => {
+      const { data, headers } = res;
+      const newUpdatedServices = services.map( s => {
+        if (s.id === id) {
+          return data
+        }
+        return s
+      })
+      setServices(newUpdatedServices)
+      setHeaders(headers)
+      setFlash({ variant: 'success', msg: 'Service Edited!' })
+      navigate('/services')
+    })
+    .catch( err => {
+      console.log(err)
+      setFlash({ variant: 'danger', msg: err.response.data.errors[0] })
+    }); 
+  }
+
 
   return (
     <ServiceContext.Provider value={{
@@ -131,6 +152,7 @@ const ServiceProvider = ({ user, addInvoice, addNote, children }) => {
       addService,
       updateService,
       deleteService,
+      adminUpdateService,
     }}>
       { children }
     </ServiceContext.Provider>

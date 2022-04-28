@@ -1,6 +1,6 @@
 import { Form, Button, Row, Col, Image, Container } from 'react-bootstrap';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import PriceForm from '../shared/PriceForm';
 import { FormControl, PriceFormCon, SBSButton, SRow } from '../styles/Styles';
@@ -23,6 +23,8 @@ import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
 
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
+
+
 
 const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => {
   const [service, setService] = useState({ lawn_size: '', service_type: '', frequency: '', sdate: '', stime: '', service_image: null, complete: false })

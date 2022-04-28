@@ -1,6 +1,6 @@
 class Api::ServicesController < ApplicationController
-  before_action :set_user, except: [:allservices]
-  before_action :set_service, only: [:show, :update, :destroy ]
+  before_action :set_user, except: [:allservices, :adminUpdateService]
+  before_action :set_service, only: [:show, :update, :destroy]
 
   def index
     render json: @current_user.services
@@ -10,10 +10,14 @@ class Api::ServicesController < ApplicationController
     paginate json: Service.all
   end
 
-  # def AdminUpdateSrrvice
-  #   @service.complete = params[:complete] ? params[:complete] : @service.complete
-  #   Service.find(params[:id].update
-  # end
+  def adminUpdateService
+    @service = Service.find(params[:service_id])
+    if @service.update(service_params)
+      render json: @service
+    else
+      render json: { errors: @service.errors }, status: :unprocessable_entity
+    end
+  end
 
   def show
     render json: @service

@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   namespace :api do 
     resources :users, only: :update
       get '/allservices', to: 'services#allservices' 
-    resources :users, except: [:index, :show, :create, :destroy, :update] do 
-      resources :services
-    end
-    resources :services, except: [:index, :show, :create, :destroy, :update] do
+      resources :users, except: [:index, :show, :create, :destroy, :update] do 
+        resources :services
+      end
+      resources :services, except: [:index, :show, :create, :destroy, :update] do
+        put '/adminUpdateService', to: 'services#adminUpdateService'
       resources :notes
     end
     resources :services, except: [:index, :show, :create, :destroy, :update] do

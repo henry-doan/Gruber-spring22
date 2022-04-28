@@ -22,7 +22,7 @@ i = 1
       sdate: Faker::Date.backward(days: 14),
       stime: Faker::Time.backward(days: 5, period: :morning, format: :short),
       service_image: "https://images.unsplash.com/photo-1559792368-08e1355c7b7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-      complete: true,
+      complete: false,
       user_id: @user.id
     )
   end
