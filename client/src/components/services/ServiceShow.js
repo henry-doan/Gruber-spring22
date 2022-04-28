@@ -1,18 +1,36 @@
 import { Modal, Button, Card, Container, Row, Col } from 'react-bootstrap';
-import { useReducer, useState } from 'react';
+import { useReducer, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
 import Moment from 'react-moment';
-import {LButton } from '../styles/Styles';
-import '../styles/App.css'
+import {LButton, ServCard, ServCardImg } from '../styles/Styles';
+import '../styles/App.css';
+import ConnectedServiceForm from './ServiceForm';
+import Flash from '../shared/Flash';
 
-const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, service_image, complete, deleteService }) => {
+const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, service_image, complete, deleteService, flash, setFlash }) => {
   const [show, setShow] = useState(false);
+
+  // useEffect( () => {
+
+  //   // returned function will be called on component unmount 
+  //   return () => {
+  //     setFlash(null)
+  //   }
+  // }, [])
 
   return (
     <>
-      <Card style={{ width: '15rem', margin: '0 auto' }}>
-        <Card.Img variant="top" src={service_image} />
+       {/* { flash ?
+          <Flash
+            variant={flash.variant}
+            msg={flash.msg}
+          />
+        :
+        null
+      } */}
+      <ServCard style={{ width: '15rem', margin: '0 auto' }}>
+        <ServCardImg variant="top" src={service_image} />
         <Card.Body>
           <Card.Title>Lawn {id}</Card.Title>
           <LButton 
@@ -22,7 +40,7 @@ const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, ser
             Show
           </LButton>
         </Card.Body>
-      </Card>
+      </ServCard>
       <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
         </Modal.Header>
@@ -32,8 +50,9 @@ const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, ser
               <Col>
                 <h2>You Next Scheduled Service</h2>
                 <h4>Lawn Size:{lawn_size}</h4>
-                <h4>Service Type: {service_type}</h4>
-                <h4>Frequency: {frequency}</h4>
+                
+                {/* <h4>Service Type: {service_type}</h4>
+                <h4>Frequency: {frequency}</h4> */}
                 <p>
                   Date: &nbsp;
                   <Moment format="M/DD/YY">

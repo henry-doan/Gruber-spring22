@@ -6,4 +6,5 @@ class Service < ApplicationRecord
 
 
   # validates :lawn_size, :service_type, :frequency, :sdate, :stime, :service_image, presence: true
+  self.per_page = 10
 end

@@ -11,18 +11,39 @@ export const ServiceConsumer = ServiceContext.Consumer;
 
 const ServiceProvider = ({ user, addInvoice, addNote, children }) => {
   const [services, setServices] = useState([])
+  const [pagination, setPagination] = useState(1)
+  const [headers, setHeaders] = useState({})
+  const [flash, setFlash] = useState(null)
 
   const navigate = useNavigate()
 
-  const getAllServices = () => {
+  const getAllServices = (page = 1) => {
     if (user.role === 'Gruber') {
-      axios.get(`/api/allservices`)
-      .then( res => setServices(res.data) )
-      .catch( err => console.log(err))
+      axios.get(`/api/allservices?page=${page}`)
+      .then( res => {
+        const { headers, data } = res
+        const totalPages = Math.ceil(headers['x-total'] / headers['x-per-page']);
+        setServices(data) 
+        setPagination(totalPages)
+        setHeaders(headers)
+      })
+      .catch( err => {
+        console.log(err)
+        setFlash({ variant: 'danger', msg: err.response.data.errors[0] })
+      });
     } else {
-      axios.get(`/api/users/${user.id}/services`)
-      .then( res => setServices(res.data) )
-      .catch( err => console.log(err))
+      axios.get(`/api/users/${user.id}/services?page=${page}`)
+      .then( res => {
+        const { headers, data } = res
+        const totalPages = Math.ceil(headers['x-total'] / headers['x-per-page']);
+        setServices(data) 
+        setPagination(totalPages)
+        setHeaders(headers)
+      })
+      .catch( err => {
+        console.log(err)
+        setFlash({ variant: 'danger', msg: err.response.data.errors[0] })
+      });
     }
   }
 
@@ -38,13 +59,18 @@ const ServiceProvider = ({ user, addInvoice, addNote, children }) => {
 
     axios.post(`/api/users/${user.id}/services`,  service )
       .then( res => {
-
-        addInvoice(res.data.id, invoice)
-        addNote(res.data.id, note)
-        setServices([...services, res.data]) 
+        const { data, headers } = res
+        addInvoice(data.id, invoice)
+        addNote(data.id, note)
+        setServices([...services, data]) 
+        setHeaders(headers)
+        setFlash({ variant: 'success', msg: 'Service Created!' })
         navigate('/submission')
       })
-      .catch( err => console.log(err))
+      .catch( err => {       
+        console.log(err)
+        setFlash({ variant: 'danger', msg: 'field ' + err.response.data.errors.name[0] })
+      });
   }
 
 
@@ -60,31 +86,47 @@ const ServiceProvider = ({ user, addInvoice, addNote, children }) => {
 
     axios.put(`/api/users/${user.id}/services/${id}`,  service )
       .then( res => {
+        const { data, headers } = res;
         const newUpdatedServices = services.map( s => {
           if (s.id === id) {
-            return res.data
+            return data
           }
           return s
         })
         setServices(newUpdatedServices)
+        setHeaders(headers)
+        setFlash({ variant: 'success', msg: 'Service Edited!' })
         navigate('/services')
       })
-      .catch( err => console.log(err))
+      .catch( err => {
+        console.log(err)
+        setFlash({ variant: 'danger', msg: err.response.data.errors[0] })
+      }); 
   }
 
   const deleteService = (id) => {
     axios.delete(`/api/users/${user.id}/services/${id}`)
       .then( res => {
+        const { data, headers } = res
         setServices(services.filter( s => s.id !== id))
+        setHeaders(headers)
+        setFlash({ variant: 'success', msg: 'Service Deleted!' })
         navigate('/services')
       })
-      .catch( err => console.log(err))
+      .catch( err => {
+        console.log(err)
+        setFlash({ variant: 'danger', msg: err.response.data.errors[0] })
+      })
   }
 
 
   return (
     <ServiceContext.Provider value={{
       services,
+      pagination,
+      headers,
+      flash,
+      setFlash,
       getAllServices,
       addService,
       updateService,

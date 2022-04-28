@@ -40,6 +40,11 @@ gem "bootsnap", require: false
 gem 'devise_token_auth', '>= 1.2.0', git: "https://github.com/lynndylanhurley/devise_token_auth"
 gem 'cloudinary'
 
+# will paginate
+gem 'will_paginate'
+#relies on will paginate
+gem 'api-pagination'
+
 group :development, :test do
  gem 'pry'
  gem 'faker'

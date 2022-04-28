@@ -5,8 +5,8 @@ import { useLocation, useParams, Link } from 'react-router-dom';
 import PriceForm from '../shared/PriceForm';
 import { FormControl, PriceFormCon, SBSButton, SRow } from '../styles/Styles';
 import DatePicker from "react-horizontal-datepicker";
-import '../styles/App.css'
-
+import '../styles/App.css';
+import Flash from '../shared/Flash';
 
 // Import React FilePond
 import { FilePond, File, registerPlugin } from 'react-filepond'
@@ -24,7 +24,7 @@ import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 
-const ServiceForm = ({ addService, setAdd, updateService }) => {
+const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => {
   const [service, setService] = useState({ lawn_size: '', service_type: '', frequency: '', sdate: '', stime: '', service_image: null, complete: false })
 
   const [formVals, setFormVals] = useState({pets: '', lastcut: '', details: '', additions: '', frequency: ''})
@@ -33,7 +33,7 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
   
   const [file, setFile] = useState()
 
-  const [invoice, setInvoice] = useState({price: 0})
+  // const [invoice, setInvoice] = useState({price: 0})
 
   const location = useLocation()
   const { serviceId } = useParams()
@@ -42,6 +42,9 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
     if (serviceId) {
       const { lawn_size, service_type, frequency, sdate, stime, service_image, complete } = location.state
       setService({ lawn_size, service_type, frequency, sdate, stime, service_image, complete })
+    }
+    return () => {
+      setFlash(null)
     }
   }, [])
 
@@ -141,6 +144,14 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
 
   return (
     <>
+     { flash ?
+          <Flash
+            variant={flash.variant}
+            msg={flash.msg}
+          />
+        :
+        null
+      }
       <Row>
       <h1 className='s-title'>{ serviceId ? 'Update' : 'Create' } Service</h1>
       </Row>
@@ -184,7 +195,7 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
             </Form.Group>
           </Col>
           <Col>
-            <Form.Group className="mb-3">
+            {/* <Form.Group className="mb-3">
               <Form.Label>Service Type</Form.Label>
               <Form.Control 
                 name='service_type'
@@ -194,7 +205,7 @@ const ServiceForm = ({ addService, setAdd, updateService }) => {
                 placeholder="Service Type" 
                 required
               />
-            </Form.Group>
+            </Form.Group> */}
           </Col>
         </Row>
         {/* <Row>
