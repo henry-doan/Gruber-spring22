@@ -3,6 +3,8 @@ import {Container, Card, Row, Col, Button, Accordion, useAccordionButton} from '
 import { MainTeam, MeetTeam, CardImg, CardImg2, ProfileCard, TeamCaption, AccItem, AccHeader, Acc} from '../styles/Styles';
 import "../styles/App.css"
 import derz from "../styles/images/derz.jpg"
+import boston3 from "../styles/images/boston3.jpeg"
+
 
 
 const Team2 = () => (
@@ -72,7 +74,10 @@ const Team2 = () => (
 
 
           <ProfileCard style={{ width: '16rem' }}>
-            <CardImg variant="top" src="https://images.unsplash.com/photo-1537800534001-f3e01aa1c34c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2xvd258ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=1200&q=60" />
+            <CardImg variant="top" src={boston3} />
+            <a href="https://github.com/bdoug1027">
+            <CardImg2 classname= 'Hide' src= 'https://cdn-icons-png.flaticon.com/512/25/25231.png'></CardImg2>
+            </a>
             <Card.Body>
               <Card.Title>Boston Douglas</Card.Title>
               <Card.Text>
