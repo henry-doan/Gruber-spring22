@@ -44,7 +44,8 @@ export const SBSimg = styled.img`
   width: 200px;
 
 `
-export const SBSButton = styled(Button)`
+export const SBSButton = styled.button`
+  border-radius: 12px;
   margin-left: 80%;
   margin-bottom: 20px;
   width: 100px;
@@ -59,7 +60,7 @@ export const SBSButton = styled(Button)`
   `
 
 export const LButton = styled.button`
-  
+  border-radius: 12px;
   background-color: white;
   color: black;
   border: 2px solid #1f341d;
@@ -68,13 +69,14 @@ export const LButton = styled.button`
     border: none;
   }
   `
-export const PButton = styled(Button)`
+export const PButton = styled.button`
   
   background-color: white;
   color: black;
   border: 2px solid #1f341d;
   margin-top: 20px;
   width: 100px;
+  border-radius: 12px;
 
   &:hover {
     background-color: #BED4AA !important; 
@@ -83,11 +85,13 @@ export const PButton = styled(Button)`
   }
   `
 
-export const LogButton = styled(Button)`
+export const LogButton = styled.button`
   
   background-color: white;
   color: black;
   border: 2px solid #1f341d;
+  border-radius: 12px;
+  
   &:hover {
     background-color: #BED4AA;
     border: none;
@@ -194,10 +198,17 @@ export const ProfForm = styled.div`
   font-weight: bold;
   padding-top: 110px;
   padding-bottom: 30px;
+  margin-bottom: 260px;
 `
 export const InRow =styled(Row)`
   margin-top:75px;
   margin-bottom: 500px;
+
+`
+export const AdRow =styled(Row)`
+  margin-top:100px;
+  margin-bottom: 500px;
+  padding-top: 50px;
 
 `
 

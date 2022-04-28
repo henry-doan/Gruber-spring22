@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { AddressConsumer } from '../../providers/AddressProvider';
 import { useParams } from 'react-router-dom';
+import "../styles/App.css"
+import { LButton } from '../styles/Styles';
 
 const AddressForm = ({ setAdd, addAddress, id, street, city, state, zip, setEdit, updateAddress}) => {
   const [address, setAddress] = useState({ street: '', city: '', state: '', zip: ''})
@@ -28,6 +30,7 @@ const AddressForm = ({ setAdd, addAddress, id, street, city, state, zip, setEdit
 
   return(
     <>
+    <div className='ad-div'>
       <h1>{id ? 'Update' : 'Create'} Address</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
@@ -71,10 +74,11 @@ const AddressForm = ({ setAdd, addAddress, id, street, city, state, zip, setEdit
           />
         </Form.Group>
        
-        <Button variant="primary" type="submit">
+        <LButton variant="primary" type="submit">
           Submit
-        </Button>
+        </LButton>
       </Form>
+      </div>
     </>
   )
 }
