@@ -4,7 +4,7 @@ import { MainTeam, MeetTeam, CardImg, CardImg2, ProfileCard, TeamCaption, AccIte
 import "../styles/App.css"
 import derz from "../styles/images/derz.jpg"
 import boston3 from "../styles/images/boston3.jpeg"
-
+import austen from "../styles/images/austen.png"
 
 
 const Team2 = () => (
@@ -61,14 +61,15 @@ const Team2 = () => (
           
 
           <ProfileCard style={{ width: '16rem' }}>
-            <CardImg variant="top" src="https://images.unsplash.com/photo-1537800534001-f3e01aa1c34c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2xvd258ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=1200&q=60" />
+            <CardImg variant="top" src={austen} /> 
+              <a href="https://github.com/austenwilde">
+              <CardImg2 className='Hide' src='https://cdn-icons-png.flaticon.com/512/25/25231.png' />
+              </a>
             <Card.Body>
               <Card.Title>Austen Wilde</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                Trimmin bush and Mowin' lawns since '99
               </Card.Text>
-              
             </Card.Body>
           </ProfileCard>
 
