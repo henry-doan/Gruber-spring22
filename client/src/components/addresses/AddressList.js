@@ -18,11 +18,8 @@ const AddressList = ({ addresses, getAllAddresses, deleteAddress }) => {
 
   return (
     <>
-    <br>
-    </br>
-    <br>
-    </br>
-    <ConCon> 
+
+    
       
       { addresses.map( a =>
 
@@ -77,7 +74,7 @@ const AddressList = ({ addresses, getAllAddresses, deleteAddress }) => {
         </AdRow> 
        </div>
       )}
-     </ConCon>
+   
     </>
   )
 }

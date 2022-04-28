@@ -179,18 +179,9 @@ export const NavCollapse = styled(Nav)`
   
 `
 
-export const ProfCon = styled.div`
-  padding-top: 110px;
-  padding-bottom: 30px;
-  text-align:center;
-  background-image: url('https://images.unsplash.com/photo-1552761831-7ef8ec07adbd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Z3Jhc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60');
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
-  color: white;
-`
 export const ProfForm = styled.div`
   text-align: left;
-
+  
   align-items: center;
   justify-content: center;
   margin: 0 auto;
@@ -199,18 +190,18 @@ export const ProfForm = styled.div`
   padding-top: 110px;
   padding-bottom: 30px;
   margin-bottom: 260px;
-`
+  `
 export const InRow =styled(Row)`
   margin-top:75px;
   margin-bottom: 500px;
-
-`
+  
+  `
 export const AdRow =styled(Row)`
   margin-top:100px;
   margin-bottom: 500px;
   padding-top: 50px;
-
-`
+  
+  `
 
 
 
@@ -220,14 +211,14 @@ export const RegCon = styled.div`
   align-items: center;
   padding: 200px;
   
-
-`
+  
+  `
 
 export const FormControl = styled(Form.Control)`
   
   height: 100px;
-
-`
+  
+  `
 
 export const PriceFormCon = styled(Container)`
   border-radius: 5px;
@@ -270,43 +261,21 @@ export const MeetTeam = styled.div`
 
 `
  
-export const ProfileCard = styled(Card)`
-  position: relative;
-  font-family: sans-serif;
-  
-  padding: 20px;
-  border-radius: 15px;
-  /* box-shadow: 0 0 12px white; */
-  transition: .6s;
-  margin: 0px auto 15px auto;
-  background-color: #00000000;
-  /* border: 1px dotted ; */
-  border: none;
-  /* background-image: transparent; */
-
- 
-  &:hover {
-    transform: scale(1.1);
-    opacity: 1;
-    z-index: 99;
-    /* box-shadow: 0 0 20px lightgreen; */
-  }
-`
 export const Acc = styled(Card)`
   background-color: #1E321B;
   height: 100px;
   
-`
+  `
 
 export const AccItem = styled(Accordion.Item)`
   background-color: #1E321B;
   border: none;
   
-`
+  `
 
 export const AccHeader = styled(Accordion.Header)`
   /* background-color: pink; */
-`
+  `
 
 export const ImgContainer = styled.div`
   position: relative;
@@ -317,19 +286,44 @@ export const ImgContainer = styled.div`
   &:hover {
     transform: translateY(-60px);
   }
-
+  
+  `
+  export const ProfileCard = styled(Card)`
+    position: relative;
+    font-family: sans-serif;
+    
+    padding: 20px;
+    border-radius: 15px;
+    /* box-shadow: 0 0 12px white; */
+    transition: .6s;
+    margin: 0px auto 15px auto;
+    background-color: #00000000;
+    /* border: 1px dotted ; */
+    border: none;
+    /* background-image: transparent; */
+  
+   
+    &:hover {
+      transform: scale(1.1);
+      opacity: 1;
+      z-index: 99;
+      /* box-shadow: 0 0 20px lightgreen; */
+    }
   `
 
 
-export const CardImg = styled(Card.Img)`
-  width: 100%;
+export const CardImg = styled.img`
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   box-shadow: 0 0 22px;
   transition: .6s;
+  object-fit: cover;
   &:hover {
     border-radius: 10px;
     transform: translateY(-30px);
     z-index: 99;
+    height: 250px;
   }
 `
 export const CardImg2 = styled(Card.Img)`
@@ -340,6 +334,7 @@ export const CardImg2 = styled(Card.Img)`
   box-shadow: 0 0 22px;
   color: white;
   transition: .6s;
+  object-fit: cover;
   
 `
 export const NavImg = styled(Image)`
@@ -418,19 +413,39 @@ export const SRow = styled(Row)`
   align-items: center;
   justify-content: center;
   
+  `
+
+export const ServCon = styled.div`
+  padding-top: 125px;
+  padding-bottom: 75px;
+  margin: 0 auto;
+  background-color: #BED4AA;
+  min-height: 90vh;
+  padding-left: 50px;
+  padding-right: 50px;
 `
 
-export const ServCon = styled(Container)`
-  /* min-height: fit-content; */
-  /* min-width: fit-content; */
-  padding-top: 75px;
-  border: 2px solid white;
-  border-radius: 10px;
+export const ServListCon = styled(Container)`
   justify-content: space-around;
+  padding-bottom: 30px;
   align-items: center;
-  /* margin: 25px 25px; */
+  text-align:center;
+  background-color: white;
+  padding-top: 50px;
   
+  `
+
+export const ServTextCon = styled.div`
+  align-items: center;
+  text-align:center;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
+  padding-bottom: 50px;
+  border-bottom: 3px solid #BED4AA; 
 `
+
 export const ServRow = styled(Row)`
   justify-content: space-around;
   align-items: center;
@@ -444,6 +459,7 @@ export const ServCol = styled(Col)`
 `
 
 export const ServCard = styled(Card)`
+  border: 4px solid #BED4AA;
   transition: .6s;
   &:hover {
     transform: scale(1.1);
@@ -458,5 +474,5 @@ export const ServCardImg = styled(Card.Img)`
   height: 200px;
   width: 100%;
   object-fit: cover;
-`
+  `
 
