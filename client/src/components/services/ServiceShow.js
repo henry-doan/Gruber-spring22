@@ -5,30 +5,19 @@ import { ServiceConsumer } from '../../providers/ServiceProvider';
 import Moment from 'react-moment';
 import {LButton, ServCard, ServCardImg } from '../styles/Styles';
 import '../styles/App.css';
-import ConnectedServiceForm from './ServiceForm';
-import Flash from '../shared/Flash';
+import { AuthConsumer } from '../../providers/AuthProvider';
 
-const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, service_image, complete, deleteService, flash, setFlash }) => {
+const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, service_image, complete, deleteService, flash, setFlash, user, adminUpdateService }) => {
   const [show, setShow] = useState(false);
 
-  // useEffect( () => {
-
-  //   // returned function will be called on component unmount 
-  //   return () => {
-  //     setFlash(null)
-  //   }
-  // }, [])
+ const UpdateComplete = () => {
+   const updatedService = { lawn_size, service_type, frequency, sdate, stime, service_image, complete: !complete }
+    adminUpdateService(id, updatedService)
+ }
 
   return (
     <>
-       {/* { flash ?
-          <Flash
-            variant={flash.variant}
-            msg={flash.msg}
-          />
-        :
-        null
-      } */}
+       
       <ServCard style={{ width: '15rem', margin: '0 auto' }}>
         <ServCardImg variant="top" src={service_image} />
         <Card.Body>
@@ -65,8 +54,13 @@ const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, ser
                     {stime}
                   </Moment> 
                 </p>
-                <h4>Complete: {complete}</h4>
-                
+                <h4>Completed: {complete ? '✓' : '✘'}</h4>
+                {
+                  user.role === 'Gruber' ? 
+                  <button onClick={ () => UpdateComplete()}>{complete ? '✘' : '✓'}</button>
+                  :
+                  null
+                }
                 <Link
                   
                   to={`/services/${id}/edit`}
@@ -110,4 +104,10 @@ const ConnectedServiceShow = (props) => (
   </ServiceConsumer>
 )
 
-export default ConnectedServiceShow;
+const ConnectedAuthServiceShow = (props) => (
+  <AuthConsumer>
+    { value => <ConnectedServiceShow {...value} {...props} />}
+  </AuthConsumer>
+)
+
+export default ConnectedAuthServiceShow;

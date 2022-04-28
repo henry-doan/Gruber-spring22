@@ -4,7 +4,7 @@ import StepByStep from "./StepByStep";
 import { Navbar, Nav, Container, Button} from 'react-bootstrap';
 import { NavCon, SBSButton, LButton, NavImg, NavCollapse } from "../styles/Styles";
 import "../styles/App.css"
-import logogw2 from "../styles/images/logogw2.png"
+import logogw2 from "../styles/images/logogw2.png";
 
 
 const MainNavbar = ({user, handleLogout }) => {
@@ -117,5 +117,7 @@ const ConnectedMainNavbar = (props) => (
     { value => <MainNavbar { ...props } { ...value } /> }
   </AuthConsumer>
 )
+
+
  
 export default ConnectedMainNavbar;
