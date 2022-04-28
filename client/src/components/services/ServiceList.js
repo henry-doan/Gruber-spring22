@@ -1,7 +1,7 @@
 import { Container, Row, Col, Pagination } from 'react-bootstrap';
 import ServiceShow from './ServiceShow';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import {ServCon, ServRow, ServCol} from '../styles/Styles';
 import Flash from '../shared/Flash';
 
@@ -35,8 +35,7 @@ const ServiceList = ({ services, getAllServices, pagination, flash, setFlash }) 
 
   return ( 
     <>
-      <h1>My Services</h1>
-      <ServCon>
+    
       { flash ?
           <Flash
             variant={flash.variant}
@@ -51,6 +50,7 @@ const ServiceList = ({ services, getAllServices, pagination, flash, setFlash }) 
                 <ServiceShow 
                   key={s.id}
                   {...s}
+                  
                   /> 
             </ServCol>
           )}
@@ -58,7 +58,7 @@ const ServiceList = ({ services, getAllServices, pagination, flash, setFlash }) 
         <Pagination>{pages}</Pagination>
 
 
-      </ServCon>
+    
     </>
   )
 }
