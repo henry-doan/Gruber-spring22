@@ -2,7 +2,7 @@ import { AuthConsumer } from "../../providers/AuthProvider";
 import { Link } from 'react-router-dom';
 import StepByStep from "./StepByStep";
 import { Navbar, Nav, Container, Button} from 'react-bootstrap';
-import { NavCon, SBSButton, LButton, NavImg } from "../styles/Styles";
+import { NavCon, SBSButton, LButton, NavImg, NavCollapse } from "../styles/Styles";
 import "../styles/App.css"
 import logogw2 from "../styles/images/logogw2.png"
 
@@ -46,14 +46,6 @@ const MainNavbar = ({user, handleLogout }) => {
         <>
           
           <Nav.Link className="color-link">
-
-
-          
-            <Link to='/team' className="color-link">
-              Team
-            </Link>
-        
-          
             <Link to='/StepByStep' className="color-link">
               <li>
                 Sign Up
@@ -80,7 +72,7 @@ const MainNavbar = ({user, handleLogout }) => {
   return (
     <>
     
-     <NavCon collapseOnSelect expand="lg">
+     <NavCon collapseOnSelect expand="md">
         <Nav>
             <Link to='/'className="color-link">
               <NavImg src={logogw2} ></NavImg>
@@ -104,6 +96,11 @@ const MainNavbar = ({user, handleLogout }) => {
             </Nav>
             <Nav>
               {/* Links that show up regardless of login or not */}
+              <Nav.Link className="color-link">
+                <Link to='/team' className="color-link">
+                  Team
+                </Link>
+              </Nav.Link>
               { rightNavItem() }
             </Nav>
           </Navbar.Collapse>

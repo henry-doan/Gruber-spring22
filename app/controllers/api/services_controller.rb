@@ -7,8 +7,13 @@ class Api::ServicesController < ApplicationController
   end
 
   def allservices 
-    render json: Service.all
+    paginate json: Service.all
   end
+
+  # def AdminUpdateSrrvice
+  #   @service.complete = params[:complete] ? params[:complete] : @service.complete
+  #   Service.find(params[:id].update
+  # end
 
   def show
     render json: @service
@@ -30,16 +35,16 @@ class Api::ServicesController < ApplicationController
         if @service.save
           render json: @service
         else
-          render json: { errors: @service.errors }, status: 422
+          render json: { errors: @service.errors }, status: :unprocessable_entity
         end
       rescue => e
-        render json: { errors: e }, status: 422
+        render json: { errors: e }, status: :unprocessable_entity
       end
     else
       if @service.save
         render json: @service
       else
-        render json: { errors: @service.errors.full_messages }, status: 422
+        render json: { errors: @service.errors.full_messages }, status: :unprocessable_entity
       end
     end
   end
@@ -66,16 +71,16 @@ class Api::ServicesController < ApplicationController
             render json: @service
           else 
             
-            render json: { errors: @service.errors.full_messages }, status: 422
+            render json: { errors: @service.errors }, status: :unprocessable_entity
           end
         rescue => e
-          render json: { errors: e }, status: 422
+          render json: { errors: e }, status: :unprocessable_entity
         end
       else 
         if @service.save 
           render json: @service
         else 
-          render json: { errors: @service.errors.full_messages }, status: 422
+          render json: { errors: @service.errors.full_messages }, status: :unprocessable_entity
         end
       end
     end

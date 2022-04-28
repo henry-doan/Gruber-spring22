@@ -1,30 +1,63 @@
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Pagination } from 'react-bootstrap';
 import ServiceShow from './ServiceShow';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
-import { useEffect } from 'react';
-import {ServCon} from '../styles/Styles';
+import { useEffect, useState } from 'react';
+import {ServCon, ServRow, ServCol} from '../styles/Styles';
+import Flash from '../shared/Flash';
 
 
-const ServiceList = ({ services, getAllServices }) => {
+
+const ServiceList = ({ services, getAllServices, pagination, flash, setFlash }) => {
+  const [pages, setPages] = useState([])
   
   useEffect( () => {
     getAllServices()
+    renderPages()
+
+     // returned function will be called on component unmount 
+     return () => {
+      setFlash(null)
+    }
   }, [])
+
+  const renderPages = () => {
+    let items = []
+    for (let num = 1; num <= pagination; num++) {
+      items.push(
+        <Pagination.Item key={num} onClick={() => getAllServices(num)}>
+          {num}
+        </Pagination.Item>
+      )
+    }
+    setPages(items)
+  }
+  
 
   return ( 
     <>
       <h1>My Services</h1>
       <ServCon>
-        <Row md={4} sm={12}>
+      { flash ?
+          <Flash
+            variant={flash.variant}
+            msg={flash.msg}
+          />
+        :
+        null
+      }
+        <ServRow md={4} sm={12}>
           { services.map( s => 
-            <Col>
+            <ServCol>
                 <ServiceShow 
                   key={s.id}
                   {...s}
-                />  
-            </Col>
+                  /> 
+            </ServCol>
           )}
-        </Row>
+        </ServRow>
+        <Pagination>{pages}</Pagination>
+
+
       </ServCon>
     </>
   )

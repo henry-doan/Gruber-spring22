@@ -15,6 +15,9 @@ const Login = ({ handleLogin, errors, setErrors }) => {
   
   return (
     <>
+      
+      <MainLogin>
+        <MainLoginText>
       { errors ?
         <Flash 
           variant={errors.variant}
@@ -24,8 +27,6 @@ const Login = ({ handleLogin, errors, setErrors }) => {
         :
         null
       }
-      <MainLogin>
-        <MainLoginText>
         
       <h1>Login</h1>
       
