@@ -10,6 +10,7 @@ import NoteProvider from './providers/NoteProvider';
 import AddressProvider from './providers/AddressProvider';
 import InvoiceProvider from './providers/InvoiceProvider';
 import ConfirmationProvider from './providers/ConfirmationProvider'
+import './index.css'
 
 
 

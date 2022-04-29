@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 import { Row, Container, Button, Col, Form, Image, Card, Accordion, Navbar, Nav, Alert } from 'react-bootstrap'
 import home from "./images/home.jpg"
+
+
+
 export const FlashAlert = styled(Alert)`
+
   z-index: 99;
   /* top: 200px; */
   width: 500px;
   align-items: center;
   margin: 0 auto;
+  font-family: Exo;
   
 ` 
 
