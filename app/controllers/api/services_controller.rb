@@ -7,7 +7,7 @@ class Api::ServicesController < ApplicationController
   end
 
   def allservices 
-    paginate json: Service.all
+    paginate json: Service.all.order(:sdate)
   end
 
   def adminUpdateService
