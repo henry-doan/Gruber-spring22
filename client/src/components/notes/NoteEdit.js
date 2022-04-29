@@ -1,15 +1,16 @@
 import NoteForm from './NoteForm';
 import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import { LButton } from '../styles/Styles';
 
 const NoteEdit = ({ id, title, body, note_img }) => {
   const [editing, setEdit] = useState(false);
   
   return (
     <>
-      <Button onClick={() => setEdit(true)}>
+      <LButton onClick={() => setEdit(true)}>
         Edit
-      </Button>
+      </LButton>
       <Modal show={editing} onHide={() => setEdit(false)}>
         <Modal.Header closeButton>
         </Modal.Header>

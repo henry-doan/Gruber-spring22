@@ -26,7 +26,7 @@ const MainNavbar = ({user, handleLogout }) => {
 
           <Nav.Link className="color-link">
             <Link to='/services' className="color-link">
-              Service
+              Services
               {/* <img src={user.image} /> */}
             </Link>
           </Nav.Link>

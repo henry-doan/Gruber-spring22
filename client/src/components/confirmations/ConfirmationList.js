@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ConfirmationConsumer } from "../../providers/ConfirmationProvider";
-import { Row, Col, Modal, Button, Container,  } from 'react-bootstrap';
+import { Row, Col, Modal, Button, Container, Image  } from 'react-bootstrap';
 import Moment from 'react-moment';
 import ConfirmationEdit from "./ConfirmationEdit";
-import { InRow, ConCon } from "../styles/Styles";
+import { InRow, ConCon, ServCardImg, LButton, ConfImg, ServTextCon, ImgModalCenter, ModalImg } from "../styles/Styles";
 
 const ConfirmationList = ({ confirmations, getAllConfirmations, deleteConfirmation }) => {
   const { invoiceId } = useParams()
@@ -16,36 +16,42 @@ const ConfirmationList = ({ confirmations, getAllConfirmations, deleteConfirmati
 
   return (
     <>
-    <ConCon>
-    <h1>Confirmations</h1>
-    </ConCon>
+   
       { confirmations.map( c => 
         
         <Container>
         
-        <InRow>
+        <Row>
           
           <Col>
-            {/* {c.price} */}
+          <h6>Your Confirmation is Ready</h6>
+          {/* <ConfImg src={c.conf_img} width='100%'></ConfImg> */}
           </Col>
           {/* <Col>
             {n.body.substring(0, 20)}
           </Col> */}
           <Col>
-            <Button onClick={() => setShow(true)}>+</Button>
+            
+            <LButton onClick={() => setShow(true)}>View</LButton>
+            
             <Modal show={show} onHide={() => setShow(false)}>
               <Modal.Header closeButton>
               </Modal.Header>
               <Modal.Body>
-                <h1>Confirmation</h1>
-                
-                <p>
-                  workerid: {c.workerid}
-                </p>
-                <p>
-                  <img src={c.conf_img} />
+                <ServTextCon>
+                  <h1>Confirmation</h1>
                   
-                </p>
+                  <p>
+                    workerid: #{c.workerid}
+                  </p>
+                </ServTextCon>
+                
+                <ImgModalCenter>
+                  <ModalImg src={c.conf_img} width='25%'></ModalImg>
+                </ImgModalCenter>
+                  <br></br>
+                  
+                
                 
                 {/* <p>
                   Image: {n.note_img}
@@ -55,19 +61,19 @@ const ConfirmationList = ({ confirmations, getAllConfirmations, deleteConfirmati
                 </br>
 
                 <ConfirmationEdit {...c} />
-                <Button onClick={() => {
+                <LButton onClick={() => {
                   deleteConfirmation(invoiceId, c.id)
                   setShow(false)
                 }}>
                   Delete
-                </Button>
+                </LButton>
                 
                 
               </Modal.Body>
             </Modal>
           </Col>
           <hr />
-        </InRow> 
+        </Row> 
         </Container>
       )}
     </>

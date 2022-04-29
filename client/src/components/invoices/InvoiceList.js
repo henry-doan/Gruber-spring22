@@ -4,7 +4,7 @@ import { InvoiceConsumer } from "../../providers/InvoiceProvider";
 import { Row, Col, Modal, Button, Container } from 'react-bootstrap';
 import Moment from 'react-moment';
 import InvoiceEdit from "./InvoiceEdit";
-import {InRow, LButton} from '../styles/Styles';
+import {InRow, LButton, ServTextCon} from '../styles/Styles';
 import '../styles/App.css'
 
 const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
@@ -17,15 +17,12 @@ const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
 
   return (
     <>
-    <br>
-    </br>
-    <br>
-    </br>
+  
       { invoices.map( i => 
       <Container>
-        <InRow>
+        <Row>
           <Col>
-            {i.price}
+            TOTAL: ${i.price}.00
           </Col>
           {/* <Col>
             {n.body.substring(0, 20)}
@@ -36,14 +33,17 @@ const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
               <Modal.Header closeButton>
               </Modal.Header>
               <Modal.Body>
-                <h1>Invoice</h1>
-                
-                <p>
-                  price: {i.price}
-                </p>
-                <p>
+                <ServTextCon>
+                  <h1>Invoice</h1>
+                  <br/>
+                  
+                  <p>
+                    TOTAL: ${i.price}.00
+                  </p>
+                </ServTextCon>
+                {/* <p>
                   approve: {i.approve}
-                </p>
+                </p> */}
                 
                 {/* <p>
                   Image: {n.note_img}
@@ -66,7 +66,7 @@ const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
             </Modal>
           </Col>
           <hr />
-        </InRow> 
+        </Row> 
         </Container>
       )}
     </>
