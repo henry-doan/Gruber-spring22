@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Row, Container, Button, Col, Form, Image, Card, Accordion, Navbar, Nav, Alert } from 'react-bootstrap'
-
+import home from "./images/home.jpg"
 export const FlashAlert = styled(Alert)`
   z-index: 99;
   /* top: 200px; */
@@ -121,7 +121,7 @@ const fontSize = (size) => {
   }
   
   export const MainHeader = styled.div`
-   background-image: url("https://images.unsplash.com/photo-1470137430626-983a37b8ea46?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+   background-image: url("${home}");
    min-height: 100vh;
    display: flex;
    justify-content: center;
