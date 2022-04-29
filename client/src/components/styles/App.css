@@ -94,7 +94,7 @@
  } */
 
  .ad-div h1{
-  margin-top: 150px;
+  /* margin-top: 150px; */
 }
 
   .color-link {
@@ -105,6 +105,16 @@
    margin: 5px;
    padding: 10px;
 
+
+  }
+
+  .navprof {
+    width: 50px;
+    height: 50px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    object-fit: cover;
 
   }
 

@@ -8,8 +8,10 @@ const Submission = () => (
 <SubCon>
   
     <SubCol>
-      <h1> Thanks For Your Request!</h1>
-      <p>You will recieve bids from your local Gruber Service Providers Soon!</p>
+      <h1>Almost There!</h1>
+      <h2>Please Submit your address in your service details</h2>
+      
+      <p>Then you will recieve bids from your local Gruber Service Providers shortly after!</p>
   
 
       <Link to='/services'>

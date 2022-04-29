@@ -7,6 +7,8 @@ import "../styles/App.css"
 import logogw2 from "../styles/images/logogw2.png";
 
 
+const defaultImage = 'https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png';
+
 const MainNavbar = ({user, handleLogout }) => {
   
   const rightNavItem = () => {
@@ -15,10 +17,10 @@ const MainNavbar = ({user, handleLogout }) => {
       return (
         <>
         
-          <Nav.Link className="color-link">
-            <Link to='/profile' className="color-link">
-              Profile
-              {/* <img src={user.image} /> */}
+          <Nav.Link >
+            <Link to='/profile'>
+              
+              <img className="navprof" src={user.image ? user.image : defaultImage} />
             </Link>
           </Nav.Link>
 
@@ -44,6 +46,12 @@ const MainNavbar = ({user, handleLogout }) => {
       // links to show up when Not logged in
       return (
         <>
+
+          <Nav.Link className="color-link">
+            <Link to='/team' className="color-link">
+              Team
+            </Link>
+          </Nav.Link>
           
           <Nav.Link className="color-link">
             <Link to='/StepByStep' className="color-link">
@@ -96,11 +104,11 @@ const MainNavbar = ({user, handleLogout }) => {
             </Nav>
             <Nav>
               {/* Links that show up regardless of login or not */}
-              <Nav.Link className="color-link">
+              {/* <Nav.Link className="color-link">
                 <Link to='/team' className="color-link">
                   Team
                 </Link>
-              </Nav.Link>
+              </Nav.Link> */}
               { rightNavItem() }
             </Nav>
           </Navbar.Collapse>
