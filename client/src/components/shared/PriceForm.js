@@ -1,6 +1,6 @@
 import {Row, Col, Container, Form, Image} from 'react-bootstrap';
 import {useState} from 'react';
-import DatePicker from "react-horizontal-datepicker";
+
 import { ServiceConsumer } from '../../providers/ServiceProvider';
 import { FormControl, PriceFormCon } from '../styles/Styles';
 
