@@ -19,7 +19,6 @@ const NoteList = ({ notes, note_img, getAllNotes, deleteNote }) => {
     <>
       { notes.map( n => 
 
-            <Container>
               <Row>
                 <Col>
                   {n.title}
@@ -33,25 +32,31 @@ const NoteList = ({ notes, note_img, getAllNotes, deleteNote }) => {
                     <Modal.Header closeButton>
                     </Modal.Header>
                     <Modal.Body>
+                      <Container>
               
-                      <ServTextCon>
-                        <h1>Note</h1>
+                        <Col>
+                          <ServTextCon>
+                            <h1>Note</h1>
+                          </ServTextCon>
+                        </Col>
+                      <Row>
+                        <Col>
+                          <h6>
+                            Title:
+                          </h6>
+                            <p>{n.title} </p>   
+                          <h6>
+                            Notes:
+                          </h6>
+                             <p>{n.body}</p>
+                        </Col>
               
-                        <p>
-                          Title:
-              
-                           {n.title}
-                        </p>
-                        <p>
-                          Notes:
-              
-                           {n.body}
-                        </p>
-                      </ServTextCon>
-              
-                      <ImgModalCenter>
-                        <ModalImg src={n.note_img} alt='note' width='50%'></ModalImg>
-                      </ImgModalCenter>
+                      <Col>
+                      
+                          <img src={n.note_img} alt='note' width='100%'></img>
+                       
+                      </Col>
+                      </Row>
               
                       <br>
                       </br>
@@ -65,12 +70,12 @@ const NoteList = ({ notes, note_img, getAllNotes, deleteNote }) => {
                       {/* <Link to={`/services/${serviceId}/addresses`}>
                         Address
                       </Link> */}
+                      </Container>
                     </Modal.Body>
                   </Modal>
                 </Col>
                 <hr />
               </Row>
-            </Container>
          
       )}
     </>

@@ -4,7 +4,7 @@ import { AddressConsumer } from "../../providers/AddressProvider";
 import { Row, Col, Modal, Button, Container } from 'react-bootstrap';
 import Moment from 'react-moment';
 import AddressEdit from "./AddressEdit";
-import { ConCon, AdRow, LButton } from "../styles/Styles";
+import { ConCon, AdRow, LButton, ServTextCon } from "../styles/Styles";
 import "../styles/App.css"
 
 
@@ -24,10 +24,10 @@ const AddressList = ({ addresses, getAllAddresses, deleteAddress }) => {
       { addresses.map( a =>
 
 
-        <div className="ad-div">
+        
         <Row>
           <Col>
-            {a.street}
+            <p>{a.street} {a.city}, {a.state}</p>
           </Col>
           {/* <Col>
             {n.body.substring(0, 20)}
@@ -39,40 +39,46 @@ const AddressList = ({ addresses, getAllAddresses, deleteAddress }) => {
               </Modal.Header>
               <Modal.Body>
 
-                <h1>Address</h1>
-                
-                <p>
-                  street: {a.street}
-                </p>
-                <p>
-                  city: {a.city}
-                </p>
-                <p>
-                  state: {a.state}
-                </p>
-                <p>
-                  zip: {a.zip}
-                </p>
-                {/* <p>
-                  Image: {n.note_img}
-                </p> */}
-    
-                <br>
-                </br>
-
-                <AddressEdit {...a} />
-                <LButton onClick={() => {
-                  deleteAddress(serviceId, a.id)
-                  setShow(false)
-                }}>
-                  Delete
-                </LButton>
-              </Modal.Body>
+                <Container>
+                  <Col>
+                    <ServTextCon>
+                      <h1>Address</h1>
+                    </ServTextCon>
+                  </Col>
+                  
+                  <ServTextCon>
+                    <h6>
+                      {a.street}
+                    </h6>
+                    <h6>
+                      {a.city}
+                    </h6>
+                    <h6>
+                      {a.state}
+                    </h6>
+                    <h6>
+                      {a.zip}
+                    </h6>
+                  </ServTextCon>
+                  {/* <p>
+                    Image: {n.note_img}
+                  </p> */}
+                  <br>
+                  </br>
+                  <AddressEdit {...a} />
+                  <LButton onClick={() => {
+                    deleteAddress(serviceId, a.id)
+                    setShow(false)
+                  }}>
+                    Delete
+                  </LButton>
+                </Container>
+                </Modal.Body>
             </Modal>
           </Col>
           <hr />
         </Row> 
-       </div>
+       
       )}
    
     </>
