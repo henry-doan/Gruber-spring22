@@ -25,7 +25,7 @@ const AddressList = ({ addresses, getAllAddresses, deleteAddress }) => {
 
 
         <div className="ad-div">
-        <AdRow>
+        <Row>
           <Col>
             {a.street}
           </Col>
@@ -33,7 +33,7 @@ const AddressList = ({ addresses, getAllAddresses, deleteAddress }) => {
             {n.body.substring(0, 20)}
           </Col> */}
           <Col>
-            <LButton onClick={() => setShow(true)}>Edit Address</LButton>
+            <LButton onClick={() => setShow(true)}>View</LButton>
             <Modal show={show} onHide={() => setShow(false)}>
               <Modal.Header closeButton>
               </Modal.Header>
@@ -71,7 +71,7 @@ const AddressList = ({ addresses, getAllAddresses, deleteAddress }) => {
             </Modal>
           </Col>
           <hr />
-        </AdRow> 
+        </Row> 
        </div>
       )}
    

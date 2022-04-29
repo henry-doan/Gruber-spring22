@@ -34,8 +34,7 @@ const Addresses = (user) => {
           :
           null
         } */}
-        <br></br>
-        <br></br>
+        
         <Modal show={adding} onHide={() => setAdd(false)}>
           <Modal.Header closeButton>
           </Modal.Header>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Form, Row, Col, Image, Container, Button } from 'react-bootstrap';
-import { PButton, LButton, ProfCon, ProfForm } from '../styles/Styles';
+import { PButton, LButton, ProfCon, ProfForm, BorderCol, ImgContainerRight, ServCon, ServListCon, ServTextCon } from '../styles/Styles';
 // Import React FilePond
 import { FilePond, File, registerPlugin } from 'react-filepond'
 
@@ -44,15 +44,17 @@ const Profile = ({ user, updateUser }) => {
 
   const profileView = () => (
     <>
-      <Col md="4">
-        <Image src={user.image ? user.image : defaultImage} width='200px' />
-      </Col>
-      <Col md="8">
-        <h1>Email: {user.email}</h1>
-        <h1>Full Name: {user.fname} {user.lname}</h1>
-        <h1>Phone: {user.phone}</h1>
-        <h1>Role: {user.role}</h1>
-      </Col>
+      <Row>
+         
+            <Col><img src={user.image ? user.image : defaultImage} width='200px'></img></Col>
+       
+        <Col>
+          <h1>Email: {user.email}</h1>
+          <h1>Full Name: {user.fname} {user.lname}</h1>
+          <h1>Phone: {user.phone}</h1>
+          <h1>Role: {user.role}</h1>
+        </Col>
+      </Row>
     </>
   )
 
@@ -123,7 +125,7 @@ const Profile = ({ user, updateUser }) => {
           <Form.Control 
             type="text" 
             name='phone'
-            value={formVals.age}
+            value={formVals.phone}
             onChange={(e) => setFormValue({ ...formVals, phone: e.target.value })}
             required
           />
@@ -146,15 +148,14 @@ const Profile = ({ user, updateUser }) => {
 
   return (
     <ProfForm>
-      <h1>Profile</h1>
       
-        { editing ? editView() : profileView() }
-        
-          <PButton onClick={() =>  setEditing(!editing) }>
-            { editing ? 'Cancel' : 'Edit' }
-          </PButton>
-        
-      
+          <h1>Profile</h1>
+          
+            { editing ? editView() : profileView() }
+          
+              <PButton onClick={() =>  setEditing(!editing) }>
+                { editing ? 'Cancel' : 'Edit' }
+              </PButton>   
     </ProfForm>
     
   )

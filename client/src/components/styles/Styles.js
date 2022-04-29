@@ -442,7 +442,7 @@ export const ServTextCon = styled.div`
   margin-bottom: 50px;
   margin-right: 50px;
   margin-left: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 25px;
   border-bottom: 3px solid #BED4AA; 
 `
 
@@ -475,4 +475,39 @@ export const ServCardImg = styled(Card.Img)`
   width: 100%;
   object-fit: cover;
   `
+
+export const ModalImg = styled.img`
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+`
+
+export const ImgModalCenter = styled.div`
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  
+`
+
+export const BorderCol = styled(Col)`
+  border-right: 3px solid #BED4AA;
+  margin-right: 25px;
+  align-content: flex-end;
+  
+`
+
+export const ImgContainerRight = styled.div`
+  display: flex;
+  align-content: flex-end;
+`
+
+// export const ConfImg = styled.img`
+//   width: 75px;
+//   height: 75px;
+//   border-radius: 50%;
+//   box-shadow: 0 0 12px;
+//   transition: .6s;
+//   object-fit: cover;
+// `
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { ConfirmationConsumer } from '../../providers/ConfirmationProvider';
 import { useParams } from 'react-router-dom';
+import {LButton} from '../styles/Styles';
 
 // Import React FilePond
 import { FilePond, File, registerPlugin } from 'react-filepond'
@@ -72,7 +73,7 @@ const ConfirmationForm = ({ setAdd, addConfirmation, id, workerid, conf_img, set
               '
           />
         <Form.Group className="mb-3">
-          <Form.Label>{id}</Form.Label>
+          <Form.Label>Worker ID #</Form.Label>
           <Form.Control 
             type="text"
             name='confirmation'
@@ -82,9 +83,9 @@ const ConfirmationForm = ({ setAdd, addConfirmation, id, workerid, conf_img, set
           />
         </Form.Group>
         
-        <Button variant="primary" type="submit">
+        <LButton variant="primary" type="submit">
           Submit
-        </Button>
+        </LButton>
       </Form>
     </>
   )
