@@ -127,12 +127,12 @@
   }
   .modal-link-2 {
     text-decoration-line: none !important;
-   color:#C1E4CF !important;
+   color:#91BB6E !important;
    margin-left: 15px;
    margin-top: 20px;
-   
-
+   font-size: 1.2em;
   }
+
   .log-color-link{
     text-decoration-line: none !important;
     color:#fff !important;
@@ -146,15 +146,7 @@
     color:#fff ;
     align-items: center;
     padding: 20px;
-    
-    /* position:absolute;
-   bottom:0;
-   width:100%; */
-   bottom: 0;
-   /* position: fixed; */
-   width: 110%;
-   
-
+   overflow: hidden;
   }
 
   .login-form {

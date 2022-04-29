@@ -47,18 +47,18 @@ const AddressList = ({ addresses, getAllAddresses, deleteAddress }) => {
                   </Col>
                   
                   <ServTextCon>
-                    <h6>
+                    <p>
                       {a.street}
-                    </h6>
-                    <h6>
+                    </p>
+                    <p>
                       {a.city}
-                    </h6>
-                    <h6>
+                    </p>
+                    <p>
                       {a.state}
-                    </h6>
-                    <h6>
+                    </p>
+                    <p>
                       {a.zip}
-                    </h6>
+                    </p>
                   </ServTextCon>
                   {/* <p>
                     Image: {n.note_img}

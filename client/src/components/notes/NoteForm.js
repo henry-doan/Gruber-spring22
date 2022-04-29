@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { NoteConsumer } from '../../providers/NoteProvider';
 import { useParams } from 'react-router-dom';
+import {LButton, ServTextCon} from '../styles/Styles';
 
 // Import React FilePond
 import { FilePond, File, registerPlugin } from 'react-filepond'
@@ -58,7 +59,9 @@ const NoteForm = ({ setAdd, addNote, id, title, body, note_img, setEdit, updateN
 
   return(
     <>
-      <h1>{id ? 'Update' : 'Create'} Note</h1>
+      <ServTextCon>
+        <h1>{id ? 'Update' : 'Create'} Note</h1>
+      </ServTextCon>
       <Form onSubmit={handleSubmit}>
       <FilePond 
               files={file}
@@ -96,9 +99,9 @@ const NoteForm = ({ setAdd, addNote, id, title, body, note_img, setEdit, updateN
             placeholder='Type Your Message...'
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <LButton variant="primary" type="submit">
           Submit
-        </Button>
+        </LButton>
       </Form>
     </>
   )

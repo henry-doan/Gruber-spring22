@@ -16,6 +16,17 @@ export const FlashAlert = styled(Alert)`
 ` 
 
 export const FlashCon = styled(Container)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+export const MainFooter = styled.div`
+  min-width: 100%;
+  background-color: #1f341d ;
+  color:#fff ;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
   
 `
 
@@ -128,13 +139,16 @@ const fontSize = (size) => {
   export const MainHeader = styled.div`
    background-image: url("${home}");
    min-height: 100vh;
-   display: flex;
+   
    justify-content: center;
    color: #FFFFFF;
    align-items: center;
    text-align: center;
    background-repeat: no-repeat;
-  background-size: cover;
+   background-size: cover;
+   display: flex;
+   overflow: hidden;
+   
   `
 export const MainHeaderText = styled(Container)`
   align-items: center;
@@ -155,6 +169,7 @@ export const MainLogin = styled.div`
   text-align: center;
   padding-top: 75px;
 `
+
 export const MainLoginText = styled(Container)`
   align-items: center;
 
@@ -175,6 +190,7 @@ export const NavCon = styled(Navbar)`
   position: fixed;
   z-index: 99;
   align-items: center;
+  display:flex;
 `
 
 export const NavCollapse = styled(Nav)`
@@ -347,10 +363,11 @@ width: 110px;
 margin: 0;
 
 `
-export const HomeImg = styled(Image)`
+export const HomeImg = styled.img`
 width: 600px;
 margin-top: 50px;
-
+padding-left: 15px;
+/* padding-right: 10px; */
 
 `
 
@@ -449,6 +466,23 @@ export const ServTextCon = styled.div`
   margin-left: 50px;
   padding-bottom: 25px;
   border-bottom: 3px solid #BED4AA; 
+`
+
+export const ListBorder = styled.div`
+  /* align-items: center; */
+  /* text-align:center; */
+  /* text-align: center; */
+  margin-bottom: 25px;
+  margin-right: 25px;
+  margin-left: 25px;
+  padding-bottom: 25px;
+  border-bottom: 3px solid #BED4AA;
+`
+
+export const ServiceLinks = styled.div`
+  text-align: center;
+  align-items: center;
+  align-content: center;
 `
 
 export const ServRow = styled(Row)`

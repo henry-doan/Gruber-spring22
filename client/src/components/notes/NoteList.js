@@ -5,7 +5,7 @@ import { Row, Col, Modal, Button, Container } from 'react-bootstrap';
 import Moment from 'react-moment';
 import NoteEdit from "./NoteEdit";
 import { Link } from "react-router-dom";
-import {LButton, ServCon , ServTextCon, ServListCon, ModalImg, ImgModalCenter } from '../styles/Styles';
+import {LButton, ServCon , ServTextCon, ServListCon, ModalImg, ImgModalCenter, ServiceLinks, ListBorder } from '../styles/Styles';
 
 const NoteList = ({ notes, note_img, getAllNotes, deleteNote }) => {
   const { serviceId } = useParams()
@@ -21,59 +21,60 @@ const NoteList = ({ notes, note_img, getAllNotes, deleteNote }) => {
 
               <Row>
                 <Col>
-                  {n.title}
+                  <p>{n.title}</p>
                 </Col>
                 <Col>
-                  {n.body.substring(0, 20)}
+                  <p>{n.body.substring(0, 20)}</p>
                 </Col>
-                <Col>
-                  <LButton onClick={() => setShow(true)}>View</LButton>
+                
+                  <Col>
+                    <LButton onClick={() => setShow(true)}>View</LButton>
+                  </Col>
+
                   <Modal show={show} onHide={() => setShow(false)}>
                     <Modal.Header closeButton>
                     </Modal.Header>
                     <Modal.Body>
                       <Container>
               
-                        <Col>
-                          <ServTextCon>
-                            <h1>Note</h1>
-                          </ServTextCon>
-                        </Col>
-                      <Row>
-                        <Col>
-                          <h6>
-                            Title:
-                          </h6>
-                            <p>{n.title} </p>   
-                          <h6>
-                            Notes:
-                          </h6>
-                             <p>{n.body}</p>
-                        </Col>
-              
-                      <Col>
-                      
-                          <img src={n.note_img} alt='note' width='100%'></img>
                        
-                      </Col>
-                      </Row>
+                      <ServTextCon>
+                        <h1>Note</h1>
+                      </ServTextCon>
+                      
+                     
+                        <Row>
+                          <Col>
+                            <h6>
+                              Title:
+                            </h6>
+                              <p>{n.title} </p>
+                            <h6>
+                              Notes:
+                            </h6>
+                               <p>{n.body}</p>
+                          </Col>
+                        <Col>
+                          <img src={n.note_img} alt='note' width='100%'></img>
+                        </Col>
+                        </Row>
+                     
               
-                      <br>
-                      </br>
-                      <NoteEdit {...n} />
-                      <LButton onClick={() => {
-                        deleteNote(serviceId, n.id)
-                        setShow(false)
-                      }}>
-                        Delete
-                      </LButton>
-                      {/* <Link to={`/services/${serviceId}/addresses`}>
-                        Address
-                      </Link> */}
+                     
+                     
+                        <NoteEdit {...n} />
+                        <LButton onClick={() => {
+                          deleteNote(serviceId, n.id)
+                          setShow(false)
+                        }}>
+                          Delete
+                        </LButton>
+                     
+                      
                       </Container>
                     </Modal.Body>
                   </Modal>
-                </Col>
+                
                 <hr />
               </Row>
          
