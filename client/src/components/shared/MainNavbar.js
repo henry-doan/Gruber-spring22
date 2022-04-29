@@ -80,7 +80,7 @@ const MainNavbar = ({user, handleLogout }) => {
   return (
     <>
     
-     <NavCon collapseOnSelect>
+     <NavCon collapseOnSelect >
         <Nav>
             <Link to='/'className="color-link">
               <NavImg src={logogw2} ></NavImg>

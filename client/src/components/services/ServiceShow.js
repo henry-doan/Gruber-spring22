@@ -3,7 +3,7 @@ import { useReducer, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
 import Moment from 'react-moment';
-import {LButton, ServCard, ServCardImg, ServTextCon } from '../styles/Styles';
+import {LButton, ServCard, ServCardImg, ServTextCon, ListBorder, ServiceLinks } from '../styles/Styles';
 import '../styles/App.css';
 import { AuthConsumer } from '../../providers/AuthProvider';
 
@@ -22,7 +22,7 @@ const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, ser
         <ServCardImg variant="top" src={service_image} />
         <Card.Body>
           <Card.Title>
-            {user.fname} {user.lname} {id}
+            Lawn# {id}
             <br></br>
           
             </Card.Title>
@@ -53,71 +53,75 @@ const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, ser
                 <h2>You Next Scheduled Service</h2>
               </ServTextCon>
               
-              <Row md={2}>
-                <Col>
-                    <h4>Lawn Size: {lawn_size}</h4>
-              
-                  {/* <h4>Service Type: {service_type}</h4>
-                  <h4>Frequency: {frequency}</h4> */}
-                  <p>
-                    Date: &nbsp;
-                    <Moment format="M/DD/YY">
-                      {sdate}
-                    </Moment>
-                  </p>
-                  <p>
-                    Time: &nbsp;
-                    <Moment format="h:mm a">
-                      {stime}
-                    </Moment>
-                  </p>
-                  <h4>Completed: {complete ? '✓' : '✘'}</h4>
-                  {
-                    user.role === 'Gruber' ?
-                    <LButton onClick={ () => UpdateComplete()}>{complete ? '✘' : '✓'}</LButton>
-                    :
-                    null
-                  }
-              
-                  {
-                    user.role === 'Customer' ?
-                    <Link
-                      to={`/services/${id}/edit`}
-                      state={{ id: id, lawn_size: lawn_size, service_type: service_type, frequency: frequency, sdate: sdate, stime: stime, complete: complete, service_image: service_image }}
+              <ListBorder>
+                <Row md={2}>
+                  <Col>
+                      <h4>Lawn Size: {lawn_size}</h4>
+                
+                    {/* <h4>Service Type: {service_type}</h4>
+                    <h4>Frequency: {frequency}</h4> */}
+                    <p>
+                      Date: &nbsp;
+                      <Moment format="M/DD/YY">
+                        {sdate}
+                      </Moment>
+                    </p>
+                    <p>
+                      Time: &nbsp;
+                      <Moment format="h:mm a">
+                        {stime}
+                      </Moment>
+                    </p>
+                    <h4>Completed: {complete ? '✓' : '✘'}</h4>
+                    {
+                      user.role === 'Gruber' ?
+                      <LButton onClick={ () => UpdateComplete()}>{complete ? '✘' : '✓'}</LButton>
+                      :
+                      null
+                    }
+                
+                    {
+                      user.role === 'Customer' ?
+                      <Link
+                        to={`/services/${id}/edit`}
+                        state={{ id: id, lawn_size: lawn_size, service_type: service_type, frequency: frequency, sdate: sdate, stime: stime, complete: complete, service_image: service_image }}
+                      >
+                        <LButton>Edit</LButton>
+                      </Link>
+                
+                      :
+                      null
+                    }
+                    {
+                      user.role === 'Customer' ?
+                      <LButton
+                      onClick={() => deleteService(id)}
                     >
-                      <LButton>Edit</LButton>
-                    </Link>
-              
-                    :
-                    null
-                  }
-                  {
-                    user.role === 'Customer' ?
-                    <LButton
-                    onClick={() => deleteService(id)}
-                  >
-                    Delete
-                  </LButton>
-                    :
-                    null
-                  }
-              
-              
-                  <Link className='modal-link-2' to={`/services/${id}/notes`}>
-                    Notes
-                  </Link>
-                  <Link className='modal-link-2' to={`/services/${id}/addresses`}>
-                    Address
-                  </Link>
-                  <Link className='modal-link-2' to={`/services/${id}/invoices`}>
-                    Invoice
-                  </Link>
-              
-                </Col>
-                <Col>
-                  <img src={service_image} alt='service' width='100%' />
-                </Col>
-              </Row>
+                      Delete
+                    </LButton>
+                      :
+                      null
+                    }
+                
+                
+                
+                  </Col>
+                  <Col>
+                    <img src={service_image} alt='service' width='100%' />
+                  </Col>
+                </Row>
+              </ListBorder>
+                    <ServiceLinks>
+                      <Link className='modal-link-2' to={`/services/${id}/notes`}>
+                        Notes
+                      </Link>
+                      <Link className='modal-link-2' to={`/services/${id}/addresses`}>
+                        Address
+                      </Link>
+                      <Link className='modal-link-2' to={`/services/${id}/invoices`}>
+                        Invoice
+                      </Link>
+                    </ServiceLinks>
             </Container>
           
         </Modal.Body>

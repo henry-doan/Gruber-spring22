@@ -22,11 +22,9 @@ const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
       <Container>
         <Row>
           <Col>
-            TOTAL: ${i.price}.00
+            <p>TOTAL: ${i.price}.00</p>
           </Col>
-          {/* <Col>
-            {n.body.substring(0, 20)}
-          </Col> */}
+         
           <Col>
             <LButton onClick={() => setShow(true)}>View Invoice</LButton>
             <Modal show={show} onHide={() => setShow(false)}>
@@ -35,12 +33,13 @@ const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
               <Modal.Body>
                 <ServTextCon>
                   <h1>Invoice</h1>
-                  <br/>
-                  
-                  <p>
-                    TOTAL: ${i.price}.00
-                  </p>
                 </ServTextCon>
+                  
+                  <ServTextCon>
+                    <p>
+                      TOTAL: ${i.price}.00
+                    </p>
+                  </ServTextCon>
                 {/* <p>
                   approve: {i.approve}
                 </p> */}

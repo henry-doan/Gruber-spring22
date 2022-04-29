@@ -20,16 +20,11 @@ const ConfirmationList = ({ confirmations, getAllConfirmations, deleteConfirmati
       { confirmations.map( c => 
         
         <Container>
-        
         <Row>
-          
           <Col>
-          <h6>Your Confirmation is Ready</h6>
-          {/* <ConfImg src={c.conf_img} width='100%'></ConfImg> */}
+            <p>Your Confirmation is Ready</p>
           </Col>
-          {/* <Col>
-            {n.body.substring(0, 20)}
-          </Col> */}
+         
           <Col>
             
             <LButton onClick={() => setShow(true)}>View</LButton>
@@ -42,7 +37,7 @@ const ConfirmationList = ({ confirmations, getAllConfirmations, deleteConfirmati
                   <h1>Confirmation</h1>
                   
                   <p>
-                    workerid: #{c.workerid}
+                    Worker ID: #{c.workerid}
                   </p>
                 </ServTextCon>
                 

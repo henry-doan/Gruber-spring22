@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import { AddressConsumer } from '../../providers/AddressProvider';
 import { useParams } from 'react-router-dom';
 import "../styles/App.css"
-import { LButton } from '../styles/Styles';
+import { LButton, ServTextCon } from '../styles/Styles';
 
 const AddressForm = ({ setAdd, addAddress, id, street, city, state, zip, setEdit, updateAddress}) => {
   const [address, setAddress] = useState({ street: '', city: '', state: '', zip: ''})
@@ -31,7 +31,9 @@ const AddressForm = ({ setAdd, addAddress, id, street, city, state, zip, setEdit
   return(
     <>
     <div className='ad-div'>
-      <h1>{id ? 'Update' : 'Create'} Address</h1>
+      <ServTextCon>
+        <h1>{id ? 'Update' : 'Create'} Address</h1>
+      </ServTextCon>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Street</Form.Label>

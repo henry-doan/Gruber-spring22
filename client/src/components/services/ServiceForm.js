@@ -3,7 +3,7 @@ import { ServiceConsumer } from '../../providers/ServiceProvider';
 import { useState, useEffect, useReducer } from 'react';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import PriceForm from '../shared/PriceForm';
-import { FormControl, PriceFormCon, SBSButton, SRow } from '../styles/Styles';
+import { FormControl, PriceFormCon, SBSButton, SRow, LButton } from '../styles/Styles';
 
 import '../styles/App.css';
 import Flash from '../shared/Flash';

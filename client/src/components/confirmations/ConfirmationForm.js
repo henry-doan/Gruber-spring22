@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { ConfirmationConsumer } from '../../providers/ConfirmationProvider';
 import { useParams } from 'react-router-dom';
-import {LButton} from '../styles/Styles';
+import {LButton, ServTextCon} from '../styles/Styles';
 
 // Import React FilePond
 import { FilePond, File, registerPlugin } from 'react-filepond'
@@ -59,7 +59,9 @@ const ConfirmationForm = ({ setAdd, addConfirmation, id, workerid, conf_img, set
 
   return(
     <>
-      <h1>{id ? 'Update' : 'Create'} Confirm</h1>
+      <ServTextCon>
+        <h1>{id ? 'Update' : 'Create'} Confirm</h1>
+      </ServTextCon>
       <Form onSubmit={handleSubmit}>
       <FilePond 
               files={file}
