@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     
 
   end
-  # Defines the root path route ("/")
+  get '*other', to: 'static#index'
+# Defines the root path route ("/")
   # root "articles#index"
 end
