@@ -4,7 +4,7 @@ import { useState, useEffect, useReducer } from 'react';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import PriceForm from '../shared/PriceForm';
 import { FormControl, PriceFormCon, SBSButton, SRow } from '../styles/Styles';
-import DatePicker from "react-horizontal-datepicker";
+
 import '../styles/App.css';
 import Flash from '../shared/Flash';
 
