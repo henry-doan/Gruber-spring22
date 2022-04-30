@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Row, Container, Button, Col, Form, Image, Card, Accordion, Navbar, Nav, Alert } from 'react-bootstrap'
+import { Row, Container, Button, Col, Form, Image, Card, Accordion, Navbar, Nav, Alert, Pagination } from 'react-bootstrap'
 import home from "./images/home.jpg"
 
 
@@ -194,8 +194,8 @@ export const NavCon = styled(Navbar)`
 `
 
 export const NavCollapse = styled(Nav)`
-  /* align-items: right; */
-  /* display: flex;
+  /* align-items: right;
+  display: flex;
   justify-content: flex-end; */
   
 `
@@ -230,8 +230,35 @@ export const RegCon = styled.div`
   min-height: 100vh;
   justify-content: center;
   align-items: center;
-  padding: 200px;
+  padding-top: 200px;
+  display: flex;
+  background-color: #BED4AA;
+  width: 50%;
   
+  `
+  export const RegListCon = styled.div`
+   justify-content: space-around;
+  padding-bottom: 30px;
+  align-items: center;
+  text-align:center;
+  background-color: white;
+  padding-top: 50px;
+  margin: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  
+  
+  `
+  
+  export const Regimg =styled.img`
+  width: 50%;
+  
+  `
+  export const BigReg =styled.div`
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
   
   `
 

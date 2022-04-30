@@ -49,7 +49,7 @@ const Team2 = () => (
               <Card.Body>
                 <Card.Title>Austen Wilde</Card.Title>
                 <Card.Text>
-                  Trimmin bush and Mowin' lawns since '99
+                  99 Problems and Mowing ain't 1
                 </Card.Text>
               </Card.Body>
             </ProfileCard>
@@ -62,8 +62,7 @@ const Team2 = () => (
               <Card.Body>
                 <Card.Title>Boston Douglas</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
+                  Boston sounds like Austen
                 </Card.Text>
           
               </Card.Body>
@@ -77,8 +76,7 @@ const Team2 = () => (
               <Card.Body>
                 <Card.Title>Sean Patrick Parnell</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
+                  SPP Yeah you know me
                 </Card.Text>
           
               </Card.Body>

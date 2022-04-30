@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
 
-import { Row, Col, Modal, Button, Form } from 'react-bootstrap';
+import { Row, Col, Modal, Button, Form, Container } from 'react-bootstrap';
 import { Link } from "react-router-dom"
-import { RegCon, SBSButton } from '../styles/Styles';
+import { RegCon, SBSButton, SBSRow, LButton, RegListCon, Regimg, BigReg } from '../styles/Styles';
 import Reg from '../styles/images/Reg.png'
 
 
@@ -22,11 +22,16 @@ const Register = ({ handleRegister }) => {
   return (
     <>
     
-    <RegCon>
+    <BigReg>
+      
+      {/* <Col> */}
+      <Regimg src={Reg}></Regimg>
+    {/* </Col> */}
+      <RegCon>
+      <RegListCon>
+      
+      
       <Row>
-      <Col>
-    <img src={Reg}></img>
-    </Col>
       <Col>
       <h1>Register</h1>
       
@@ -140,14 +145,16 @@ const Register = ({ handleRegister }) => {
         <br>
         </br>
         {/* <Link to="/StepTwo"> */}
-        <SBSButton type='submit'>Submit</SBSButton>
+        <LButton type='submit'>Submit</LButton>
         {/* </Link> */}
       </Form>
       </Col>
       </Row>
+      </RegListCon>
+      
       </RegCon>
       
-      
+      </BigReg>
      
     </>
   )
