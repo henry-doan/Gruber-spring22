@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Form, Row, Col, Image, Container, Button } from 'react-bootstrap';
-import { PButton, LButton, ProfCon, ProfForm, BorderCol, ImgContainerRight, ServCon, ServListCon, ServTextCon } from '../styles/Styles';
+import { PButton, LButton,  ProfCon, ProfForm, BorderCol, ImgContainerRight, ServCon, ServListCon, ServTextCon } from '../styles/Styles';
 // Import React FilePond
 import { FilePond, File, registerPlugin } from 'react-filepond'
 
@@ -147,6 +147,8 @@ const Profile = ({ user, updateUser }) => {
   )
 
   return (
+    <ServCon>
+      <ServListCon>
     <ProfForm>
       
           <h1>Profile</h1>
@@ -157,6 +159,8 @@ const Profile = ({ user, updateUser }) => {
                 { editing ? 'Cancel' : 'Edit' }
               </PButton>   
     </ProfForm>
+    </ServListCon>
+    </ServCon>
     
   )
 }

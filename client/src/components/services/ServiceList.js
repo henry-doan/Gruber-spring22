@@ -2,8 +2,9 @@ import { Container, Row, Col, Pagination } from 'react-bootstrap';
 import ServiceShow from './ServiceShow';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
 import { useEffect, useReducer, useState } from 'react';
-import {ServCon, ServRow, ServCol} from '../styles/Styles';
+import {ServCon, ServRow, ServCol, SPagination} from '../styles/Styles';
 import Flash from '../shared/Flash';
+import '../styles/App.css'
 
 
 
@@ -24,7 +25,7 @@ const ServiceList = ({ services, getAllServices, pagination, flash, setFlash }) 
     let items = []
     for (let num = 1; num <= pagination; num++) {
       items.push(
-        <Pagination.Item key={num} onClick={() => getAllServices(num)}>
+        <Pagination.Item key={num} onClick={() => getAllServices(num)} className='pag'>
           {num}
         </Pagination.Item>
       )
