@@ -22,12 +22,15 @@ const Register = ({ handleRegister }) => {
   return (
     <>
     
-    <BigReg>
+    
       
       {/* <Col> */}
-      <Regimg src={Reg}></Regimg>
+      
     {/* </Col> */}
       <RegCon>
+        <div>
+        <Regimg src="https://images.unsplash.com/photo-1596552254354-3ba557926c98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=626&q=80"></Regimg>
+      </div>
       <RegListCon>
       
       
@@ -154,7 +157,7 @@ const Register = ({ handleRegister }) => {
       
       </RegCon>
       
-      </BigReg>
+      
      
     </>
   )
