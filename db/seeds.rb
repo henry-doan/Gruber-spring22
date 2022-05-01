@@ -16,7 +16,7 @@ i = 1
 
   10.times do
     Service.create(
-      lawn_size: "1500 sqft", 
+      lawn_size: 1500, 
       service_type: "Mow Lawn",
       frequency: "Once",
       sdate: Faker::Date.backward(days: 14),
