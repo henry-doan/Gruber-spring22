@@ -75,6 +75,21 @@ export const SBSButton = styled.button`
     border: 1px solid #1f341d;
   }
   `
+  export const NavButton = styled.button`
+  border-radius: 5px;
+  margin-top: 11px;
+  
+  
+  background-color: white;
+  color: black;
+  border: 1px solid #1f341d;
+  font-family: Roboto;
+  &:hover {
+    background-color: #BED4AA;
+    color: #ffffff;
+    border: 1px solid #1f341d;
+  }
+  `
 
 export const LButton = styled.button`
   border-radius: 5px;
@@ -226,37 +241,51 @@ export const AdRow =styled(Row)`
 
 
 export const RegCon = styled.div`
-  min-height: 100vh;
+  min-height: fit-content;
   justify-content: center;
   align-items: center;
-  padding-top: 200px;
+  /* padding-top: 200px; */
   display: flex;
+  justify-content: space-between;
   background-color: #BED4AA;
-  width: 50%;
+  width: 100%;
+  @media (max-width: 600px) {
+  display: block;
+  padding-bottom:20px;
+}
   
   `
   export const RegListCon = styled.div`
-   justify-content: space-around;
+   /* justify-content: space-around; */
   padding-bottom: 30px;
   align-items: center;
   text-align:center;
   background-color: white;
   padding-top: 50px;
-  margin: 20px;
+  margin: 100px;
   padding-left: 10px;
   padding-right: 10px;
+  /* width: 500px; */
+  @media (max-width: 600px) {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  margin-top: 50px;
+  
+}
   
   
   `
   
   export const Regimg =styled.img`
-  width: 50%;
+  width: 100%;
+  height: 100vh;
   
   `
   export const BigReg =styled.div`
   display: flex;
-  width: 100%;
-  min-height: 100vh;
+  
+  min-height: 70vh;
   overflow: hidden;
   
   `

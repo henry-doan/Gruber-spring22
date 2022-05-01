@@ -42,7 +42,7 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 
 
 const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => {
-  const [service, setService] = useState({ lawn_size: '', service_type: '', frequency: '', sdate: '', stime: '', service_image: null, complete: false })
+  const [service, setService] = useState({ lawn_size: null, service_type: '', frequency: '', sdate: '', stime: '', service_image: null, complete: false })
 
   const [formVals, setFormVals] = useState({pets: '', lastcut: '', details: '', additions: '', frequency: ''})
 
@@ -85,7 +85,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
     } else {
       // setInvoice({price: CalcPets() + CalcLastCut() + CalcFreq() + CalcDetails() + CalcAdditions()})
       
-      addService(service, note, {price: CalcPets() + CalcLastCut() + CalcFreq() + CalcDetails() + CalcAdditions()})
+      addService(service, note, {price: CalcPets() + CalcLastCut() + CalcFreq() + CalcDetails() + CalcAdditions() + CalcLawnSize() })
       // setAdd(false)
     }
     setService({...service, image: null})
@@ -94,11 +94,10 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
 
 // Calculating price from form
 
-  // const CalcLawnSize = () => {
-  
+  const CalcLawnSize = () => {
+    return service.lawn_size * .10
     
-    
-  // }
+  }
 
   const CalcPets = () => {
     if (formVals.pets === 'dogs') {

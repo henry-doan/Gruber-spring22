@@ -2,7 +2,7 @@ import { AuthConsumer } from "../../providers/AuthProvider";
 import { Link } from 'react-router-dom';
 import StepByStep from "./StepByStep";
 import { Navbar, Nav, Container, Button} from 'react-bootstrap';
-import { NavCon, SBSButton, LButton, NavImg, NavCollapse } from "../styles/Styles";
+import { NavCon, SBSButton, LButton, NavImg, NavCollapse, NavButton } from "../styles/Styles";
 import "../styles/App.css"
 import logogw2 from "../styles/images/logogw2.png";
 
@@ -37,7 +37,7 @@ const MainNavbar = ({user, handleLogout }) => {
       // links to show up when Not logged in
       return (
         <>
-          <Container>
+          {/* <Container> */}
             <Nav.Link className="color-link">
               <Link to='/team' className="color-link">
                 Team
@@ -50,10 +50,10 @@ const MainNavbar = ({user, handleLogout }) => {
             </Nav.Link>
             <Nav.Link className="color-link">
               <Link to='/login'>
-                <LButton>Login</LButton>
+                <NavButton>Login</NavButton>
               </Link>
               </Nav.Link>
-          </Container>
+          {/* </Container> */}
         </>
       )
     }
