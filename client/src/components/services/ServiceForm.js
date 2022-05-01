@@ -1,9 +1,24 @@
-import { Form, Button, Row, Col, Image, Container } from 'react-bootstrap';
+import { Form, Button, Row, Col, Image, Container, Card } from 'react-bootstrap';
 import { ServiceConsumer } from '../../providers/ServiceProvider';
 import { useState, useEffect, useReducer } from 'react';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import PriceForm from '../shared/PriceForm';
 import { FormControl, PriceFormCon, SBSButton, SRow, LButton } from '../styles/Styles';
+import dog from '../../components/styles/images/form_images/dog.png'
+import cat from '../../components/styles/images/form_images/cat.png'
+import nopets from '../../components/styles/images/form_images/nopets.png'
+import lastcut1 from '../../components/styles/images/form_images/lastcut1.png'
+import lastcut2 from '../../components/styles/images/form_images/lastcut2.png'
+import lastcut3 from '../../components/styles/images/form_images/lastcut3.png'
+import knockitdown from '../../components/styles/images/form_images/knockitdown.png'
+import neat from '../../components/styles/images/form_images/neat.png'
+import perfect from '../../components/styles/images/form_images/perfect.png'
+import shrub from '../../components/styles/images/form_images/shrub.png'
+import weeds from '../../components/styles/images/form_images/weeds.png'
+import leaf from '../../components/styles/images/form_images/leaf.png'
+import mulching from '../../components/styles/images/form_images/mulching.png'
+import turf from '../../components/styles/images/form_images/turf.png'
+
 
 import '../styles/App.css';
 import Flash from '../shared/Flash';
@@ -78,6 +93,12 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
   }
 
 // Calculating price from form
+
+  // const CalcLawnSize = () => {
+  
+    
+    
+  // }
 
   const CalcPets = () => {
     if (formVals.pets === 'dogs') {
@@ -190,41 +211,15 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                 name='lawn_size'
                 value={service.lawn_size}
                 onChange={(e) => setService({...service, lawn_size: e.target.value })}
-                type="text" 
-                placeholder="Lawn Size" 
+                type="number" 
+                placeholder="sq ft." 
                 required
               />
             </Form.Group>
           </Col>
-          <Col>
-            {/* <Form.Group className="mb-3">
-              <Form.Label>Service Type</Form.Label>
-              <Form.Control 
-                name='service_type'
-                value={service.service_type}
-                onChange={(e) => setService({...service, service_type: e.target.value })}
-                type="text" 
-                placeholder="Service Type" 
-                required
-              />
-            </Form.Group> */}
-          </Col>
+         
         </Row>
-        {/* <Row>
-          <Col>
-            <Form.Group className="mb-3">
-              <Form.Label>Frequency</Form.Label>
-              <Form.Control 
-                name='frequency'
-                value={service.frequency}
-                onChange={(e) => setService({...service, frequency: e.target.value })}
-                type="text" 
-                placeholder="Frequency" 
-                required
-              />
-            </Form.Group>
-          </Col>
-        </Row> */}
+        
         
           <Row>
             <Form.Group className="mb-3">
@@ -266,7 +261,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
             <Row><Form.Label><h5>2. Do you have outdoor pets?</h5></Form.Label> <br></br></Row>
               <Row>
                 <Col>
-                  <Image src='https://images.unsplash.com/photo-1603272743626-df5c7f34c0e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZG9nc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
+                  <Image src={dog} roundedCircle width='109px' height='109px'></Image>
                   <Form.Check
                   label={<p>DOGS</p>}
                   name='pets'
@@ -279,7 +274,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
 
 
                 <Col>
-                  <Image src='https://images.unsplash.com/photo-1596854273338-cbf078ec7071?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F0c3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
+                  <Image src={cat} roundedCircle width='109px' height='109px'></Image>
                   <Form.Check
                   label={<p>CATS</p>}
                   name='pets'
@@ -290,7 +285,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                   />
                 </Col>
                 <Col>
-                  <Image src='https://images.unsplash.com/photo-1567000167302-74d2008ca271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bm8lMjBwZXRzJTIwc2lnbnxlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60' width='109px' roundedCircle></Image>
+                  <Image src={nopets} roundedCircle width='109px' height='109px'></Image>
                   <Form.Check
                   label={<p>NO PETS</p>}
                   name='pets'
@@ -309,7 +304,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
               <Row><Form.Label><h5>3. When was your last cut?</h5></Form.Label></Row>
               <Row>
                 <Col>
-                  <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
+                  <Image src={lastcut1} roundedCircle width='109px' height='109px'></Image>
                   <Form.Check
                   label={<h6>1 Week Ago</h6>}
                   name='lastcut'
@@ -320,7 +315,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                   />
                 </Col>
                 <Col>
-                  <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
+                  <Image src={lastcut2} roundedCircle width='109px' height='109px'></Image>
                   <Form.Check
                   label={<h6>2 Weeks Ago</h6>}
                   name='lastcut'
@@ -331,7 +326,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                   />
                 </Col>
                 <Col>
-                  <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
+                  <Image src={lastcut3} roundedCircle width='109px' height='109px'></Image>
                   <Form.Check
                   label={<h6>3 Weeks Ago</h6>}
                   name='lastcut'
@@ -378,7 +373,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
               <Row><Form.Label><h5>5. Let your bidders know the level of mowing detail you’re expecting</h5></Form.Label></Row>
               <Row>
                 <Col>
-                  <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
+                  <Image src={knockitdown} roundedCircle width='109px' height='109px'></Image>
                   <Form.Check
                   label={<h6>Just knock it down</h6>}
                   name='details'
@@ -389,7 +384,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                   />
                 </Col>
                 <Col>
-                  <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
+                  <Image src={neat} roundedCircle width='109px' height='109px'></Image>
                   <Form.Check
                   label={<h6>I like the lawn neat</h6>}
                   name='details'
@@ -400,7 +395,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                   />
                 </Col>
                 <Col>
-                  <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
+                  <Image src={perfect} roundedCircle width='109px' height='109px'></Image>
                   <Form.Check
                   label={<h6>I want it to be perfect</h6>}
                   name='details'
@@ -418,7 +413,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
             <Row><Form.Label><h5>6. Are you in terested in any other yard work in addition to weekly mowing? (can be added later alaster after first mowing</h5></Form.Label></Row>
             <Row>
               <Col>
-                <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
+                <Image src={shrub} roundedCircle width='109px' height='109px'></Image>
                 <Form.Check
                 label={<h6>Shrub Pruning</h6>}
                 name='additions'
@@ -429,7 +424,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                 />
               </Col>
               <Col>
-                <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
+                <Image src={weeds} roundedCircle width='109px' height='109px'></Image>
                 <Form.Check
                 label={<h6>Pulling / Spray Weeds</h6>}
                 name='additions'
@@ -440,7 +435,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                 />
               </Col>
               <Col>
-                <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
+                <Image src={leaf} roundedCircle width='109px' height='109px'></Image>
                 <Form.Check
                 label={<h6>Leaf Removal</h6>}
                 name='additions'
@@ -451,7 +446,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                 />
               </Col>
               <Col>
-                <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
+                <Image src={mulching} roundedCircle width='109px' height='109px'></Image>
                 <Form.Check
                 label={<h6>Re-mulching of Beds</h6>}
                 name='additions'
@@ -462,7 +457,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                 />
               </Col>
               <Col>
-                <Image src='https://images.unsplash.com/photo-1622977265115-cce36eb43f18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdyYXNzfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60' roundedCircle width='109px'></Image>
+                <Image src={turf} roundedCircle width='109px' height='109px'></Image>
                 <Form.Check
                 label={<h6>Turf Seeding</h6>}
                 name='additions'

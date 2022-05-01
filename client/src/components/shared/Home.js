@@ -15,15 +15,8 @@ const Home = () => (
         
                   <HomeImg src={logogw2} alt='gruber logo'></HomeImg>
             <MainHeaderText>
-              
-              
-      
-         
               <h1>The Uber for Lawn Care.</h1>
               <h1>Simple. Easy. Fast.</h1>
-          
-          
-          
             <Nav.Link>
                 <Link to='/stepbystep'>
                   <LButton>

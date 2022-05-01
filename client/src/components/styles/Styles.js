@@ -61,28 +61,31 @@ export const SBSimg = styled.img`
 
 `
 export const SBSButton = styled.button`
-  border-radius: 12px;
+  border-radius: 5px;
   margin-left: 80%;
   margin-bottom: 20px;
   width: 100px;
   background-color: white;
   color: black;
-  border: 2px solid #1f341d;
+  border: 1px solid #1f341d;
+  font-family: Roboto;
   &:hover {
     background-color: #BED4AA;
     color: #ffffff;
-    border: none;
+    border: 1px solid #1f341d;
   }
   `
 
 export const LButton = styled.button`
-  border-radius: 12px;
+  border-radius: 5px;
   background-color: white;
   color: black;
-  border: 2px solid #1f341d;
+  border: 1px solid #1f341d;
+  padding: 4px 12px;
+  font-family: Roboto;
   &:hover {
     background-color: #BED4AA !important; 
-    border: none;
+    border: 1px solid #1f341d;
   }
   `
 export const PButton = styled.button`
@@ -178,10 +181,6 @@ export const ConCon = styled(Container)`
   margin-top: 15px;
   min-height: 75vh;
   text-align: center;
-
-
-
-
 `
 export const NavCon = styled(Navbar)`
   width: 100%;
@@ -394,8 +393,10 @@ export const HomeImg = styled.img`
 width: 600px;
 margin-top: 50px;
 padding-left: 15px;
-/* padding-right: 10px; */
-
+padding-right: 10px;
+@media (max-width: 600px) {
+  width: 450px;
+}
 `
 
 export const TeamCaption = styled(Card.Body)`
