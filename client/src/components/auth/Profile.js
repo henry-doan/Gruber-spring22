@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Form, Row, Col, Image, Container, Button } from 'react-bootstrap';
-import { PButton, LButton,  ProfCon, ProfForm, BorderCol, ImgContainerRight, ServCon, ServListCon, ServTextCon } from '../styles/Styles';
+import { PButton, LButton, PLButton,  ProfCon, ProfForm, BorderCol, ImgContainerRight, ServCon, ProListCon, ProTextCon } from '../styles/Styles';
 // Import React FilePond
 import { FilePond, File, registerPlugin } from 'react-filepond'
 
@@ -46,13 +46,17 @@ const Profile = ({ user, updateUser }) => {
     <>
       <Row>
          
-            <Col><img src={user.image ? user.image : defaultImage} width='200px'></img></Col>
+            <Col><img src={user.image ? user.image : defaultImage} width='300px'></img></Col>
        
         <Col>
-          <h1>Email: {user.email}</h1>
-          <h1>Full Name: {user.fname} {user.lname}</h1>
-          <h1>Phone: {user.phone}</h1>
-          <h1>Role: {user.role}</h1>
+          <p>Email:</p>
+          <h1>{user.email}</h1>
+          <p>Full Name:</p>
+          <h1>{user.fname} {user.lname}</h1>
+          <p>Phone:</p>
+          <h1>{user.phone}</h1>
+          <p>Role:</p>
+          <h1>{user.role}</h1>
         </Col>
       </Row>
     </>
@@ -130,17 +134,8 @@ const Profile = ({ user, updateUser }) => {
             required
           />
         </Form.Group>
-        {/* <Form.Group>
-          <Form.Label>Role</Form.Label>
-          <Form.Control 
-            type="text" 
-            name='role'
-            value={formVals.age}
-            onChange={(e) => setFormValue({ ...formVals, role: e.target.value })}
-            required
-          />
-        </Form.Group> */}
-        <PButton type='submit'>Update</PButton>
+      <br/>
+      <LButton type='submit'>Update</LButton>
       </Col>
       </Form>
     
@@ -148,18 +143,20 @@ const Profile = ({ user, updateUser }) => {
 
   return (
     <ServCon>
-      <ServListCon>
-    <ProfForm>
+    
       
-          <h1>Profile</h1>
+      <ProListCon>
+          <ProTextCon>
+            <h1>Profile</h1>
+          </ProTextCon>
           
             { editing ? editView() : profileView() }
-          
-              <PButton onClick={() =>  setEditing(!editing) }>
+              <br/>
+              <LButton onClick={() =>  setEditing(!editing) }>
                 { editing ? 'Cancel' : 'Edit' }
-              </PButton>   
-    </ProfForm>
-    </ServListCon>
+              </LButton>   
+      </ProListCon>
+   
     </ServCon>
     
   )

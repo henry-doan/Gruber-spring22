@@ -85,7 +85,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
     } else {
       // setInvoice({price: CalcPets() + CalcLastCut() + CalcFreq() + CalcDetails() + CalcAdditions()})
       
-      addService(service, note, {price: CalcPets() + CalcLastCut() + CalcFreq() + CalcDetails() + CalcAdditions() + CalcLawnSize() })
+      addService(service, note, {price: CalcLawnSize() + CalcPets() + CalcLastCut() + CalcFreq() + CalcDetails() + CalcAdditions() })
       // setAdd(false)
     }
     setService({...service, image: null})
@@ -152,7 +152,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
       return 2
     }
     else if (formVals.additions === 'leaf removal') {
-      return 2
+      return 3
     }
     else if (formVals.additions === 'mulching') {
       return 4
@@ -166,14 +166,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
 
   return (
     <>
-     { flash ?
-          <Flash
-            variant={flash.variant}
-            msg={flash.msg}
-          />
-        :
-        null
-      }
+     
       <Row>
       <h1 className='s-title'>{ serviceId ? 'Update' : 'Create' } Service</h1>
       </Row>

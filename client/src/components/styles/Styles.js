@@ -103,6 +103,20 @@ export const LButton = styled.button`
     border: 1px solid #1f341d;
   }
   `
+export const PLButton = styled.button`
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  border: 1px solid #1f341d;
+  padding: 4px 12px;
+  font-family: Roboto;
+  margin-left: 10px;
+  
+  &:hover {
+    background-color: #BED4AA !important; 
+    border: 1px solid #1f341d;
+  }
+  `
 export const PButton = styled.button`
   
   background-color: white;
@@ -216,16 +230,17 @@ export const NavCollapse = styled(Nav)`
 
 export const ProfForm = styled.div`
   text-align: left;
-  
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  width: 50%;
-  font-weight: bold;
-  padding-top: 110px;
+  width: 60%;
+  font-weight: bold; 
   padding-bottom: 30px;
-  margin-bottom: 260px;
-  `
+  margin-bottom: 60px;
+  background-color: white;
+  
+`
+
 export const InRow =styled(Row)`
   margin-top:75px;
   margin-bottom: 500px;
@@ -263,8 +278,8 @@ export const RegCon = styled.div`
   background-color: white;
   padding-top: 50px;
   margin: 100px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
   /* width: 500px; */
   @media (max-width: 600px) {
   margin-left: 10px;
@@ -402,40 +417,34 @@ export const CardImg = styled.img`
     height: 250px;
   }
 `
-export const CardImg2 = styled(Card.Img)`
+export const CardImg2 = styled.img`
   width: 20%;
-  margin-left: 95px;
-  margin-top: 10px;
-  border-radius: 50%;
+  /* margin-left: 95px; */
+  margin-top: 15px;
+  border: none;
   box-shadow: 0 0 22px;
   color: white;
-  transition: .6s;
-  object-fit: cover;
-  
+  background: rgba(0, 0, 0, 0)
+  /* object-fit: cover; */
 `
+
+export const TeamLinks = styled.div`
+  border: none;
+`
+
 export const NavImg = styled(Image)`
 width: 110px;
 margin: 0;
 
 `
 export const HomeImg = styled.img`
-width: 600px;
-margin-top: 50px;
-padding-left: 15px;
-padding-right: 10px;
-@media (max-width: 600px) {
-  width: 450px;
-}
-`
-
-export const TeamCaption = styled(Card.Body)`
-  text-align: center;
-  /* transform: translateY(-20px);
-  opacity: 0;
-  transition: .6s;
-  &:hover {
-    opacity: 1;
-  } */
+  width: 700px;
+  margin-top: 50px;
+  padding-left: 15px;
+  padding-right: 10px;
+  @media (max-width: 600px) {
+    width: 450px;
+  }
 `
 
 export const TeamName = styled.h3`
@@ -500,8 +509,8 @@ export const ServCon = styled.div`
   margin: 0 auto;
   background-color: #BED4AA;
   min-height: 90vh;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
 `
 
 export const ServListCon = styled(Container)`
@@ -513,8 +522,33 @@ export const ServListCon = styled(Container)`
   padding-top: 50px;
   
   `
+export const ProListCon = styled(Container)`
+  justify-content: space-around;
+  padding-bottom: 30px;
+  align-items: center;
+  text-align:center;
+  background-color: white;
+  padding-top: 50px;
+  padding-left:150px;
+  padding-right: 150px;
+  @media (max-width: 770px) {
+    padding-left:50px;
+  padding-right: 50px;
+}
+  `
 
 export const ServTextCon = styled.div`
+  align-items: center;
+  text-align:center;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
+  padding-bottom: 25px;
+  border-bottom: 3px solid #BED4AA; 
+`
+
+export const ProTextCon = styled.div`
   align-items: center;
   text-align:center;
   text-align: center;

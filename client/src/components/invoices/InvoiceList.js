@@ -22,7 +22,7 @@ const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
       <Container>
         <Row>
           <Col>
-            <p>TOTAL: ${i.price}.00</p>
+            <p>TOTAL: ${i.price}</p>
           </Col>
          
           <Col>
@@ -37,7 +37,7 @@ const InvoiceList = ({ invoices, getAllInvoices, deleteInvoice }) => {
                   
                   <ServTextCon>
                     <p>
-                      TOTAL: ${i.price}.00
+                      TOTAL: ${i.price}
                     </p>
                   </ServTextCon>
                 {/* <p>
