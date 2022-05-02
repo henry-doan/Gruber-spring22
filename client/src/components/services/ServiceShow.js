@@ -56,7 +56,7 @@ const ServiceShow = ({ id, lawn_size, service_type, frequency, sdate, stime, ser
               <ListBorder>
                 <Row md={2}>
                   <Col>
-                      <h4>Lawn Size: {lawn_size}</h4>
+                      <h4>Lawn Size: {lawn_size} sq ft.</h4>
                 
                     {/* <h4>Service Type: {service_type}</h4>
                     <h4>Frequency: {frequency}</h4> */}

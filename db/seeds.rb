@@ -18,13 +18,14 @@ i = 1
     Service.create(
       lawn_size: 1500, 
       service_type: "Mow Lawn",
-      frequency: "Once",
+      frequency: "Just This Once",
       sdate: Faker::Date.backward(days: 14),
       stime: Faker::Time.backward(days: 5, period: :morning, format: :short),
       service_image: grasses.sample,
       complete: false,
       user_id: @user.id
     )
+    
   end
 end
 
