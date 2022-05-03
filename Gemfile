@@ -44,10 +44,10 @@ gem 'cloudinary'
 gem 'will_paginate'
 #relies on will paginate
 gem 'api-pagination'
+gem 'faker'
 
 group :development, :test do
  gem 'pry'
- gem 'faker'
  gem 'dotenv-rails'
 end
 
