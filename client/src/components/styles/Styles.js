@@ -522,6 +522,14 @@ export const ServListCon = styled(Container)`
   padding-top: 50px;
   
   `
+export const BigFormListCon = styled(Container)`
+  justify-content: space-around;
+  padding-bottom: 30px;
+ 
+  background-color: white;
+ 
+  
+  `
 export const ProListCon = styled(Container)`
   justify-content: space-around;
   padding-bottom: 30px;
@@ -541,7 +549,6 @@ export const ServTextCon = styled.div`
   align-items: center;
   text-align:center;
   text-align: center;
-  margin-bottom: 50px;
   margin-right: 50px;
   margin-left: 50px;
   padding-bottom: 25px;
