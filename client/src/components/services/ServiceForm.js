@@ -402,7 +402,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
 
           <Form.Group className="mb-3">
 
-            <Row><Form.Label><h5>6. Are you in terested in any other yard work in addition to weekly mowing? (can be added later alaster after first mowing</h5></Form.Label></Row>
+            <Row><Form.Label><h5>6. Are you interested in any other yard work in addition to weekly mowing? (can be added later after first mowing)</h5></Form.Label></Row>
             <Row>
               <Col>
                 <Image src={shrub} roundedCircle width='109px' height='109px'></Image>
@@ -412,7 +412,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                 value={formVals.additions}
                 onChange={(e) => setFormVals({...formVals, additions: 'pruning' })}
                 type="radio"
-                required
+                
                 />
               </Col>
               <Col>
@@ -423,7 +423,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                 value={formVals.additions}
                 onChange={(e) => setFormVals({...formVals, additions: 'pulling' })}
                 type="radio"
-                required
+                
                 />
               </Col>
               <Col>
@@ -434,7 +434,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                 value={formVals.additions}
                 onChange={(e) => setFormVals({...formVals, additions: 'leaf removal' })}
                 type="radio"
-                required
+                
                 />
               </Col>
               <Col>
@@ -445,7 +445,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                 value={formVals.additions}
                 onChange={(e) => setFormVals({...formVals, additions: 'mulching' })}
                 type="radio"
-                required
+                
                 />
               </Col>
               <Col>
@@ -456,7 +456,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                 value={formVals.additions}
                 onChange={(e) => setFormVals({...formVals, additions: 'seeding' })}
                 type="radio"
-                required
+                
                 />
               </Col>
             </Row>
@@ -471,7 +471,7 @@ const ServiceForm = ({ addService, setAdd, updateService, flash, setFlash }) => 
                 onChange={(e) => setNote({...note, body: e.target.value })}
                 type="text"
                 placeholder="I have a HUGE dog. Don't mow the backyard or else die."
-                required
+                
             
               />
             </Form.Group>
